@@ -141,7 +141,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 export const Card = ({ card, index, layout = false }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const { onCardClose,  } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event) {

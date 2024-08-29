@@ -2,47 +2,48 @@ import React, { useEffect, useState } from 'react'
 import datascience from '../../images/Course/datascience.jpg'
 import dataanalytics from '../../images/Course/dataanalytics.jpg'
 import { client } from '../../lib/pocketbase'
-import Link, { NavLink } from 'react-router-dom'
-const posts = [
-  {
-    id: 1,
-    title: 'Mastering Data Analytics: From Insights to Action',
-    href: '/CourseDetailDA',
-    description:
-      'Explore the fundamentals of data analytics in this comprehensive course. Gain hands-on experience with industry-standard tools and techniques to analyze data and extract valuable insights. Perfect for beginners and professionals alike.',
-    imageUrl: dataanalytics,
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    category: { title: 'Data Analytics ', href: '#' },
-    author: {
-      name: 'Satyajit Pattnaik',
-      role: 'Co-Founder / CTO',
-      href: '#',
-      imageUrl:
-        'https://res.cloudinary.com/dtsuvx8dz/image/upload/v1687806712/whmgy2fkkrpsduevi9mk.png',
-    },
-  },
-   {
-    id: 2,
-    title: 'Data Science Fundamentals: From Zero to Hero',
-    href: '/CourseDetailDS',
-    description:
-      ' This course covers the basics of data science, including data analysis, visualization, and machine learning. Perfect for beginners, it provides a comprehensive introduction to the essential tools and techniques used by data scientists.',
-    imageUrl: datascience,
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    category: { title: 'Data Science', href: '#' },
-    author: {
-      name: 'Satyajit Pattnaik',
-      role: 'Co-Founder / CTO',
-      href: '#',
-      imageUrl:
-        'https://res.cloudinary.com/dtsuvx8dz/image/upload/v1687806712/whmgy2fkkrpsduevi9mk.png',
-    },
-  },
+import { NavLink } from 'react-router-dom'
+
+// const posts = [
+//   {
+//     id: 1,
+//     title: 'Mastering Data Analytics: From Insights to Action',
+//     href: '/CourseDetailDA',
+//     description:
+//       'Explore the fundamentals of data analytics in this comprehensive course. Gain hands-on experience with industry-standard tools and techniques to analyze data and extract valuable insights. Perfect for beginners and professionals alike.',
+//     imageUrl: dataanalytics,
+//     date: 'Mar 16, 2020',
+//     datetime: '2020-03-16',
+//     category: { title: 'Data Analytics ', href: '#' },
+//     author: {
+//       name: 'Satyajit Pattnaik',
+//       role: 'Co-Founder / CTO',
+//       href: '#',
+//       imageUrl:
+//         'https://res.cloudinary.com/dtsuvx8dz/image/upload/v1687806712/whmgy2fkkrpsduevi9mk.png',
+//     },
+//   },
+//    {
+//     id: 2,
+//     title: 'Data Science Fundamentals: From Zero to Hero',
+//     href: '/CourseDetailDS',
+//     description:
+//       ' This course covers the basics of data science, including data analysis, visualization, and machine learning. Perfect for beginners, it provides a comprehensive introduction to the essential tools and techniques used by data scientists.',
+//     imageUrl: datascience,
+//     date: 'Mar 16, 2020',
+//     datetime: '2020-03-16',
+//     category: { title: 'Data Science', href: '#' },
+//     author: {
+//       name: 'Satyajit Pattnaik',
+//       role: 'Co-Founder / CTO',
+//       href: '#',
+//       imageUrl:
+//         'https://res.cloudinary.com/dtsuvx8dz/image/upload/v1687806712/whmgy2fkkrpsduevi9mk.png',
+//     },
+//   },
  
-  // More posts...
-]
+//   // More posts...
+// ]
 
 
 function Courses() {

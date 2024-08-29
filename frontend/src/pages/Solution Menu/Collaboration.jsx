@@ -1,7 +1,6 @@
 
 import { useState } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
 import g1 from '../../images/gallery/1.jpg'
 import g2 from '../../images/gallery/6.jpg'
 import g3 from '../../images/gallery/3.jpg'

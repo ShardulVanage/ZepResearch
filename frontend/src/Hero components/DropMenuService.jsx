@@ -14,7 +14,12 @@ import {
   BuildingLibraryIcon,
   SparklesIcon,
   SpeakerWaveIcon,
-  TrophyIcon
+  TrophyIcon,
+  UserPlusIcon,
+  ChartBarSquareIcon,
+  GlobeAsiaAustraliaIcon,
+  ArrowPathIcon,
+  NoSymbolIcon,
 } from '@heroicons/react/24/outline'
 import logo from '../images/logo.png'
 import { useAuth } from '../context/AuthContext'
@@ -38,6 +43,15 @@ const resources = [
   { name: ' Awards & Recognitions', href: '/Awards&Recognitions', icon: TrophyIcon },
   {name: 'Collaboration', href:'/Collaboration', icon:  SparklesIcon},
   {name:'Speakers',href:'/Speakers', icon:SpeakerWaveIcon}
+
+]
+const polices = [
+  { name: 'Publishing opportunities', href: '/PublishingOpportunities', icon: UserPlusIcon },
+  { name: 'Professional Conference Organizer', href: '/ProfessionalConferenceOrganizer  ', icon: ChartBarSquareIcon },
+  { name: 'Worldwide Platform', href: '/WorldwidePlatform', icon: GlobeAsiaAustraliaIcon  },
+  { name: 'Experience a knowledge Exchange', href: '/ExperienceknowledgeExchange', icon: ArrowPathIcon },
+  { name: 'Cancellation Policy', href: '/CancellationPolicy', icon: NoSymbolIcon },
+  
 
 ]
 const recentPosts = [
@@ -73,7 +87,7 @@ export default function DropMenuServicer() {
   return (
     <Popover className="relative isolate z-50 ">
       <div className="bg-transparent w-screen py-5">
-        <div className="  flex sm:flex-row flex-col sm:justify-between justify-center items-center mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="  flex sm:flex-row flex-col sm:justify-between justify-center items-center mx-auto max-w-7xl px-6 lg:px-8 bg-white/85 rounded-3xl py-1">
           <a href="./" className='hidden sm:block text-2xl font-medium '><img src={logo} alt="" className='h-12  text-yellow-300 ' />
           </a>
 
@@ -132,8 +146,10 @@ export default function DropMenuServicer() {
         leaveTo="opacity-0 -translate-y-1"
       >
         <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-16 shadow-lg ring-1 ring-gray-900/5">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
-            <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
+          <div className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
+
+
+            <div className="grid grid-cols-3 gap-x-6 sm:gap-x-8">
               <div>
                 <h3 className="text-sm font-medium leading-6 text-gray-500">About</h3>
                 <div className="mt-6 flow-root">
@@ -151,11 +167,30 @@ export default function DropMenuServicer() {
                   </div>
                 </div>
               </div>
+
               <div>
                 <h3 className="text-sm font-medium leading-6 text-gray-500">Services </h3>
                 <div className="mt-6 flow-root">
                   <div className="-my-2">
                     {resources.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex gap-x-4 py-2 text-sm font-semibold leading-6 text-gray-900"
+                      >
+                        <item.icon className="h-6 w-6 flex-none text-gray-400" aria-hidden="true" />
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-medium leading-6 text-gray-500">. </h3>
+                <div className="mt-6 flow-root">
+                  <div className="-my-2">
+                    {polices.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}

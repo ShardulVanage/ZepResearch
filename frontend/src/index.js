@@ -32,6 +32,12 @@ import { AuthProvider } from './context/AuthContext';
 import Registration from './pages/AuthPage/Registration';
 import BecomeMember from './pages/BecomeMemberPage/BecomeMember';
 import AwardsRecognitions from './pages/Solution Menu/AwardsRecognitions';
+import Blogdetail from './pages/BlogDetail/Blogdetail';
+import CancellationPolicy from './pages/Solution Menu/Cancellation Policy';
+import ExperienceknowledgeExchange from './pages/Solution Menu/ExperienceknowledgeExchange';
+import WorldwidePlatform from './pages/Solution Menu/WorldwidePlatform';
+import ProfessionalConferenceOrganizer from './pages/Solution Menu/ProfessionalConferenceOrganizer';
+import PublishingOpportunities from './pages/Solution Menu/PublishingOpportunities';
 
 const Layout = () => (
   <>
@@ -66,6 +72,15 @@ const router = createBrowserRouter([
       { path: "/Login", element: <Login /> },
       { path: "/Registration", element: <Registration/> },
       { path: "/BecomeMember", element: <BecomeMember/> },
+      { path: "/Blogs", element: <Blogdetail /> },
+
+      { path: "/CancellationPolicy", element: <CancellationPolicy /> },
+      { path: "/ExperienceknowledgeExchange", element: <ExperienceknowledgeExchange /> },
+      { path: "/WorldwidePlatform", element: <WorldwidePlatform /> },
+      { path: "/ProfessionalConferenceOrganizer", element: <ProfessionalConferenceOrganizer/> },
+      { path: "/PublishingOpportunities", element: <PublishingOpportunities /> },
+
+
 
     ],
   },
@@ -74,9 +89,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+   
   </React.StrictMode>
 );
 
