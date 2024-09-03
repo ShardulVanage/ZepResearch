@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{  useRef } from 'react'
 import logo from '../assets/logo.svg'
 import { InView } from './ui/inView'
+import { motion, useInView  } from "framer-motion";
 const stats = [
   { label: 'Founded', value: '2021' },
   { label: 'Conference', value: '37+' },
@@ -8,10 +9,33 @@ const stats = [
   { label: 'Journal tie-ups', value: '75' },
 ]
 
+
+const AnimatedText = ({ text, className }) => {
+  const words = text.split(" ");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.div ref={ref} className={className}>
+      {words.map((word, index) => (
+        <motion.span
+          key={index}
+          className="inline-block mr-1"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.div>
+  );
+};
+
 function CeoVision() {
   return (
-     <div className="bg-white py-6 sm:py-8">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+     <div className=" py-6 sm:py-8  bg-white sm:drop-shadow-2xl  sm:mx-12 px-2  sm:rounded-b-full h-full sm:h-screen ">
+      <div className="mx-auto max-w-7xl  lg:px-8  drop-shadow-2xl  relative    ">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2 justify-between">
             <InView
           variants={{
@@ -30,26 +54,18 @@ function CeoVision() {
           <div className='flex flex-col justify-start'>
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg ">
              
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-left">
+              <h1 className='text-4xl md:text-5xl lg:text-5xl text-left font-bold font-JosefinSans py-8'>
                 Our Vision to Empower Conference
               </h1>
               <div className="max-w-xl text-justify">
-                <p className="mt-6">
+                <p className="text-base text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
                   Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
                   vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
                   erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
                   semper sed amet vitae sed turpis id.
                 </p>
-                <p className="mt-8">
-                  Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie
-                  auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-                  hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-                </p>
-                <p className="mt-8">
-                  Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie
-                  auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices
-                  hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
-                </p>
+              
+                
               </div>
             </div>
             <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
@@ -67,10 +83,10 @@ function CeoVision() {
             </div>
           </div>
 </InView>
-          <div className=" flex justify-end ">
-            <div className="relative overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
+          <div className=" flex justify-end  ">
+            <div className="relative overflow-hidden rounded-br-[15rem] rounded-bl-2xl rounded-tl-sm bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
               <img
-                className="absolute inset-0 h-full w-full object-cover brightness-125 saturate-0"
+                className="absolute inset-0 h-full w-full object-cover brightness-125 saturate-0 "
                 src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
@@ -104,11 +120,11 @@ function CeoVision() {
                 <img src={logo} alt="" className="h-12 w-auto" />
                 Zep Research
                 </span>
-                <blockquote className="mt-6 text-xl font-semibold leading-8 text-white">
-                  <p>
-                    “Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu praesent at a. Ornare
-                    arcu gravida natoque erat et cursus tortor.”
-                  </p>
+                <blockquote className="mt-6 text-xl font-semibold leading-8 text-white drop-shadow-2xl">
+                  
+                    <AnimatedText
+                    text= "Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu praesent at a. Ornarearcu gravida natoque erat et cursus tortor."
+                    />
                 </blockquote>
                 <figcaption className="mt-6 text-base leading-6 text-gray-300">
                   <strong className="font-semibold text-white">Judith Rogers,</strong> CEO at Zep Research

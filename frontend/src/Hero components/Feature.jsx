@@ -1,73 +1,118 @@
+import { cn } from "../lib/utils";
+import {
+  IconAdjustmentsBolt,
+  IconCloud,
+  IconCurrencyDollar,
+  IconEaseInOut,
+  IconHeart,
+  IconHelp,
+  IconRouteAltLeft,
+  IconTerminal2,
+} from "@tabler/icons-react";
 
-import featureimg from '../images/featurimg.png'
-import { NewspaperIcon, LanguageIcon, BookOpenIcon, UserGroupIcon ,DocumentCheckIcon ,RectangleGroupIcon} from '@heroicons/react/24/outline'
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-</svg>
-
-const features = [
-  {
-    name: 'Conferences & Webinars',
-    description:
-      'Stay ahead in your field by joining our expert-led conferences and webinars. Engage with industry leaders, gain insights into the latest research, and expand your professional network from anywhere in the world',
-    icon: UserGroupIcon,
-  },
-  {
-    name: 'Journals',
-    description:
-      'Access a wide array of peer-reviewed journals covering various disciplines. Stay informed with the latest research, enhance your knowledge, and contribute to your field with our comprehensive collection',
-    icon: BookOpenIcon,
-  },
-  {
-    name: 'Publications',
-    description:
-      'Discover a vast collection of high-quality publications across multiple domains. Whether you are researching for a project or looking to publish your own work, our platform provides the resources you need.',
-    icon: NewspaperIcon,
-  },
-  {
-    name: 'Language Support',
-    description:
-      'Break down language barriers with our robust language support services. From translation to editing, we ensure your work is understood and appreciated by a global audience..',
-    icon: LanguageIcon,
-  },
+export function Features() {
+  const features = [
     {
-    name: 'Plagiarism check',
-    description:
-      'Ensure the originality of your work with our advanced plagiarism detection tools. Protect your intellectual property and maintain academic integrity with comprehensive plagiarism checks',
-    icon: DocumentCheckIcon,
-  },
-  {
-    name: 'Publication Collaboration',
-    description:
-      'Collaborate seamlessly with fellow researchers and authors. Our platform facilitates smooth communication and efficient co-authoring, making it easier to produce high-quality publications together.',
-    icon: RectangleGroupIcon,
-  },
-]
-
-export default function Example() {
+      title: "Conferences & Webinars",
+      description:
+        "Built for engineers, developers, dreamers, thinkers and doers.",
+      icon: <IconTerminal2 />,
+    },
+    {
+      title: "Journals",
+      description:
+        "It's as easy as using an Apple, and as expensive as buying one.",
+      icon: <IconEaseInOut />,
+    },
+    {
+      title: "Publications",
+      description:
+        "Our prices are best in the market. No cap, no lock, no credit card required.",
+      icon: <IconCurrencyDollar />,
+    },
+    {
+      title: "Language Support",
+      description: "We just cannot be taken down by anyone.",
+      icon: <IconCloud />,
+    },
+    {
+      title: "Plagiarism check",
+      description: "You can simply share passwords instead of buying new seats",
+      icon: <IconRouteAltLeft />,
+    },
+    {
+      title: "Publication Collaboration",
+      description:
+        "We are available a 100% of the time. Atleast our AI Agents are.",
+      icon: <IconHelp />,
+    },
+    {
+      title: "Money back guarantee",
+      description:
+        "If you donot like EveryAI, we will convince you to like us.",
+      icon: <IconAdjustmentsBolt />,
+    },
+    {
+      title: "And everything else",
+      description: "I just ran out of copy ideas. Accept my sincere apologies",
+      icon: <IconHeart />,
+    },
+  ];
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl  ">
-           Comprehensive Services We Offer
-        <img src={featureimg} alt=""  className='py-4'/>
-          </h2>
-          <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2">
-            {features.map((feature) => (
-              <div key={feature.name}>
-                <dt className="text-base text-left font-semibold leading-7 text-gray-900">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-tl from-cyan-400 via-blue-500 to-blue-600   drop-shadow-md">
-                    <feature.icon className="h-6 w-6 text-white " aria-hidden="true" />
-                  </div>
-                  {feature.name}
-                </dt>
-                <dd className="mt-1 text-base leading-7 text-justify text-gray-600">{feature.description}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
+    (
+    <>
+    <div className="pt-12">
+    <h1 className="  font-bold tracking-tight  drop-shadow-md text-3xl md:text-4xl lg:text-5xl text-center mt-12 font-JosefinSans">Comprehensive Services We Offer</h1>
+           <p className='py-2 drop-shadow-md text-base md:text-xl font-PTSerif'>Voices of Zep Research: Testimonials from Conference Participants</p>
+    <div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
+      {features.map((feature, index) => (
+        <Feature key={feature.title} {...feature} index={index} />
+      ))}
     </div>
-  )
+      </ div>
+      </>
+    )
+  );
 }
+
+const Feature = ({
+  title,
+  description,
+  icon,
+  index
+}) => {
+  return (
+    (<div
+      className={cn(
+        "flex flex-col lg:border-r  py-10 relative group/feature dark:border-neutral-800",
+        (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
+        index < 4 && "lg:border-b dark:border-neutral-800"
+      )}>
+      {index < 4 && (
+        <div
+          className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
+      )}
+      {index >= 4 && (
+        <div
+          className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none" />
+      )}
+      <div
+        className="mb-4 relative z-10 px-10 text-neutral-600 dark:text-neutral-400">
+        {icon}
+      </div>
+      <div className="text-lg font-bold mb-2 relative z-10 px-10">
+        <div
+          className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-blue-500 transition-all duration-200 origin-center" />
+        <span
+          className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-neutral-800 dark:text-neutral-100">
+          {title}
+        </span>
+      </div>
+      <p
+        className="text-sm text-neutral-600 dark:text-neutral-300 max-w-xs relative z-10 px-10">
+        {description}
+      </p>
+    </div>)
+  );
+};

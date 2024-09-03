@@ -12,6 +12,8 @@ import {
 } from './ui/dialog';
 import { PlayCircleIcon, PlayIcon, PlusIcon } from 'lucide-react';
 import { InView } from './ui/inView';
+import { CircleBackground } from './ui/CircleBackground';
+import { Button } from '@material-tailwind/react';
 const data = [
   {
     id: 1,
@@ -50,7 +52,8 @@ const data = [
 ]
 export function VideFeedBck() {
   return (<>
- <InView
+  <div className="py-12 relative  ">
+ <InView 
           variants={{
             hidden: {
               opacity: 0,
@@ -68,14 +71,18 @@ export function VideFeedBck() {
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           viewOptions={{ margin: '0px 0px -250px 0px' }}
         >
-           <h1 className=" text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mt-12">Featured Video Library</h1>
-           <p className='py-2'>Voices of Zep Research: Testimonials from Conference Participants</p>
+{/* <div className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+          <CircleBackground color="#13B5C8" className="animate-spin-slower " />
+        </div>
+  */}
+           <h1 className="  font-bold tracking-tight  drop-shadow-md text-3xl md:text-4xl lg:text-5xl text-center mt-12 font-JosefinSans">Featured Video Library</h1>
+           <p className='py-2 drop-shadow-md text-base md:text-xl font-PTSerif'>Voices of Zep Research: Testimonials from Conference Participants</p>
     <div className='flex sm:flex-row flex-col items-center justify-center gap-7 sm:gap-16 p-4 py-8 overflow-y-scroll no-scrollbar overflow-scroll' >
 {data.map((item, index) => (
     
     
     <Dialog
-    key={index.id}
+    key={item.id || index}
     transition={{
         type: 'spring',
         bounce: 0.05,
@@ -88,10 +95,8 @@ export function VideFeedBck() {
 
       
       <DialogTrigger
-        style={{
-            borderRadius: '9px',
-        }}
-        className='flex w-[300px] flex-col overflow-hidden border border-zinc-950/10  drop-shadow-md  '
+       
+        className='flex w-[300px] rounded-tl-3xl  rounded-br-3xl flex-col overflow-hidden border border-zinc-950/10  drop-shadow-md  '
         >
         <DialogImage
           src={item.image}
@@ -100,7 +105,7 @@ export function VideFeedBck() {
           />
         
       </DialogTrigger>
-      <h1 className='mt-2 text-lg font-bold inline-flex items-center '>Play Video <PlayCircleIcon className='ml-2'/></h1>
+      <h1 className='mt-2 text-lg font-bold inline-flex items-center drop-shadow-md'>Play Video <PlayCircleIcon className='ml-2'/></h1>
        </div>
        
       <DialogContainer>
@@ -153,13 +158,16 @@ export function VideFeedBck() {
 
 ))}
     </div>
-     <button
-        type="button"
-        className="rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+     <Button
+        variant="gradient"
+        color='blue'
+        size="lg"
+        className="text-white"
       >
        view more 
-      </button>
+      </Button>
       </InView>
+      </div>
 </>
   );
 }

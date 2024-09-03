@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 
 
 import ZepResarch from './pages/Solution Menu/ZepResarch';
@@ -19,7 +19,6 @@ import Courses from './pages/Solution Menu/Courses';
 import Careers from './pages/Solution Menu/Careers';
 import Conferences from './pages/Solution Menu/Conferences';
 
-import Nav from './Hero components/MobileNav';
 import Footers from './Hero components/Footer';
 import ContactUs from './pages/Solution Menu/ContactUs';
 import CourseDetail from './pages/CourseDetail/CourseDetail';
@@ -38,12 +37,19 @@ import ExperienceknowledgeExchange from './pages/Solution Menu/Experienceknowled
 import WorldwidePlatform from './pages/Solution Menu/WorldwidePlatform';
 import ProfessionalConferenceOrganizer from './pages/Solution Menu/ProfessionalConferenceOrganizer';
 import PublishingOpportunities from './pages/Solution Menu/PublishingOpportunities';
-
+import { ThemeProvider } from "@material-tailwind/react";
+import { Nav } from './Hero components/Nav';
+const ConditionalNav = () => {
+  const location = useLocation();
+  return location.pathname !== "/" ? <Nav /> : null;
+};
 const Layout = () => (
   <>
-    <Nav />
+   <ConditionalNav />
     <Outlet />
     <Footers />
+  
+    
   </>
 );
 
@@ -89,11 +95,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-
+<ThemeProvider>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
-   
+   </ThemeProvider>
   </React.StrictMode>
 );
 

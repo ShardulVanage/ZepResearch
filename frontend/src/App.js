@@ -2,8 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import Hero from './Hero components/Hero';
 import Partners from './Hero components/Partners';
-import Features from './Hero components/Feature';
-import Testimonials from './Hero components/Testomonial';
+
+
+
+
 import Faq from './Hero components/Faq';
 import MemberCta from './Hero components/BenefitMember';
 import Welcome from './Hero components/Welcome';
@@ -16,6 +18,11 @@ import { PhoneIcon } from 'lucide-react'
 import Blog from './Hero components/Blog';
 import BenefitMember from './Hero components/BenefitMember';
 import whatsapplogo from './assets/whatsapp.png';
+import { Nav } from './Hero components/Nav';
+import { Reviews } from './Hero components/Review';
+import { Features } from './Hero components/Feature';
+
+
 
 function App() {
   return (
@@ -31,16 +38,16 @@ function App() {
       <ConferencePopup/>
       <Hero/>
       <Welcome/>
+     <Features/>
       <VideFeedBck/>
       <ChooseUs/>
       <CeoVision/>
-      <SustainableDevelopment/>
-      <BenefitMember/>
+      {/* <SustainableDevelopment/> */}
+      {/* <BenefitMember/> */}
       <Blog/>
       
-      <Partners/>
-      <Features/>
-      <Testimonials/>
+      {/* <Partners/> */}
+      <Reviews/>
       <Faq/>
      
     </div>

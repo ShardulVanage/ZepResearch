@@ -16,3 +16,11 @@
         /* Firefox */
     }
 }
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./font/JosefinSans-Medium.ttf');
+}
+@font-face {
+    font-family: 'PT Serif';
+    src: url('./font/PTSerif-Regular.ttf');
+}

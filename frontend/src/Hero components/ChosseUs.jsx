@@ -1,67 +1,72 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
-import { InView } from './ui/inView'
+import React from 'react';
+import { motion, useInView } from 'framer-motion';
+const AnimatedSection = ({ children, delay = 0 }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
 
-const features = [
-  {
-    name: 'Push to deploy.',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: CloudArrowUpIcon,
-  },
-  {
-    name: 'SSL certificates.',
-    description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-    icon: LockClosedIcon,
-  },
-  {
-    name: 'Database backups.',
-    description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-    icon: ServerIcon,
-  },
-]
-
-export default function WhyChooseUs() {
   return (
-    <div className="overflow-hidden bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-           <InView
-          variants={{
-            hidden: {
-              opacity: 0,
-              x: 100,
-            },
-            visible: {
-              opacity: 1,
-              x: 0,
-            },
-          }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          viewOptions={{ margin: '0px 0px -350px 0px' }}
-        >
-          <div className="lg:ml-auto lg:pl-4 lg:pt-4">
-            <div className="lg:max-w-lg">
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-right">Why Choose Zep Research</p>
-              <p className="mt-6 text-lg leading-8 text-gray-600 text-justify">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis ratione.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis ratione.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis ratione.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis .
-              </p>
-              
-            </div>
-          </div>
-          </InView>
-          <div className="flex items-start justify-end lg:order-first">
-            
-            <img
-              src="https://images.unsplash.com/photo-1560439514-e960a3ef5019?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Product screenshot"
-              className=" max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 w-[42rem]"
-              width={2432}
-              height={1442}
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export default function Example() {
+  return ( 
+    <div className=" py-12  ">
+      <div className="mx-auto  sm:px-6 lg:px-8 drop-shadow-2xl ">
+  <div 
+  className="
+    drop-shadow-2xl shadow-2xl overflow-hidden h-screen sm:rounded-t-full rounded-t-3xl 
+    relative px-6 py-20 sm:px-10 sm:py-24 lg:py-24 xl:px-24
+  "
+  style={{
+   
+    backgroundImage: "url('https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", backgroundSize: 'cover', backgroundPosition: 'center'
+    }}
+>
+  <div className="absolute inset-0  "
+   style={{
+   background: 'radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%)'}}
+  ></div>
+  <div className="relative z-10">
+    {/* Your content goes here */}
+  <div className='flex flex-col justify-center items-center text-white py-24'>
+    <AnimatedSection>
+    <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold font-JosefinSans py-8'>Why Choose Zep Research</h1>
+    
+      <p className="text-base md:text-xl  text-gray-200 mb-12 max-w-3xl mx-auto text-justify font-PTSerif ">
+        At Zep Research, we foster collaborative forums for knowledge sharing and idea exchange,
+         enhancing professional development in academic and educational settings. Born from academia, for academia,
+          our platform specializes in expert event organization, facilitating meaningful connections among faculty deans,
+           professors, researchers, scholars, and students. Trusted by researchers and administrators, 
+           we craft exceptional academic interactions that drive growth and innovation.At Zep Research, we foster collaborative forums for knowledge sharing and idea exchange,
+         enhancing professional development in academic and educational settings. Born from academia, for academia,
+          our platform specializes in expert event organization, facilitating meaningful connections among faculty deans,
+           professors, researchers, scholars, and students. Trusted by researchers and administrators, 
+           we craft exceptional academic interactions that drive growth and innovation.
+      </p>
+      </AnimatedSection>
+  </div>
+
+          <div
+            className="pointer-events-none absolute left-12 top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-3xl lg:bottom-[-12rem] lg:top-auto lg:translate-y-0 lg:transform-gpu"
+            aria-hidden="true"
+          >
+            <div
+              className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#75c1ff] to-[#9089fc] opacity-15"
+              style={{
+                clipPath:
+                  'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+              }}
             />
+
+</div>
           </div>
         </div>
       </div>
