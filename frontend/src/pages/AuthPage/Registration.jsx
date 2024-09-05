@@ -2,13 +2,31 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { client } from '../../lib/pocketbase';
+import useGoogleLogin from '../../hooks/useGoogleProvider';
+
+
+
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+  Button,
+} from "@material-tailwind/react";
+
 import Logo from '../../images/singleLogo.png'
+import Login from './Login';
+
+
 
 function Registration() {
   const [isLoading, setLoading] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const navigate = useNavigate();
-
+  const { loginWithGoogle } = useGoogleLogin();
   const onSubmit = async (data) => {
     try {
       setLoading(true);
@@ -32,20 +50,26 @@ function Registration() {
   };
 
   return (
-  <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 mt-20">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img
-            className="mx-auto h-10 w-auto"
-            src={Logo}
-            alt="Your Company"
-          />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Create Account 
-          </h2>
-        </div>
-
-        <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-sm h-auto bg-white p-4 drop-shadow-md pt-8 rounded-md">
-          <form className="space-y-6 drop-shadow" onSubmit={handleSubmit(onSubmit)}>
+ 
+  <div className="flex flex-col sm:flex-row min-h-screen py-8 sm:py-12  ">
+      <div className="sm:w-1/2 p-8 mt-12">
+       <form className="space-y-6 drop-shadow" onSubmit={handleSubmit(onSubmit)}>
+        <Card className="sm:w-96  sm:mx-auto">
+          <CardHeader
+            variant="filled"
+            color="blue"
+            className="mb-4 grid h-28  place-items-center"
+          >
+            <Typography variant="h3" color="white">
+              Sign Up
+            </Typography>
+          </CardHeader>
+          <CardBody className="flex flex-col gap-4">
+            <Typography variant="paragraph" className="text-center mb-2">
+              Enter your email and password to sign in
+            </Typography>
+         
+              
 
 
 
@@ -136,20 +160,98 @@ function Registration() {
 
             
             <div>
-              <button
+              {/* <button
                 type="submit"
                 disabled={isLoading}
                 className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >          
                 {isLoading ? 'Creating Account...' : 'Create Account'}         
-              </button>
+              </button> */}
             </div>
-          </form>
+          
 
           
-        </div>
-      </div>
 
+               
+            
+
+
+
+            <div className="-ml-2.5">
+              <Checkbox label="I agree with the Terms and Conditions" required/>
+            </div>
+            <div className="-ml-2.5">
+              <Checkbox label="Subscribe me to newsletter" />
+            </div>
+            <Typography
+              as="a"
+              href="#"
+              variant="small"
+              color="blue"
+              className="ml-1 font-bold"
+            >
+              Forgot password
+            </Typography>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Button 
+             
+              disabled={isLoading}
+              variant="gradient" fullWidth
+              type="submit"
+              >
+                  {isLoading ? 'Creating Account...' : 'Create Account'}       
+            </Button>
+            <Button
+            onClick={loginWithGoogle}
+              variant="outlined"
+              color="blue-gray"
+              fullWidth
+              className="flex items-center justify-center gap-3 mt-3"
+            >
+              <img src="https://docs.material-tailwind.com/icons/google.svg" alt="Google" className="h-6 w-6" />
+              Sign In with Google
+            </Button>
+            <Button
+              variant="outlined"
+              color="blue-gray"
+              fullWidth
+              className="flex items-center justify-center gap-3 mt-3"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+              Sign In with X
+            </Button>
+            <Typography variant="small" className="mt-6 flex justify-center">
+              I have account.
+              <Typography
+                as="a"
+                href="#signup"
+                variant="small"
+                color="blue"
+                className="ml-1 font-bold"
+                >
+                Sign In
+              </Typography>
+            </Typography>
+          </CardFooter>
+        </Card>
+             </form>
+      </div>
+      <div className="w-1/2 bg-cover bg-center drop-shadow-2xl rounded-md opacity-90" style={{backgroundImage: "url('https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+    </div>
   );
 }
 
@@ -160,65 +262,23 @@ export default Registration;
 
 
 
-    // <div className='h-screen w-screen flex  flex-col justify-center items-center'>
-    //   <h2>Create Account</h2>
-
-    //   <form onSubmit={handleSubmit(onSubmit)}>
-    //     <div>
-    //       <label htmlFor="name">Name</label>
-    //       <input
-    //         type="text"
-    //         id="name"
-    //         {...register('name', { required: 'Name is required' })}
-    //       />
-    //       {errors.name && <span>{errors.name.message}</span>}
-    //     </div>
-    //     <div>
-    //       <label htmlFor="email">Email</label>
-    //       <input
-    //         type="email"
-    //         id="email"
-    //         {...register('email', { 
-    //           required: 'Email is required',
-    //           pattern: {
-    //             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-    //             message: 'Invalid email address'
-    //           }
-    //         })}
-    //       />
-    //       {errors.email && <span>{errors.email.message}</span>}
-    //     </div>
-    //     <div>
-    //       <label htmlFor="password">Password</label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         {...register('password', { 
-    //           required: 'Password is required',
-    //           minLength: {
-    //             value: 8,
-    //             message: 'Password must be at least 8 characters long'
-    //           }
-    //         })}
-    //       />
-    //       {errors.password && <span>{errors.password.message}</span>}
-    //     </div>
-    //     <div>
-    //       <label htmlFor="passwordConfirm">Confirm Password</label>
-    //       <input
-    //         type="password"
-    //         id="passwordConfirm"
-    //         {...register('passwordConfirm', {
-    //           required: 'Please confirm your password',
-    //           validate: (value) => value === document.getElementById('password').value || 'Passwords do not match'
-    //         })}
-    //       />
-    //       {errors.passwordConfirm && <span>{errors.passwordConfirm.message}</span>}
-    //     </div>
 
 
-    //     <button type="submit" disabled={isLoading}>
-    //       {isLoading ? 'Creating Account...' : 'Create Account'}
-    //     </button>
-    //   </form>
-    // </div>
+//  <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 mt-20">
+//         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+//           <img
+//             className="mx-auto h-10 w-auto"
+//             src={Logo}
+//             alt="Your Company"
+//           />
+//           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+//             Create Account 
+//           </h2>
+//         </div>
+
+//         <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-sm h-auto bg-white p-4 drop-shadow-md pt-8 rounded-md">
+         
+
+          
+//         </div>
+//       </div>

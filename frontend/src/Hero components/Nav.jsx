@@ -24,67 +24,94 @@ import {
   PhoneIcon,
   RectangleGroupIcon,
   SquaresPlusIcon,
-  SunIcon,
+  MicrophoneIcon,
   TagIcon,
   UserGroupIcon,
+  TrophyIcon,
+  PaperAirplaneIcon,
+  AcademicCapIcon,
+  BookOpenIcon
 } from "@heroicons/react/24/solid";
  import logo from '../images/singleLogo.png';
 import { useAuth } from "../context/AuthContext";
 import ProfileDropDown from "./ProfileDropDown";
 const navListMenuItems = [
   {
-    title: "Products",
+    title: "Collaboration",
     description: "Find the perfect solution for your needs.",
     icon: SquaresPlusIcon,
+    link:"/Collaboration",
   },
   {
-    title: "About Us",
+    title: "Conferences",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
+    link:"/Conferences",
   },
   {
-    title: "Blog",
+    title: "Scientific Assistance",
     description: "Find the perfect solution for your needs.",
     icon: Bars4Icon,
+    link:"/ScientificAssistance",
   },
   {
-    title: "Services",
+    title: "Speakers",
     description: "Learn how we can help you achieve your goals.",
-    icon: SunIcon,
+    icon: MicrophoneIcon,
+    link:"/Speakers",
   },
   {
-    title: "Support",
+    title: "Worldwide Platform",
     description: "Reach out to us for assistance or inquiries",
     icon: GlobeAmericasIcon,
+    link:"/WorldwidePlatform",
   },
   {
-    title: "Contact",
+    title: "Publishing opportunities",
     description: "Find the perfect solution for your needs.",
-    icon: PhoneIcon,
+    icon: PaperAirplaneIcon,
+    link:"/PublishingOpportunities",
   },
   {
-    title: "News",
+    title: "Publications",
     description: "Read insightful articles, tips, and expert opinions.",
     icon: NewspaperIcon,
+    link:"/Publication",
   },
   {
-    title: "Products",
+    title: "Courses",
     description: "Find the perfect solution for your needs.",
     icon: RectangleGroupIcon,
+    link:"/Courses",
   },
   {
-    title: "Special Offers",
+    title: "Awards & Recognitions",
     description: "Explore limited-time deals and bundles",
-    icon: TagIcon,
+    icon: TrophyIcon,
+    link:"/Awards&Recognitions",
+  },
+  {
+    title: "Professional Conference Organizer",
+    description: "Explore limited-time deals and bundles",
+    icon: AcademicCapIcon,
+    link:"/ProfessionalConferenceOrganizer",
+  },
+   {
+    title: "Experience a knowledge Exchange",
+    description: "Explore limited-time deals and bundles",
+    icon: BookOpenIcon,
+    link:"/ExperienceknowledgeExchange",
   },
 ];
  
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description }, key) => (
-      <a href="#" key={key}>
+    ({ icon, title, description,link }, key) => (
+      <a href={link} key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
@@ -95,6 +122,7 @@ function NavListMenu() {
           </div>
           <div>
             <Typography
+            
               variant="h6"
               color="blue-gray"
               className="flex items-center text-sm font-bold"
@@ -129,7 +157,7 @@ function NavListMenu() {
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
-              Resources
+              Services
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
@@ -146,7 +174,7 @@ function NavListMenu() {
           </Typography>
         </MenuHandler>
         <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
-          <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+          <ul className="grid grid-cols-4 gap-y-2 outline-none outline-0">
             {renderItems}
           </ul>
         </MenuList>
@@ -163,12 +191,25 @@ function NavList() {
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
         as="a"
+        href="/ZepResarch"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+        <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
+      </Typography>
+       <Typography
+        as="a"
         href="#"
         variant="small"
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">Home</ListItem>
+
+        <ListItem  className="flex items-center gap-2 py-2 pr-4">
+          Blogs
+        </ListItem>
+      
       </Typography>
       <NavListMenu />
       <Typography
@@ -184,6 +225,23 @@ function NavList() {
         </ListItem>
       </a>
       </Typography>
+
+       <Typography
+        as="a"
+        href="#"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      ><a href="/Gallery">
+
+        <ListItem  className="flex items-center gap-2 py-2 pr-4">
+          Gallery
+        </ListItem>
+      </a>
+      </Typography>
+
+     
+      
     </List>
   );
 }
@@ -234,12 +292,12 @@ export function Nav() {
               <div className="hidden gap-2 lg:flex">
           <a href="/Login">
           <Button variant="text" size="sm" color="blue-gray">
-            Log In
+            Sign In
           </Button>
           </a>
           <a href="/Registration">
           <Button  variant="gradient" size="sm">
-            Sign In
+            Sign Up
           </Button>
           </a>
         </div>
@@ -263,16 +321,34 @@ export function Nav() {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-         <a href="/Login">
-          <Button href="/Login" variant="outlined" size="sm" color="blue-gray" fullWidth>
-            Log In
-          </Button>
-          </a>
-          <a href="/Registration">
-          <Button variant="gradient" size="sm" fullWidth>
+        {
+              authState.isLoggedIn ?
+              <>
+                <div className=" gap-2 lg:flex">
+                <a href="/BecomeMember">
+                 <Button  variant="outlined">
+                    Become Member
+                 </Button> 
+                </a>
+                </div>
+                <div className=" w-full mx-auto">
+                 <ProfileDropDown/>
+                </div>
+              </>
+              :<>
+              <div className=" gap-2 lg:flex">
+          <a href="/Login">
+          <Button variant="text" size="sm" color="blue-gray">
             Sign In
           </Button>
           </a>
+          <a href="/Registration">
+          <Button  variant="gradient" size="sm">
+            Sign Up
+          </Button>
+          </a>
+        </div>
+              </>}
         </div>
       </Collapse>
     </Navbar>
