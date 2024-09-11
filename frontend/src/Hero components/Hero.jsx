@@ -99,7 +99,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Typography variant="h1" color="white" className="mb-4 text-4xl md:text-5xl lg:text-6xl font-JosefinSans">
-              Connecting Minds & Advancing Research 
+              Bridging Minds & Empowering Research
             </Typography>
           </motion.div>
           <motion.div
@@ -108,7 +108,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Typography variant="lead" color="white" className="mb-8 text-xl md:text-2xl font-PTSerif">
-              Engage with the global research community at Zep Research Conference
+              Elevate research and publication through expertly managed, innovative conferences.
             </Typography>
           </motion.div>
           <motion.div

@@ -41,15 +41,14 @@ export default function Example() {
     <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold font-JosefinSans py-8'>Why Choose Zep Research</h1>
     
       <p className="text-base md:text-xl  text-gray-200 mb-12 max-w-3xl mx-auto text-justify font-PTSerif ">
-        At Zep Research, we foster collaborative forums for knowledge sharing and idea exchange,
-         enhancing professional development in academic and educational settings. Born from academia, for academia,
-          our platform specializes in expert event organization, facilitating meaningful connections among faculty deans,
-           professors, researchers, scholars, and students. Trusted by researchers and administrators, 
-           we craft exceptional academic interactions that drive growth and innovation.At Zep Research, we foster collaborative forums for knowledge sharing and idea exchange,
-         enhancing professional development in academic and educational settings. Born from academia, for academia,
-          our platform specializes in expert event organization, facilitating meaningful connections among faculty deans,
-           professors, researchers, scholars, and students. Trusted by researchers and administrators, 
-           we craft exceptional academic interactions that drive growth and innovation.
+        At Zep Research, we provide unparalleled support for academics and researchers through our comprehensive suite of services. 
+        Our expertise in organizing Conferences & Webinars ensures impactful events that foster collaboration and innovation. 
+        We offer diverse Journals & Publications to showcase your research and enhance academic visibility.
+         Our Peer Review Management streamlines the feedback process, while Event Promotion & Marketing maximizes your event’s reach. 
+         Benefit from professional Manuscript Preparation and enriching Online Courses to advance your skills.
+          Our Networking & Collaboration opportunities connect you with a global academic community, 
+          and our Research Training & Workshops offer targeted expertise in research methodologies. Trusted by researchers and administrators alike,
+           Zep Research is dedicated to driving growth, facilitating meaningful interactions, and advancing academic excellence
       </p>
       </AnimatedSection>
   </div>

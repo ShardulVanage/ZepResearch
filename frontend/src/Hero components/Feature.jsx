@@ -1,13 +1,13 @@
 import { cn } from "../lib/utils";
 import {
-  IconAdjustmentsBolt,
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft,
-  IconTerminal2,
+  IconAffiliate,
+  IconAd,
+  IconTournament,
+  IconNotebook,
+  IconTrendingUp,
+  IconPictureInPicture,
+  IconScript,
+  IconPodium,
 } from "@tabler/icons-react";
 
 export function Features() {
@@ -15,47 +15,47 @@ export function Features() {
     {
       title: "Conferences & Webinars",
       description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <IconTerminal2 />,
+        "Expertly organized events that connect academics and foster meaningful interactions.",
+      icon: <IconPodium />,
     },
     {
-      title: "Journals",
+      title: "Journals & Publications",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <IconEaseInOut />,
+        "Diverse platforms for showcasing research, advancing knowledge, and academic visibility.",
+      icon: <IconNotebook />,
     },
     {
-      title: "Publications",
+      title: "Peer Review Management",
       description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <IconCurrencyDollar />,
+        "Streamlined process connecting researchers with reviewers for quality feedback.",
+      icon: <IconTournament />,
     },
     {
-      title: "Language Support",
-      description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
+      title: "Event Promotion & Marketing",
+      description: "Strategic strategies to enhance event visibility and attract broad participation",
+      icon: <IconAd />,
     },
     {
-      title: "Plagiarism check",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <IconRouteAltLeft />,
+      title: "Manuscript Preparation",
+      description: "Professional assistance in formatting and refining manuscripts for successful publication.",
+      icon: <IconScript />,
     },
     {
-      title: "Publication Collaboration",
+      title: "Online Courses",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <IconHelp />,
+        "High-quality courses designed to enhance skills and knowledge in research.",
+      icon: <IconPictureInPicture />,
     },
     {
-      title: "Money back guarantee",
+      title: "Networking & Collaboration",
       description:
-        "If you donot like EveryAI, we will convince you to like us.",
-      icon: <IconAdjustmentsBolt />,
+        "Opportunities to connect with global academics for collaborative projects and growth.",
+      icon: <IconAffiliate />,
     },
     {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
-      icon: <IconHeart />,
+      title: "Research Training & Workshops",
+      description: "Specialized sessions to build expertise in research methods and academic writing.",
+      icon: <IconTrendingUp />,
     },
   ];
   return (
@@ -63,7 +63,7 @@ export function Features() {
     <>
     <div className="pt-12">
     <h1 className="  font-bold tracking-tight  drop-shadow-md text-3xl md:text-4xl lg:text-5xl text-center mt-12 font-JosefinSans">Comprehensive Services We Offer</h1>
-           <p className='py-2 drop-shadow-md text-base md:text-xl font-PTSerif'>Voices of Zep Research: Testimonials from Conference Participants</p>
+           <p className='py-2 drop-shadow-md text-base md:text-xl font-PTSerif'>Your One-Stop Hub for Academic Excellence and Innovation</p>
     <div
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
       {features.map((feature, index) => (

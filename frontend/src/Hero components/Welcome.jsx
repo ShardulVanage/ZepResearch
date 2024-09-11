@@ -5,17 +5,17 @@ import { Button } from '@material-tailwind/react';
 const sections = [
   {
     title: 'Professional Conference Organizer',
-    description: 'We specialize in organizing high-quality research conferences that foster collaboration and innovation.',
+    description: 'Expertly planned events that foster academic collaboration, drive innovation and enhance professional development.',
     delay: 0.4,
   },
   {
     title: 'Publishing Opportunities',
-    description: 'Present your research and get published in renowned journals and conference proceedings.',
+    description: 'Access diverse academic journals and platforms, enabling scholars to showcase their research and advance knowledge.',
     delay: 0.6,
   },
   {
     title: 'Global Network',
-    description: 'Connect with researchers and professionals from around the world, expanding your academic and professional network.',
+    description: 'Connect with a worldwide community of researchers, academics, and professionals to collaborate and share insights.',
     delay: 0.8,
   },
 ];
@@ -49,11 +49,8 @@ export default function Welcome() {
         
         <AnimatedSection delay={0.2}>
           <p className="text-base md:text-xl  text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
-            At Zep Research, we foster collaborative forums for knowledge sharing and idea exchange,
-             enhancing professional development in academic and educational settings. Born from academia, for academia,
-              our platform specializes in expert event organization, facilitating meaningful connections among faculty deans,
-               professors, researchers, scholars, and students. Trusted by researchers and administrators, 
-               we craft exceptional academic interactions that drive growth and innovation.
+           We take pride in being a leading conference Planner, organizing impactful events and webinars that connect faculty, researchers, and students. We support high-quality journals and publications, expert peer review management, and meticulous manuscript preparation. Our services include strategic event promotion, research grant assistance, and specialized training workshops. Trusted by researchers and administrators, we drive academic growth and innovation through exceptional academic interactions.
+
           </p>
         </AnimatedSection>
         

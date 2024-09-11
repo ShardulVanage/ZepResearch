@@ -39,12 +39,14 @@ import ProfessionalConferenceOrganizer from './pages/Solution Menu/ProfessionalC
 import PublishingOpportunities from './pages/Solution Menu/PublishingOpportunities';
 import { ThemeProvider } from "@material-tailwind/react";
 import { Nav } from './Hero components/Nav';
+import { ToastContainer } from 'react-toastify';
 const ConditionalNav = () => {
   const location = useLocation();
   return location.pathname !== "/" ? <Nav /> : null;
 };
 const Layout = () => (
   <>
+  <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
    <ConditionalNav />
     <Outlet />
     <Footers />

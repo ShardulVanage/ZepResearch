@@ -130,11 +130,11 @@ export default function Example() {
           <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
               <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto text-transparent bg-clip-text bg-gradient-to-tl from-cyan-400 via-blue-500 to-blue-600 drop-shadow-lg  ">
-               Connecting Academicians and Researches of multidimentional scope through Conferences Journals and educational aid.
+              Uniting Academics and Researchers through Innovative Conferences, Premier Journals, and Comprehensive Educational Support.
               </h1>
               <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                 <p className="text-lg leading-8 text-gray-600">
-                Zep Research, we are dedicated to provide an outstanding platform for leading institutions, academicians and researchers. We strive create an environment that encourages knowledge scalability and cater to the requirement of our associated members by providing conference and journals publication services.
+                We connect academics and researchers through expertly organized conferences, high-impact journals, and comprehensive educational support. Our platform facilitates meaningful interactions, fosters collaboration, and provides the resources to advance research and professional development across various disciplines and academic fields.
                 </p>
               </div>
               <img
@@ -174,13 +174,12 @@ export default function Example() {
 
         {/* Logo cloud */}
         <div className="mx-auto mt-32 max-w-7xl sm:mt-40 sm:px-6 lg:px-8">
-          <div className="relative isolate overflow-hidden bg-gradient-to-tl from-cyan-950 via-blue-950 to-blue-800  px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
+          <div className="relative isolate overflow-hidden bg-gradient-to-tl from-gray-900 via-blue-950 to-blue-800  px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
             <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-             University which love us
+             Universities That Trust Us
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Aliquip reprehenderit incididunt amet quis fugiat ut velit. Sit occaecat labore proident cillum in nisi
-              adipisicing officia excepteur tempor deserunt.
+              Universities rely on us for expert conference management, premier journals, and comprehensive educational support, advancing academic collaboration and research.
             </p>
             <div className="mx-auto mt-20 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:max-w-4xl lg:grid-cols-5">
               <img
@@ -238,14 +237,15 @@ export default function Example() {
               <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
                 <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Mission & Vision</h2>
                 <p className="mt-6 text-xl leading-8 text-gray-600">
-                 Our mission is to ensure the quality of incubation and innovation processes across the globe, reaching every corner of the world. 
-                 We aim to create an integrated platform that connects professionals, 
+                Our mission is to enhance the quality of academic research, innovation, and collaboration globally. We aim to create an integrated platform that connects professionals, fosters growth and promotes excellence in research, conferences, and publications.
+
                   
                  
                 </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">
              
-                 We are committed to working with organizations to enhance the scope of professional studies and research by continually monitoring further opportunities and applications.
+                 We are committed to supporting academic organizations by expanding opportunities for professional development and advancing research on a global scale.
+
                 </p>
               </div>
               <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
@@ -278,14 +278,16 @@ export default function Example() {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* objective */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Our objectives are clear and focused.
+             Our objectives are precise and purpose-driven.
             </h2>
             <p className="mt-6 text-base leading-7 text-gray-600">
-              Firstly, we aim to establish a premier platform for researchers worldwide, facilitating the sharing of research findings through meticulously organized International and National Conferences.we are dedicated to fostering a culture of innovation and problem-solving by encouraging researchers to identify and address significant research challenges across diverse fields
+              Our objectives focus on fostering academic excellence, facilitating meaningful research collaborations,
+               and streamlining the process of knowledge sharing. Through expertly managed conferences, high-quality publications, and comprehensive educational support,
+                we aim to empower scholars and researchers to achieve their fullest potential.
             </p>
           </div>
           <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-8 lg:mx-0 lg:mt-20 lg:max-w-none lg:flex-row lg:items-end">
@@ -294,7 +296,7 @@ export default function Example() {
               <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
                 <p className="text-lg font-semibold tracking-tight text-gray-900"> Conference</p>
                 <p className="mt-2 text-base leading-7 text-gray-600">
-                  Vel labore deleniti veniam consequuntur sunt nobis.
+                  Organized impactful academic conferences to connect scholars globally and foster collaboration
                 </p>
               </div>
             </div>
@@ -305,16 +307,16 @@ export default function Example() {
                 Article Published 
                 </p>
                 <p className="mt-2 text-base leading-7 text-gray-400">
-                  Eu duis porta aliquam ornare. Elementum eget magna egestas.
+                 Supported researchers in publishing high-quality, peer-reviewed articles across various disciplines
                 </p>
               </div>
             </div>
             <div className="flex flex-col-reverse justify-between gap-x-16 gap-y-8 rounded-2xl bg-blue-600 p-8 sm:w-11/12 sm:max-w-xl sm:flex-row-reverse sm:items-end lg:w-full lg:max-w-none lg:flex-auto lg:flex-col lg:items-start lg:gap-y-28">
               <p className="flex-none text-3xl font-bold tracking-tight text-white">75+</p>
               <div className="sm:w-80 sm:shrink lg:w-auto lg:flex-none">
-                <p className="text-lg font-semibold tracking-tight text-white"> Journal tie-ups</p>
-                <p className="mt-2 text-base leading-7 text-indigo-200">
-                  Eu duis porta aliquam ornare. Elementum eget magna egestas. Eu duis porta aliquam ornare.
+                <p className="text-lg font-semibold tracking-tight text-white"> Journal Tie-ups</p>
+                <p className="mt-2 text-base leading-7 text-indigo-100">
+                 Partnered with prestigious journals to provide enhanced publishing opportunities for academic communities.
                 </p>
               </div>
             </div>
@@ -366,14 +368,14 @@ export default function Example() {
 
 
         {/* Content section */}
-        <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
+        <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8 py-12">
           <div className="mx-auto flex max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
-            <div className="w-full lg:max-w-lg lg:flex-auto">
+            <div className="w-full lg:max-w-2xl lg:flex-auto">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-               Excellence is at the core of our ethos, permeating every aspect of our organization. 
+               Excellence is at the core of our conferences, publications, and educational services.
               </h2>
               <p className="mt-6 text-xl leading-8 text-gray-600">
-                From the meticulous planning of our events to the seamless execution of our initiatives, we are driven by a relentless pursuit of excellence.
+                At the core of our services, we ensure top-quality conferences, publications, and educational support to advance research and foster collaboration.
               </p>
               <img
                 src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1344&h=1104&q=80"

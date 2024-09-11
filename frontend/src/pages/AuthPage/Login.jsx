@@ -147,7 +147,7 @@ export default function Login() {
               Not registered?
               <Typography
                 as="a"
-                href="#signup"
+                href="/Registration"
                 variant="small"
                 color="blue"
                 className="ml-1 font-bold"

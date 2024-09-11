@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { client } from '../lib/pocketbase';
 import { useAuth } from '../context/AuthContext';
-
+import { toast } from 'react-toastify';
 function useLogin() {
   const [isLoading, setLoading] = useState(false);
   const { reset } = useForm();
@@ -17,10 +17,10 @@ function useLogin() {
       console.log(authData);
       updateAuthState({ isLoggedIn: true, user: authData.record });
       navigate('/'); // Use an absolute path
-      alert('You have been successfully logged in.');
+      toast.success('You have been successfully logged in.');
     } catch(error) {
       console.error('Login failed:', error);
-      alert('Login failed. Please try again.');
+      toast.error(error.message);
     } finally {
       setLoading(false);
       reset();

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState ,useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { client } from '../../lib/pocketbase';
 import useGoogleLogin from '../../hooks/useGoogleProvider';
-
-
+import { ClientResponseError } from 'pocketbase';
+import Confetti from 'react-confetti';
 
 import {
   Card,
@@ -19,15 +19,19 @@ import {
 
 import Logo from '../../images/singleLogo.png'
 import Login from './Login';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Registration() {
+  const [showConfetti, setShowConfetti] = useState(false);
+
   const [isLoading, setLoading] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const navigate = useNavigate();
   const { loginWithGoogle } = useGoogleLogin();
-  const onSubmit = async (data) => {
+
+ const onSubmit = async (data) => {
     try {
       setLoading(true);
       await client.collection('users').create({
@@ -35,23 +39,53 @@ function Registration() {
         password: data.password,
         passwordConfirm: data.passwordConfirm,
         name: data.name,
-        
       });
       
-      alert('Account created successfully. Please log in.');
-      navigate('/login'); // Redirect to login page after successful registration
+      setShowConfetti(true);
+      toast.success('Account created successfully. Please log in.');
+      setTimeout(() => {
+        setShowConfetti(false);
+        navigate('/login');
+      }, 3000); // Redirect after 5 seconds
     } catch (error) {
       console.error('Registration failed:', error);
-      alert('Registration failed. Please try again.');
+      if (error instanceof ClientResponseError) {
+        if (error.response.code === 400) {
+          const errorDetails = error.response.data;
+          if (errorDetails.email) {
+            toast.error(`Email error: ${errorDetails.email.message}`);
+          } else if (errorDetails.password) {
+            toast.error(`Password error: ${errorDetails.password.message}`);
+          } else {
+            toast.error(error.message || 'Failed to create account. Please check your information.');
+          }
+        } else {
+          toast.error('An unexpected error occurred. Please try again later.');
+        }
+      } else {
+        toast.error('An unexpected error occurred. Please try again later.');
+      }
     } finally {
       setLoading(false);
       reset();
     }
   };
 
+  const handleConfettiComplete = useCallback(() => {
+    setShowConfetti(false);
+  }, []);
   return (
  
   <div className="flex flex-col sm:flex-row min-h-screen py-8 sm:py-12  ">
+    {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={false}
+          numberOfPieces={200}
+          onConfettiComplete={handleConfettiComplete}
+        />
+      )}
       <div className="sm:w-1/2 p-8 mt-12">
        <form className="space-y-6 drop-shadow" onSubmit={handleSubmit(onSubmit)}>
         <Card className="sm:w-96  sm:mx-auto">
@@ -238,7 +272,7 @@ function Registration() {
               I have account.
               <Typography
                 as="a"
-                href="#signup"
+                href="/Login"
                 variant="small"
                 color="blue"
                 className="ml-1 font-bold"

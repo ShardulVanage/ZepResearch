@@ -55,14 +55,14 @@ function CeoVision() {
             <div className="text-base leading-7 text-gray-700 lg:max-w-lg ">
              
               <h1 className='text-4xl md:text-5xl lg:text-5xl text-left font-bold font-JosefinSans py-8'>
-                Our Vision to Empower Conference
+                Our Vision to Empower Academic Excellence
               </h1>
               <div className="max-w-xl text-justify">
                 <p className="text-base text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
-                  Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
-                  vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
-                  erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                  semper sed amet vitae sed turpis id.
+                  Empowering academic excellence through comprehensive support, we offer impactful conferences, 
+                  diverse publishing opportunities, and streamlined peer reviews. Our services include professional training, networking,
+                   and online courses designed to foster innovation and collaboration, driving growth and success within the academic community.
+
                 </p>
               
                 
@@ -123,11 +123,11 @@ function CeoVision() {
                 <blockquote className="mt-6 text-xl font-semibold leading-8 text-white drop-shadow-2xl">
                   
                     <AnimatedText
-                    text= "Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu praesent at a. Ornarearcu gravida natoque erat et cursus tortor."
+                    text= "Our commitment is to drive academic excellence with cutting-edge events, top-tier publications, and transformative professional development."
                     />
                 </blockquote>
                 <figcaption className="mt-6 text-base leading-6 text-gray-300">
-                  <strong className="font-semibold text-white">Judith Rogers,</strong> CEO at Zep Research
+                  <strong className="font-semibold text-white">CEO,</strong>  Zep Research
                 </figcaption>
               </figure>
             </div>

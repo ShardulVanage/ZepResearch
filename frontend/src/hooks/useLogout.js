@@ -2,7 +2,7 @@ import React from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { client } from '../lib/pocketbase'
-
+import { toast } from 'react-toastify';
 
 const isLoggedIn = client.authStore.isValid;
 
@@ -25,10 +25,10 @@ function useLogout() {
       navigate('./');
 
       // Optionally, show a success message
-      alert('You have been successfully logged out.');
+      toast.success('You have been successfully logged out.');
     } catch (error) {
       console.error('Logout failed:', error);
-      alert('Logout failed. Please try again.');
+      toast.error('Logout failed. Please try again.');
     }
   }
 
