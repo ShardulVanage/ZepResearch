@@ -57,14 +57,20 @@ export default function Footer() {
               <img src={whitelogo} alt="" className="h-8 w-8 mr-2" />
               Zep Research
             </Typography>
-            <Typography className="mb-4">
-              Sed ut perspiciatis undmnis is iste natus error sit amet voluptatem totam rem aperiam.
+            <Typography className="mb-4 text-sm">
+              We are committed to supporting academic organizations by expanding opportunities for professional development and advancing research on a global scale
             </Typography>
             <Typography className="flex items-center">
               <svg viewBox="0 0 24 24" className="h-5 w-5 mr-2" fill="currentColor">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
               </svg>
-              +012 (345) 678 99
+              +91 7358737843
+            </Typography>
+             <Typography className="flex items-start mt-4">
+              <svg  xmlns="http://www.w3.org/2000/svg"  width="30"  height="30" className="h-5 w-5 mr-6 " viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
+               <span className="ml-4">DCB-330,
+              3rd Floor, DLF Cyber City, Patia, Bhubaneswar, ODISHA - 751024
+              India</span>
             </Typography>
           </div>
 

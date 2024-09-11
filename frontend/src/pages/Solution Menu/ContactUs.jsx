@@ -56,9 +56,11 @@ function ContactUs() {
                   <BuildingOffice2Icon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
                 <dd>
-                  545 Mavis Island
+                  DCB-330,
                   <br />
-                  Chicago, IL 99191
+3rd Floor, DLF Cyber City, Patia, Bhubaneswar, ODISHA - 751024
+India
+                 
                 </dd>
               </div>
               <div className="flex gap-x-4">
@@ -67,8 +69,8 @@ function ContactUs() {
                   <PhoneIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
                 <dd>
-                  <a className="hover:text-gray-900" href="tel:+1 (555) 234-5678">
-                    +1 (555) 234-5678
+                  <a className="hover:text-gray-900" href="tel:+91 73587 37843">
+                    +91 7358737843
                   </a>
                 </dd>
               </div>
@@ -78,15 +80,15 @@ function ContactUs() {
                   <EnvelopeIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                 </dt>
                 <dd>
-                  <a className="hover:text-gray-900" href="mailto:hello@example.com">
-                    hello@example.com
+                  <a className="hover:text-gray-900" href="mailto:info@zepresearch.com">
+                    info@zepresearch.com
                   </a>
                 </dd>
               </div>
             </dl>
             <iframe
             className='mt-12 border-2 border-gray-300 rounded-lg h-[500px] w-full'
-             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9161.106996523336!2d85.82500300612512!3d20.295357557304815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909c3afdfb5cb%3A0xb59fe3bcda6779a8!2sJoydev%20Vihar%20Overbridge!5e0!3m2!1sen!2sin!4v1724845900841!5m2!1sen!2sin"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50351.01855104059!2d85.83567018735276!3d20.285284425494797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19099ff09b60c5%3A0x4c4d74eab468759f!2sZep%20Research%20Private%20Limited!5e0!3m2!1sen!2sin!4v1726046779519!5m2!1sen!2sin"
                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
           </div>
