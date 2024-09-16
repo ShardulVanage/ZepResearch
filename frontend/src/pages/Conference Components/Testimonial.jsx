@@ -10,10 +10,7 @@ function Testimonial() {
         <figure className="mt-10">
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
             <p>
-              “I had the privilege of attending the International Conference on Emerging Trends in Technology, hosted by Zep Research, 
-              and it was an enriching experience like no other! The caliber of speakers, the relevance of topics,
-               and the seamless organization made for a truly engaging and informative event. The networking opportunities were invaluable, 
-              and I was able to connect with fellow researchers and industry experts from around the world. Zep Research has set a new standard for academic conferences!”
+              “I found Zep Research’s International Conference to be an exceptional event. The discussions were thought-provoking, and the speakers were true leaders in their fields. The event was well-executed, and the seamless organization made it easy to focus on learning and connecting with others. I left with fresh insights and valuable contacts from around the world. Zep Research is setting a new standard for academic conferences, and I’m looking forward to attending again”
             </p>
           </blockquote>
           <figcaption className="mt-10">

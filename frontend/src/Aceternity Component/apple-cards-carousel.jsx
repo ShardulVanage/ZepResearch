@@ -1,4 +1,3 @@
-
 import React, {
   useEffect,
   useRef,
@@ -15,6 +14,15 @@ import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "../utils/Image";
 import { useOutsideClick } from "../hooks/useOutsideClick ";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+} from "@material-tailwind/react";
+
+
+
 
 export const CarouselContext = createContext({
   onCardClose: () => {},
@@ -138,7 +146,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
   );
 };
 
-export const Card = ({ card, index, layout = false }) => {
+export const CardX = ({ card, index, layout = false }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
   const { onCardClose,  } = useContext(CarouselContext);
@@ -194,13 +202,13 @@ export const Card = ({ card, index, layout = false }) => {
                 className="sticky top-4 h-8 w-8 right-0 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
                 onClick={handleClose}
               >
-                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+                <IconX className="h-6 w-6 text-gray-100" />
               </button>
               <motion.p
                 layoutId={layout ? `category-${card.title}` : undefined}
                 className="text-base font-medium text-black dark:text-white"
               >
-                {card.category}
+                📍{card.location}
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
@@ -208,7 +216,7 @@ export const Card = ({ card, index, layout = false }) => {
               >
                 {card.title}
               </motion.p>
-              <div className="py-10">{card.content}</div>
+              <div className="py-10"><Content content={card}/></div>
             </motion.div>
           </div>
         )}
@@ -216,7 +224,7 @@ export const Card = ({ card, index, layout = false }) => {
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
+        className="rounded-3xl bg-gray-700 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
         <div className="relative z-40 p-8">
@@ -224,20 +232,20 @@ export const Card = ({ card, index, layout = false }) => {
             layoutId={layout ? `category-${card.category}` : undefined}
             className="text-white text-sm md:text-base font-medium font-sans text-left drop-shadow-md"
           >
-            {card.category}
+           📍 {card.location}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2 drop-shadow-2xl "
           >
             {card.title}
           </motion.p>
         </div>
         <BlurImage
-          src={card.src}
+          src={card.img}
           alt={card.title}
           fill
-          className="object-cover absolute z-10 inset-0"
+          className="object-cover absolute z-10 inset-0 bg-black opacity-70"
         />
       </motion.button>
     </>
@@ -270,5 +278,89 @@ export const BlurImage = ({
       alt={alt ? alt : "Background of a beautiful view"}
       {...rest}
     />
+  );
+};
+
+
+
+
+export const Content = ({content}) => {
+  return (
+    <>
+     
+            
+          <div
+            key={"dummy-content" }
+            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+            >
+            <Image
+              src={content.img}
+              alt="Macbook mockup from Aceternity UI"
+              height="500"
+              width="500"
+              className=" h-full w-4/5 rounded-xl mx-auto object-fill mb-4 drop-shadow-lg"
+            />
+            <p className="text-neutral-600 dark:text-neutral-400 text-base text-justify md:text-xl font-sans max-w-3xl mx-auto">
+              <span className="font-bold text-neutral-700 dark:text-neutral-200">
+               {content.title},<br />
+              </span>{" "}
+               {content.description}
+            </p>
+            <section className="grid sm:grid-cols-3 grid-cols-1 gap-2 justify-items-center  h-full place-items-center p-4">
+      <Card className="w-auto sm:max-w-[24rem] ">
+        <CardHeader floated={false} shadow={false} className="rounded-none">
+          
+          <Typography
+            color="blue-gray"
+            className="mt-1 mb-2  text-[20px] font-bold"
+          >
+           Place
+          </Typography>
+        </CardHeader>
+        <CardBody className="px-4 pt-0">
+          <Typography className="font-normal text-gray-600">
+           {content.location}
+          </Typography>
+        </CardBody>
+     
+      </Card>
+      <Card className="w-auto max-w-[24rem]">
+        <CardHeader floated={false} shadow={false} className="rounded-none">
+          
+          <Typography
+            color="blue-gray"
+            className="mt-1 mb-2 text-[20px] font-bold"
+          >
+           Website
+          </Typography>
+        </CardHeader>
+        <CardBody className="px-4 pt-0">
+          <a href={content.websiteUrl} className="font-normal text-gray-600 underline underline-offset-2">
+          {content.websiteUrl}
+          </a>
+        </CardBody>
+     
+      </Card>
+       <Card className="w-auto max-w-[24rem]">
+        <CardHeader floated={false} shadow={false} className="rounded-none">
+          
+          <Typography
+            color="blue-gray"
+            className="mt-1 mb-2 text-[20px] font-bold"
+          >
+            Date
+          </Typography>
+        </CardHeader>
+        <CardBody className="px-4 pt-0">
+          <Typography className="font-normal text-gray-600">
+          {content.date}
+          </Typography>
+        </CardBody>
+       
+      </Card>
+    </section>
+          </div>
+      
+    </>
   );
 };

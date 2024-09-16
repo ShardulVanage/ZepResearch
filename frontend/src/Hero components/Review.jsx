@@ -262,7 +262,7 @@ export function Reviews() {
           >
           Hear from our clients about their experiences and success stories.
         </h2>
-        <p className="text-base md:text-xl text-center  text-gray-600 mb-12 max-w-3xl mx-auto text-justify font-PTSerif ">
+        <p className="text-base md:text-xl text-center  text-gray-600 mb-12 max-w-3xl mx-auto  font-PTSerif ">
           Real stories of growth, collaboration, and success 
         </p>
         <ReviewGrid />

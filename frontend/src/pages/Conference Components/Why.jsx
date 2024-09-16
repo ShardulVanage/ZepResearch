@@ -16,7 +16,7 @@ export default function Why() {
               What is <span className="bg-clip-text text-transparent bg-gradient-to-tr from-cyan-500 via-blue-500 to-blue-600">ZepResearch ?</span>
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-600">
-              Lorem ipsum dolor sit amet consect adipisicing possimus.
+             We connect scholars through conferences, publications, and academic collaboration
             </p>
           </div>
           <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4 ">
@@ -36,13 +36,11 @@ export default function Why() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">Leaders, Developers & End-users</h2>
+              <h2 className="text-base font-semibold leading-7 text-blue-600">Leaders, Innovators & Experts</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Keynotes & Sessions</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-            Our platform offers a comprehensive range of keynotes and sessions tailored to inspire and educate leaders,
-             developers, and end users. Whether you're driving strategic decisions, building innovative solutions, or utilizing cutting-edge technology,
-              our curated content delivers valuable insights and practical knowledge to enhance your skills and elevate your impact in the digital landscape.
-             Join us to stay ahead of industry trends, learn from experts, and connect with a community of forward-thinkers.
+            Join us for inspiring keynotes and interactive sessions featuring leading experts, innovative developers, and influential end-users. Our events offer a platform for in-depth exploration of the latest trends and breakthroughs in your field. Benefit from the insights and experiences shared by renowned speakers who are at the forefront of their industries. Whether you are seeking to understand new technologies, explore emerging trends, or gain practical knowledge, our keynotes and sessions are designed to educate, engage, and inspire.
+
               </p>
             </div>
           </div>
@@ -69,14 +67,10 @@ export default function Why() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:ml-auto lg:pl-4 lg:pt-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">Industry-focused to elevate your skill</h2>
+              <h2 className="text-base font-semibold leading-7 text-blue-600">Industry Specialists, Practitioners & Skill Builders</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Summits & Training</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                At Zep Research, we are dedicated to elevating your skills through our industry-focused summits and training programs.
-                 Designed specifically for aspiring data scientists and AI enthusiasts,
-                  our events bring together leading experts and cutting-edge content to ensure you stay ahead in the fast-evolving tech landscape. 
-                  Join us to gain practical insights, hands-on experience, and valuable networking opportunities that will propel your career to new heights.
-                   Embrace the future of learning and skill development with Zep Research.
+                Enhance your expertise through our targeted summits and training programs, designed to address specific industry needs. Our events feature hands-on workshops, in-depth sessions, and expert guidance tailored to elevate your skills and knowledge. Dive into practical learning experiences that cover the latest techniques, tools, and best practices in your field. These sessions are crafted to provide you with actionable insights and practical skills that you can apply directly to your work, ensuring you stay competitive and informed.
               </p>
             </div>
           </div>
@@ -100,14 +94,11 @@ export default function Why() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">Can only find at Zep Research</h2>
+              <h2 className="text-base font-semibold leading-7 text-blue-600">Peers, Researchers & Industry Professionals</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Networking & Collaboration</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-           At Zep Research, we believe in the power of collaboration and networking to drive innovation and growth.
-            Our e-learning platform is not just a place to acquire knowledge; it's a vibrant community where data science and AI enthusiasts come together to share ideas,
-             solve problems, and create new opportunities. Engage with industry experts, connect with like-minded peers, 
-             and participate in collaborative projects that enhance your learning experience and professional network.
-            Join us and be part of a community where collaboration fuels success.</p>
+            Experience unique networking opportunities and collaborative experiences at our events. Zep Research’s conferences and webinars are designed to connect you with a diverse group of professionals, researchers, and industry leaders. Engage in meaningful discussions, exchange ideas, and build relationships that can lead to new projects, partnerships, and career opportunities. Our events foster an environment where you can share your work, learn from others, and collaborate on innovative solutions, enhancing both your professional network and your impact in your field.
+</p>
             </div>
           </div>
           <div  className="flex justify-center">

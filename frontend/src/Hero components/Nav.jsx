@@ -21,11 +21,8 @@ import {
   Bars4Icon,
   GlobeAmericasIcon,
   NewspaperIcon,
-  PhoneIcon,
   RectangleGroupIcon,
   SquaresPlusIcon,
-  MicrophoneIcon,
-  TagIcon,
   UserGroupIcon,
   TrophyIcon,
   PaperAirplaneIcon,
@@ -35,72 +32,68 @@ import {
  import logo from '../images/singleLogo.png';
 import { useAuth } from "../context/AuthContext";
 import ProfileDropDown from "./ProfileDropDown";
+import { IconAffiliate, IconBook, IconPodium, IconScriptPlus, IconSlideshow, IconSpeakerphone, IconStars, IconVideoPlus, IconWriting } from "@tabler/icons-react";
 const navListMenuItems = [
   {
-    title: "Collaboration",
-    description: "Find the perfect solution for your needs.",
-    icon: SquaresPlusIcon,
-    link:"/Collaboration",
+    title: "Manuscript Preparation",
+    description: "From Draft to Publication, We Refine Your Work.",
+    icon: IconScriptPlus,
+    link:"/ManuscriptPreparation",
+  },
+ 
+  {
+    title: "Research Training & Workshops",
+    description: "Hands-On Training for Research Mastery.",
+    icon: IconWriting,
+    link:"/ResearchTrainingWorkshops",
   },
   {
-    title: "Conferences",
+    title:" Event Promotion & Marketing",
+    description: "Strategic Promotion for Academic Success.",
+    icon: IconSpeakerphone,
+    link:"/EventPromotionMarketing",
+  },
+   {
+    title: "All Conference",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
-    link:"/Conferences",
+    link:"/AllConference",
   },
   {
-    title: "Scientific Assistance",
+    title: "Journals & Publications",
     description: "Find the perfect solution for your needs.",
-    icon: Bars4Icon,
-    link:"/ScientificAssistance",
+    icon: IconBook,
+    link:"/Journals&Publications",
   },
   {
-    title: "Speakers",
-    description: "Learn how we can help you achieve your goals.",
-    icon: MicrophoneIcon,
-    link:"/Speakers",
+    title: "Conferences & Webinars",
+    description: "Where Scholars Meet, Ideas Flourish",
+    icon: IconPodium,
+    link:"/ConferencesWebinars",
   },
   {
-    title: "Worldwide Platform",
-    description: "Reach out to us for assistance or inquiries",
-    icon: GlobeAmericasIcon,
-    link:"/WorldwidePlatform",
-  },
-  {
-    title: "Publishing opportunities",
-    description: "Find the perfect solution for your needs.",
-    icon: PaperAirplaneIcon,
-    link:"/PublishingOpportunities",
-  },
-  {
-    title: "Publications",
-    description: "Read insightful articles, tips, and expert opinions.",
-    icon: NewspaperIcon,
-    link:"/Publication",
+    title: "Peer Review Management",
+    description: "Streamlining Peer Reviews for Academic Excellence.",
+    icon: IconStars,
+    link:"/PeerReviewManagement",
   },
   {
     title: "Courses",
     description: "Find the perfect solution for your needs.",
-    icon: RectangleGroupIcon,
+    icon: IconVideoPlus,
     link:"/Courses",
   },
   {
-    title: "Awards & Recognitions",
-    description: "Explore limited-time deals and bundles",
-    icon: TrophyIcon,
-    link:"/Awards&Recognitions",
-  },
-  {
-    title: "Professional Conference Organizer",
-    description: "Explore limited-time deals and bundles",
-    icon: AcademicCapIcon,
-    link:"/ProfessionalConferenceOrganizer",
+    title: "Networking & Collaboration",
+    description: "Connecting Global Minds for Collaborative Growth.",
+    icon: IconAffiliate,
+    link:"/NetworkingCollaboration",
   },
    {
-    title: "Experience a knowledge Exchange",
-    description: "Explore limited-time deals and bundles",
-    icon: BookOpenIcon,
-    link:"/ExperienceknowledgeExchange",
+    title: "Online Courses",
+    description: "Empowering Researchers Through Skillful Learning.",
+    icon: IconSlideshow,
+    link:"/OnlineCourses",
   },
 ];
  
@@ -112,7 +105,7 @@ function NavListMenu() {
   const renderItems = navListMenuItems.map(
     ({ icon, title, description,link }, key) => (
       <a href={link} key={key}>
-        <MenuItem className="flex items-center gap-3 rounded-lg">
+        <MenuItem className="flex items-start gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
             {" "}
             {React.createElement(icon, {

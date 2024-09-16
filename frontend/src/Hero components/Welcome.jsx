@@ -2,6 +2,10 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@material-tailwind/react';
 
+
+
+
+
 const sections = [
   {
     title: 'Professional Conference Organizer',
@@ -67,10 +71,12 @@ export default function Welcome() {
         
         <AnimatedSection delay={1}>
           <div className="mt-12 text-center">
-            <Button variant='gradient' color="blue" size="lg">
+            <a href="/Conferences&Webinars">
+            <Button  variant='gradient' color="blue" size="lg">
             
               Explore Upcoming Conferences
             </Button>
+            </a>
           </div>
         </AnimatedSection>
       </div>

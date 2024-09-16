@@ -7,8 +7,10 @@ function Hero() {
     <div class="relative overflow-hidden">
   <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="max-w-2xl text-center mx-auto">
-      <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl">Transforming Possibilities into  <span class="bg-clip-text text-transparent bg-gradient-to-tr from-cyan-500 via-blue-500 to-blue-600">Digital Realities</span></h1>
-      <p class="mt-3 text-lg text-gray-800 "> Where global innovators converge to shape the future of digital experiences. Immerse yourself in a world of knowledge, connections, and inspiration.</p>
+      <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl md:text-5xl">Redefining Opportunities for a 
+  <span class="bg-clip-text text-transparent bg-gradient-to-tr from-cyan-500 via-blue-500 to-blue-600"> Digital Future.</span></h1>
+      <p class="mt-3 text-lg text-gray-800 "> Where academic minds unite to advance research and collaboration. Experience transformative conferences and webinars that ignite ideas, foster connections, and drive innovation
+</p>
     </div>
 
     <div class="mt-10 relative max-w-5xl mx-auto">

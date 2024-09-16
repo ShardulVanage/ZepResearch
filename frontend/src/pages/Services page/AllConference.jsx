@@ -4,7 +4,7 @@ import Testimonial from "../Conference Components/Testimonial"
 import Why from "../Conference Components/Why"
 
 
-function Conferences() {
+function AllConference() {
   return (
   <section>
     <Hero/>
@@ -15,4 +15,4 @@ function Conferences() {
   )
 }
 
-export default Conferences
+export default AllConference
