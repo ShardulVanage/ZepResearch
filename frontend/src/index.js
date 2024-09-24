@@ -45,6 +45,7 @@ import NetworkingCollaboration from './pages/Services page/NetworkingCollaborati
 import OnlineCourses from './pages/Services page/OnlineCourses';
 import AllConference from './pages/Services page/AllConference';
 import ConferencesWebinars from './pages/Services page/ConferencesWebinars';
+import Blogs from './pages/BlogDetail/Blogs';
 const ConditionalNav = () => {
   const location = useLocation();
   return location.pathname !== "/" ? <Nav /> : null;
@@ -66,7 +67,6 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <App /> },
       { path: "/Paymentpage", element: <PaymentPage/> },
-      { path: "/ZepResarch", element: <ZepResarch /> },
       { path: "/Patners", element: <Patners /> },
       { path: "/Mission&Vission", element: <MissionVission /> },
       { path: "/Membership", element: <Membership /> },
@@ -78,10 +78,7 @@ const router = createBrowserRouter([
       { path: "/Courses/:id", element: <CourseDetail /> },
       { path: "/Speakers", element: <Speakers /> },
       { path: "/SponserShip", element: <SponserShip /> },
-      { path: "/Login", element: <Login /> },
-      { path: "/Registration", element: <Registration/> },
-      { path: "/BecomeMember", element: <BecomeMember/> },
-      { path: "/Blogs", element: <Blogdetail /> },
+      { path: "/Blogs/:id", element: <Blogdetail /> },
       { path: "/CancellationPolicy", element: <CancellationPolicy /> },
       
       //Services
@@ -94,9 +91,13 @@ const router = createBrowserRouter([
       { path: "/PeerReviewManagement", element: <PeerReviewManagement/> },
       { path: "/AllConference", element: <AllConference /> },
       { path: "/Journals&Publications", element: <JournalsPublications /> },
-
-
-
+      
+      //Navbar
+      { path: "/ZepResarch", element: <ZepResarch /> },
+      { path: "/Blogs", element: <Blogs /> },
+      { path: "/BecomeMember", element: <BecomeMember/> },
+      { path: "/Registration", element: <Registration/> },
+      { path: "/Login", element: <Login /> },
     ],
   },
 ]);

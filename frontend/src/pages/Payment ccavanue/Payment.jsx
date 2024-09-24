@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000'; // Make sure this matches your backend URL
+const API_BASE_URL = 'http://localhost:80'; // Make sure this matches your backend URL
 const CCAvenue_URL = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
 
 const CCAvenuePay = ({ encryptedOrderInfo, accessCode }) => {
@@ -51,8 +51,8 @@ const Payment = () => {
       const response = await axios.post(`${API_BASE_URL}/api/ccavenue/initiate-payment`, {
         orderId: 'ORDER123',
         amount: '100.00',
-        redirectUrl: 'http://your-website.com/payment-success',
-        cancelUrl: 'http://your-website.com/payment-cancelled'
+        redirectUrl: 'http:localhost.com/payment-success',
+        cancelUrl: 'http:localhost.com/payment-cancelled'
       });
       console.log('Received response:', response.data);
       if (response.data && response.data.encryptedOrderInfo && response.data.accessCode) {

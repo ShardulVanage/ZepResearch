@@ -15,12 +15,13 @@ import ConferencePopup from './Hero components/ConferencePopup';
 import CeoVision from './Hero components/CeoVision';
 import SustainableDevelopment from './Hero components/SustainableDevelopment';
 import { PhoneIcon } from 'lucide-react'
-import Blog from './Hero components/Blog';
+import Blog from './Hero components/HeroBlog';
 import BenefitMember from './Hero components/BenefitMember';
 import whatsapplogo from './assets/whatsapp.png';
 import { Nav } from './Hero components/Nav';
 import { Reviews } from './Hero components/Review';
 import { Features } from './Hero components/Feature';
+import HeroBlog from './Hero components/HeroBlog';
 
 
 
@@ -44,7 +45,7 @@ function App() {
       <CeoVision/>
       {/* <SustainableDevelopment/> */}
       {/* <BenefitMember/> */}
-      <Blog/>
+      <HeroBlog/>
       
       {/* <Partners/> */}
       <Reviews/>

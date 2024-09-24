@@ -17,18 +17,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import {
-  Bars4Icon,
-  GlobeAmericasIcon,
-  NewspaperIcon,
-  RectangleGroupIcon,
-  SquaresPlusIcon,
-  UserGroupIcon,
-  TrophyIcon,
-  PaperAirplaneIcon,
-  AcademicCapIcon,
-  BookOpenIcon
-} from "@heroicons/react/24/solid";
+import { UserGroupIcon,} from "@heroicons/react/24/solid";
  import logo from '../images/singleLogo.png';
 import { useAuth } from "../context/AuthContext";
 import ProfileDropDown from "./ProfileDropDown";
@@ -198,10 +187,11 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-
+<a href="/Blogs">
         <ListItem  className="flex items-center gap-2 py-2 pr-4">
           Blogs
         </ListItem>
+</a>
       
       </Typography>
       <NavListMenu />
