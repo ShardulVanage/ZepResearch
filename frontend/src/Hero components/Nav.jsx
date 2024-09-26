@@ -42,12 +42,12 @@ const navListMenuItems = [
     icon: IconSpeakerphone,
     link:"/EventPromotionMarketing",
   },
-   {
-    title: "All Conference",
-    description: "Meet and learn about our dedication",
-    icon: UserGroupIcon,
-    link:"/AllConference",
-  },
+  //  {
+  //   title: "All Conference",
+  //   description: "Meet and learn about our dedication",
+  //   icon: UserGroupIcon,
+  //   link:"/AllConference",
+  // },
   {
     title: "Journals & Publications",
     description: "Find the perfect solution for your needs.",
@@ -66,12 +66,12 @@ const navListMenuItems = [
     icon: IconStars,
     link:"/PeerReviewManagement",
   },
-  {
-    title: "Courses",
-    description: "Find the perfect solution for your needs.",
-    icon: IconVideoPlus,
-    link:"/Courses",
-  },
+  // {
+  //   title: "",
+  //   description: "Find the perfect solution for your needs.",
+  //   icon: IconVideoPlus,
+  //   link:"/Courses",
+  // },
   {
     title: "Networking & Collaboration",
     description: "Connecting Global Minds for Collaborative Growth.",
@@ -169,6 +169,8 @@ function NavListMenu() {
 }
  
 function NavList() {
+   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
@@ -187,14 +189,17 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-<a href="/Blogs">
-        <ListItem  className="flex items-center gap-2 py-2 pr-4">
-          Blogs
-        </ListItem>
-</a>
-      
+        <a href="/Blogs">
+          <ListItem  className="flex items-center gap-2 py-2 pr-4">
+             Blogs
+          </ListItem>
+        </a>
+        
+          
       </Typography>
       <NavListMenu />
+
+
       <Typography
         as="a"
         href="#"
@@ -223,7 +228,45 @@ function NavList() {
       </a>
       </Typography>
 
-     
+     <Menu
+      open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement="bottom"
+        allowHover={true}
+     >
+        <MenuHandler>
+          <Typography
+        as="a"
+        href="#"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      >
+
+        <ListItem  className="flex items-center gap-2 py-2 pr-4">
+          Resources & Event
+           <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+        </ListItem>
+      
+      </Typography>
+        </MenuHandler>
+        <MenuList>
+          <MenuItem><a href="/Courses">Courses</a></MenuItem>
+          <MenuItem><a href="/AllConference">All Conference</a></MenuItem>
+        </MenuList>
+      </Menu>
       
     </List>
   );

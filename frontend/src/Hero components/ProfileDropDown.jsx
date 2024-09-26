@@ -24,8 +24,8 @@ export default function ProfileDropDown() {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute left-1/2 z-50 mt-5 flex w-screen max-w-min -translate-x-1/2 px-4">
-          <div className="w-56 shrink rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
+        <Popover.Panel className="absolute  left-1/2 z-50 mt-5 flex w-screen max-w-min -translate-x-1/2 px-4">
+          <div className="w-56 shrink  z-50 rounded-xl bg-white p-4 text-sm font-semibold leading-6 text-gray-900 shadow-lg ring-1 ring-gray-900/5">
            <h1 className='underline underline-offset-4 pl-2'>{client.authStore.model.name}</h1>
               <a onClick={logout}  className="block p-2 hover:text-indigo-600">
               logout

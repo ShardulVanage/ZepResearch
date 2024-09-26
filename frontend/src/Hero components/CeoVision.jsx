@@ -87,7 +87,7 @@ function CeoVision() {
             <div className="relative overflow-hidden rounded-br-[15rem] rounded-bl-2xl rounded-tl-sm bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
               <img
                 className="absolute inset-0 h-full w-full object-cover brightness-125 saturate-0 "
-                src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1727342905/mykbitvfcnerpxsvh8qz.jpg"
                 alt=""
               />
               <div className="absolute inset-0 bg-gray-500 mix-blend-multiply" />
