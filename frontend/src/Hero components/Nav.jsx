@@ -197,24 +197,7 @@ function NavList() {
         
           
       </Typography>
-      <NavListMenu />
-
-
       <Typography
-        as="a"
-        href="#"
-        variant="small"
-        color="blue-gray"
-        className="font-medium"
-      ><a href="/ContactUs">
-
-        <ListItem  className="flex items-center gap-2 py-2 pr-4">
-          Contact Us
-        </ListItem>
-      </a>
-      </Typography>
-
-       <Typography
         as="a"
         href="#"
         variant="small"
@@ -227,6 +210,12 @@ function NavList() {
         </ListItem>
       </a>
       </Typography>
+      <NavListMenu />
+
+
+     
+
+       
 
      <Menu
       open={isMenuOpen}
@@ -263,11 +252,23 @@ function NavList() {
       </Typography>
         </MenuHandler>
         <MenuList>
-          <MenuItem><a href="/Courses">Courses</a></MenuItem>
-          <MenuItem><a href="/AllConference">All Conference</a></MenuItem>
+          <a href="/Courses" className="w-full"><MenuItem >Courses</MenuItem></a>
+          <a href="/AllConference"  className="w-full"><MenuItem >All Conference</MenuItem></a>
         </MenuList>
       </Menu>
-      
+       <Typography
+        as="a"
+        href="#"
+        variant="small"
+        color="blue-gray"
+        className="font-medium"
+      ><a href="/ContactUs">
+
+        <ListItem  className="flex items-center gap-2 py-2 pr-4">
+          Contact Us
+        </ListItem>
+      </a>
+      </Typography>
     </List>
   );
 }

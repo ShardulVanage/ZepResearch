@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Button } from "@material-tailwind/react";
+import React, { useState, useEffect ,useCallback} from 'react';
+import { Typography, Button, Card } from "@material-tailwind/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Nav } from './Nav';
+import { CardStack } from './ui/card-stack';
+import { cn } from '../lib/utils';
+
 import p1 from '../images/patners/1.png'
 import p2 from '../images/patners/2.png'
 import p3 from '../images/patners/3.png'
@@ -17,6 +20,7 @@ import p12 from '../images/patners/12.png'
 import p13 from '../images/patners/13.png'
 import p14 from '../images/patners/14.png'
 import p15 from '../images/patners/15.jpg'
+
 
 
 const logos = [
@@ -47,7 +51,12 @@ const images = [
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [conference, setConference] = useState([]);
 
+
+
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
@@ -61,7 +70,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className=" h-screen w-full overflow-hidden">
       {/* Image Slider */}
       <AnimatePresence mode="wait">
         {!isTransitioning && (
@@ -144,6 +153,68 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>   
+         
     </section>
   );
 }
+
+
+
+
+
+
+export const Highlight = ({
+  children,
+  className
+}) => {
+  return (
+    (<span
+      className={cn(
+        "font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5",
+        className
+      )}>
+      {children}
+    </span>)
+  );
+};
+
+const CARDS = [
+  {
+    id: 0,
+    name: "Manu Arora",
+    designation: "Senior Software Engineer",
+    content: (
+      <p>
+        These cards are amazing, <Highlight>I want to use them</Highlight> in my
+        project. Framer motion is a godsend ngl tbh fam 🙏
+      </p>
+    ),
+  },
+  {
+    id: 1,
+    name: "Elon Musk",
+    designation: "Senior Shitposter",
+    content: (
+      <p>
+        I dont like this Twitter thing,{" "}
+        <Highlight>deleting it right away</Highlight> because yolo. Instead, I
+        would like to call it <Highlight>X.com</Highlight> so that it can easily
+        be confused with adult sites.
+      </p>
+    ),
+  },
+  {
+    id: 2,
+    name: "Tyler Durden",
+    designation: "Manager Project Mayhem",
+    content: (
+      <p>
+        The first rule of
+        <Highlight>Fight Club</Highlight> is that you do not talk about fight
+        club. The second rule of
+        <Highlight>Fight club</Highlight> is that you DO NOT TALK about fight
+        club.
+      </p>
+    ),
+  },
+];
