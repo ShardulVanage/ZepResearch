@@ -132,6 +132,7 @@ export default function Hero() {
             <Button color="white" variant="outlined" size="lg">
               Learn More
             </Button>
+           
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-4 bg-black bg-opacity-50">

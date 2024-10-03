@@ -46,6 +46,10 @@ import OnlineCourses from './pages/Services page/OnlineCourses';
 import AllConference from './pages/Services page/AllConference';
 import ConferencesWebinars from './pages/Services page/ConferencesWebinars';
 import Blogs from './pages/BlogDetail/Blogs';
+import Success from './pages/Payment ccavanue/Success';
+import Failed from './pages/Payment ccavanue/Failed';
+
+
 const ConditionalNav = () => {
   const location = useLocation();
   return location.pathname !== "/" ? <Nav /> : null;
@@ -98,6 +102,10 @@ const router = createBrowserRouter([
       { path: "/BecomeMember", element: <BecomeMember/> },
       { path: "/Registration", element: <Registration/> },
       { path: "/Login", element: <Login /> },
+
+      //CCAvenue payment
+      { path: "/success", element: <Success/> },
+      { path: "/failed", element: <Failed /> },
     ],
   },
 ]);

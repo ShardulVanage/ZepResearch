@@ -1,88 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:80'; // Make sure this matches your backend URL
-const CCAvenue_URL = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
+export default function Payment() {
+  const backendHost = "http://localhost:5000"; // Make sure this matches your backend URL
 
-const CCAvenuePay = ({ encryptedOrderInfo, accessCode }) => {
-  useEffect(() => {
-    if (encryptedOrderInfo && accessCode) {
-      console.log('Submitting form to CCAvenue');
-      console.log('Encrypted Order Info:', encryptedOrderInfo);
-      console.log('Access Code:', accessCode);
+  const paymentCCAvenue = async () => {
+    let paymentData = {
+      merchant_id: '350427',
+      order_id: "ORD123",
+      amount: "50",
+      currency: "INR",
+      billing_email: "johndoe@gmail.com",
+      billing_name: "John Doe",
+      billing_address: "Address Details",
+      billing_city: "Ahmedabad",
+      billing_state: "Gujarat",
+      billing_zip: "380002",
+      billing_country: "India",
+      redirect_url: `${backendHost}/api/ccavenue-handle`,
+      cancel_url: `${backendHost}/api/ccavenue-handle`,
+      merchant_param1: "Extra Information",
+      merchant_param2: "Extra Information",
+      merchant_param3: "Extra Information",
+      merchant_param4: "Extra Information",
+      language: 'EN',
+      billing_tel: "1234567890"
+    };
 
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = CCAvenue_URL;
-      form.target = '_blank'; // Open in a new tab
-
-      const encryptedOrderInfoInput = document.createElement('input');
-      encryptedOrderInfoInput.type = 'hidden';
-      encryptedOrderInfoInput.name = 'encRequest';
-      encryptedOrderInfoInput.value = encryptedOrderInfo;
-
-      const accessCodeInput = document.createElement('input');
-      accessCodeInput.type = 'hidden';
-      accessCodeInput.name = 'access_code';
-      accessCodeInput.value = accessCode;
-
-      form.appendChild(encryptedOrderInfoInput);
-      form.appendChild(accessCodeInput);
-
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-    }
-  }, [encryptedOrderInfo, accessCode]);
-
-  return <div>Redirecting to payment gateway...</div>;
-};
-
-const Payment = () => {
-  const [paymentData, setPaymentData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const initiatePayment = async () => {
-    setIsLoading(true);
-    setError(null);
     try {
-      console.log('Initiating payment...');
-      const response = await axios.post(`${API_BASE_URL}/api/ccavenue/initiate-payment`, {
-        orderId: 'ORDER123',
-        amount: '100.00',
-        redirectUrl: 'http:localhost.com/payment-success',
-        cancelUrl: 'http:localhost.com/payment-cancelled'
-      });
-      console.log('Received response:', response.data);
-      if (response.data && response.data.encryptedOrderInfo && response.data.accessCode) {
-        setPaymentData(response.data);
-      } else {
-        throw new Error('Invalid response from server');
-      }
+      const response = await axios.post(`${backendHost}/api/ccavenue-initiate`, paymentData);
+      const { encRequest, accessCode } = response.data;
+      const URL = `https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction&merchant_id=${paymentData.merchant_id}&encRequest=${encRequest}&access_code=${accessCode}`;
+      window.location.href = URL;
     } catch (error) {
       console.error('Error initiating payment:', error);
-      setError('Failed to initiate payment. Please try again.');
-    } finally {
-      setIsLoading(false);
     }
   };
 
   return (
-    <div>
-      <button onClick={initiatePayment} disabled={isLoading}>
-        {isLoading ? 'Processing...' : 'Pay Now'}
-      </button>
-      {isLoading && <p>Initiating payment...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {paymentData && (
-        <CCAvenuePay 
-          encryptedOrderInfo={paymentData.encryptedOrderInfo} 
-          accessCode={paymentData.accessCode} 
-        />
-      )}
-    </div>
+    <>
+      <button onClick={paymentCCAvenue}>Pay Now</button>
+    </>
   );
-};
-
-export default Payment;
+}

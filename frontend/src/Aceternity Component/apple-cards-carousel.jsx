@@ -21,9 +21,6 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-
-
-
 export const CarouselContext = createContext({
   onCardClose: () => {},
   currentIndex: 0,
@@ -149,7 +146,7 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 export const CardX = ({ card, index, layout = false }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
-  const { onCardClose,  } = useContext(CarouselContext);
+  const { onCardClose } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -216,7 +213,9 @@ export const CardX = ({ card, index, layout = false }) => {
               >
                 {card.title}
               </motion.p>
-              <div className="py-10"><Content content={card}/></div>
+              <div className="py-10">
+                <Content content={card} />
+              </div>
             </motion.div>
           </div>
         )}
@@ -228,18 +227,26 @@ export const CardX = ({ card, index, layout = false }) => {
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
         <div className="relative z-40 p-8">
-          <motion.p
+          {/* <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
             className="text-white text-sm md:text-base font-medium font-sans text-left drop-shadow-md"
           >
-           📍 {card.location}
-          </motion.p>
+            📍 {card.location}
+          </motion.p> */}
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
             className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2 drop-shadow-2xl "
           >
             {card.title}
           </motion.p>
+          <div className="flex flex-col justify-start items-start px-2 pt-3">
+            <p className="text-white text-sm md:text-base font-bold font-sans text-left drop-shadow-md">
+              📍 {card.location}
+            </p>
+            <p className="text-white text-sm md:text-base font-bold font-sans text-left drop-shadow-md">
+              📅{card.date}
+            </p>
+          </div>
         </div>
         <BlurImage
           src={card.img}
@@ -252,14 +259,7 @@ export const CardX = ({ card, index, layout = false }) => {
   );
 };
 
-export const BlurImage = ({
-  height,
-  width,
-  src,
-  className,
-  alt,
-  ...rest
-}) => {
+export const BlurImage = ({ height, width, src, className, alt, ...rest }) => {
   const [isLoading, setLoading] = useState(true);
   return (
     <Image
@@ -281,86 +281,77 @@ export const BlurImage = ({
   );
 };
 
-
-
-
-export const Content = ({content}) => {
+export const Content = ({ content }) => {
   return (
     <>
-     
-            
-          <div
-            key={"dummy-content" }
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-            >
-            <Image
-              src={content.img}
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className=" h-full w-4/5 rounded-xl mx-auto object-fill mb-4 drop-shadow-lg"
-            />
-            <p className="text-neutral-600 dark:text-neutral-400 text-base text-justify md:text-xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700 dark:text-neutral-200">
-               {content.title},<br />
-              </span>{" "}
-               {content.description}
-            </p>
-            <section className="grid sm:grid-cols-3 grid-cols-1 gap-2 justify-items-center  h-full place-items-center p-4">
-      <Card className="w-auto sm:max-w-[24rem] ">
-        <CardHeader floated={false} shadow={false} className="rounded-none">
-          
-          <Typography
-            color="blue-gray"
-            className="mt-1 mb-2  text-[20px] font-bold"
-          >
-           Place
-          </Typography>
-        </CardHeader>
-        <CardBody className="px-4 pt-0">
-          <Typography className="font-normal text-gray-600">
-           {content.location}
-          </Typography>
-        </CardBody>
-     
-      </Card>
-      <Card className="w-auto max-w-[24rem]">
-        <CardHeader floated={false} shadow={false} className="rounded-none">
-          
-          <Typography
-            color="blue-gray"
-            className="mt-1 mb-2 text-[20px] font-bold"
-          >
-           Website
-          </Typography>
-        </CardHeader>
-        <CardBody className="px-4 pt-0">
-          <a href={content.websiteUrl} className="font-normal text-gray-600 underline underline-offset-2">
-          {content.websiteUrl}
-          </a>
-        </CardBody>
-     
-      </Card>
-       <Card className="w-auto max-w-[24rem]">
-        <CardHeader floated={false} shadow={false} className="rounded-none">
-          
-          <Typography
-            color="blue-gray"
-            className="mt-1 mb-2 text-[20px] font-bold"
-          >
-            Date
-          </Typography>
-        </CardHeader>
-        <CardBody className="px-4 pt-0">
-          <Typography className="font-normal text-gray-600">
-          {content.date}
-          </Typography>
-        </CardBody>
-       
-      </Card>
-    </section>
-          </div>
-      
+      <div
+        key={"dummy-content"}
+        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
+      >
+        <Image
+          src={content.img}
+          alt="Macbook mockup from Aceternity UI"
+          height="500"
+          width="500"
+          className=" h-full w-4/5 rounded-xl mx-auto object-fill mb-4 drop-shadow-lg"
+        />
+        <p className="text-neutral-600 dark:text-neutral-400 text-base text-justify md:text-xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            {content.title},<br />
+          </span>{" "}
+          {content.description}
+        </p>
+        <section className="grid sm:grid-cols-3 grid-cols-1 gap-2 justify-items-center  h-full place-items-center p-4">
+          <Card className="w-auto sm:max-w-[24rem] ">
+            <CardHeader floated={false} shadow={false} className="rounded-none">
+              <Typography
+                color="blue-gray"
+                className="mt-1 mb-2  text-[20px] font-bold"
+              >
+                Place
+              </Typography>
+            </CardHeader>
+            <CardBody className="px-4 pt-0">
+              <Typography className="font-normal text-gray-600">
+                {content.location}
+              </Typography>
+            </CardBody>
+          </Card>
+          <Card className="w-auto max-w-[24rem]">
+            <CardHeader floated={false} shadow={false} className="rounded-none">
+              <Typography
+                color="blue-gray"
+                className="mt-1 mb-2 text-[20px] font-bold"
+              >
+                Website
+              </Typography>
+            </CardHeader>
+            <CardBody className="px-4 pt-0">
+              <a
+                href={content.websiteUrl}
+                className="font-normal text-gray-600 underline underline-offset-2"
+              >
+                {content.websiteUrl}
+              </a>
+            </CardBody>
+          </Card>
+          <Card className="w-auto max-w-[24rem]">
+            <CardHeader floated={false} shadow={false} className="rounded-none">
+              <Typography
+                color="blue-gray"
+                className="mt-1 mb-2 text-[20px] font-bold"
+              >
+                Date
+              </Typography>
+            </CardHeader>
+            <CardBody className="px-4 pt-0">
+              <Typography className="font-normal text-gray-600">
+                {content.date}
+              </Typography>
+            </CardBody>
+          </Card>
+        </section>
+      </div>
     </>
   );
 };

@@ -22,6 +22,8 @@ import { Nav } from './Hero components/Nav';
 import { Reviews } from './Hero components/Review';
 import { Features } from './Hero components/Feature';
 import HeroBlog from './Hero components/HeroBlog';
+import { ConfVenue } from './pages/Conference Components/ConfVenue';
+
 
 
 
@@ -36,11 +38,12 @@ function App() {
      <img src={whatsapplogo} className="" />
     </a>
       
-      <ConferencePopup/>
+      {/* <ConferencePopup/> */}
       <Hero/>
       <Welcome/>
      <Features/>
-      <VideFeedBck/>
+     <ConfVenue/>
+      {/* <VideFeedBck/> */}
       <ChooseUs/>
       <CeoVision/>
       {/* <SustainableDevelopment/> */}
