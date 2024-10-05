@@ -1,27 +1,25 @@
-import React, { useState, useEffect ,useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 import { Typography, Button, Card } from "@material-tailwind/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Nav } from './Nav';
-import { CardStack } from './ui/card-stack';
-import { cn } from '../lib/utils';
+import { Nav } from "./Nav";
+import { CardStack } from "./ui/card-stack";
+import { cn } from "../lib/utils";
 
-import p1 from '../images/patners/1.png'
-import p2 from '../images/patners/2.png'
-import p3 from '../images/patners/3.png'
-import p4 from '../images/patners/4.png'
-import p5 from '../images/patners/5.png'
-import p6 from '../images/patners/6.png'
-import p7 from '../images/patners/7.png'
-import p8 from '../images/patners/8.png'
-import p9 from '../images/patners/9.png'
-import p10 from '../images/patners/10.png'
-import p11 from '../images/patners/11.png'
-import p12 from '../images/patners/12.png'
-import p13 from '../images/patners/13.png'
-import p14 from '../images/patners/14.png'
-import p15 from '../images/patners/15.jpg'
-
-
+import p1 from "../images/patners/1.png";
+import p2 from "../images/patners/2.png";
+import p3 from "../images/patners/3.png";
+import p4 from "../images/patners/4.png";
+import p5 from "../images/patners/5.png";
+import p6 from "../images/patners/6.png";
+import p7 from "../images/patners/7.png";
+import p8 from "../images/patners/8.png";
+import p9 from "../images/patners/9.png";
+import p10 from "../images/patners/10.png";
+import p11 from "../images/patners/11.png";
+import p12 from "../images/patners/12.png";
+import p13 from "../images/patners/13.png";
+import p14 from "../images/patners/14.png";
+import p15 from "../images/patners/15.jpg";
 
 const logos = [
   p1,
@@ -54,9 +52,6 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [conference, setConference] = useState([]);
 
-
-
-  
   useEffect(() => {
     const interval = setInterval(() => {
       setIsTransitioning(true);
@@ -101,13 +96,17 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col h-full items-center justify-start text-center text-white">
         <Nav />
-        <div className="max-w-4xl px-4 h-screen flex flex-col items-center justify-center">  
+        <div className="max-w-4xl px-4 h-screen flex flex-col items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Typography variant="h1" color="white" className="mb-4 text-4xl md:text-5xl lg:text-6xl font-JosefinSans">
+            <Typography
+              variant="h1"
+              color="white"
+              className="mb-4 text-4xl md:text-5xl lg:text-6xl font-JosefinSans"
+            >
               Bridging Minds & Empowering Research
             </Typography>
           </motion.div>
@@ -116,8 +115,13 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Typography variant="lead" color="white" className="mb-8 text-xl md:text-2xl font-PTSerif">
-              Elevate research and publication through expertly managed, innovative conferences.
+            <Typography
+              variant="lead"
+              color="white"
+              className="mb-8 text-xl md:text-2xl font-PTSerif"
+            >
+              Elevate research and publication through expertly managed,
+              innovative conferences.
             </Typography>
           </motion.div>
           <motion.div
@@ -126,13 +130,17 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <Button color="blue" variant='filled' size="lg" className="text-black">
+            <Button
+              color="blue"
+              variant="filled"
+              size="lg"
+              className="text-black"
+            >
               Start Your Journey
             </Button>
             <Button color="white" variant="outlined" size="lg">
               Learn More
             </Button>
-           
           </motion.div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 overflow-hidden py-4 bg-black bg-opacity-50">
@@ -149,33 +157,30 @@ export default function Hero() {
             }}
           >
             {[...logos, ...logos].map((logo, index) => (
-              <img key={index} src={logo} alt={`Logo ${index + 1}`} className="mx-8 h-10 sm:h-16 w-full grayscale hover:grayscale-0" />
+              <img
+                key={index}
+                src={logo}
+                alt={`Logo ${index + 1}`}
+                className="mx-8 h-10 sm:h-16 w-full "
+              />
             ))}
           </motion.div>
         </div>
-      </div>   
-         
+      </div>
     </section>
   );
 }
 
-
-
-
-
-
-export const Highlight = ({
-  children,
-  className
-}) => {
+export const Highlight = ({ children, className }) => {
   return (
-    (<span
+    <span
       className={cn(
         "font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5",
         className
-      )}>
+      )}
+    >
       {children}
-    </span>)
+    </span>
   );
 };
 

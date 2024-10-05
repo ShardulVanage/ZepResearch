@@ -1,14 +1,13 @@
-import React,{  useRef } from 'react'
-import logo from '../assets/logo.svg'
-import { InView } from './ui/inView'
-import { motion, useInView  } from "framer-motion";
+import React, { useRef } from "react";
+import logo from "../assets/logo.svg";
+import { InView } from "./ui/inView";
+import { motion, useInView } from "framer-motion";
 const stats = [
-  { label: 'Founded', value: '2021' },
-  { label: 'Conference', value: '37+' },
-  { label: 'Article Published', value: '1200+' },
-  { label: 'Journal tie-ups', value: '75' },
-]
-
+  { label: "Founded", value: "2021" },
+  { label: "Conference", value: "37+" },
+  { label: "Article Published", value: "1200+" },
+  { label: "Journal tie-ups", value: "75" },
+];
 
 const AnimatedText = ({ text, className }) => {
   const words = text.split(" ");
@@ -34,55 +33,62 @@ const AnimatedText = ({ text, className }) => {
 
 function CeoVision() {
   return (
-     <div className=" py-6 sm:py-8  bg-white sm:drop-shadow-2xl  sm:mx-12 px-2  sm:rounded-b-full h-full sm:h-screen ">
+    <div className="   bg-white sm:drop-shadow-2xl  sm:mx-12 px-2  h-full rounded-2xl  py-24">
       <div className="mx-auto max-w-7xl  lg:px-8  drop-shadow-2xl  relative    ">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2 justify-between">
-            <InView
-          variants={{
-            hidden: {
-              opacity: 0,
-              x: -100,
-            },
-            visible: {
-              opacity: 1,
-              x: 0,
-            },
-          }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-          viewOptions={{ margin: '0px 0px -350px 0px' }}
-        >
-          <div className='flex flex-col justify-start'>
-            <div className="text-base leading-7 text-gray-700 lg:max-w-lg ">
-             
-              <h1 className='text-4xl md:text-5xl lg:text-5xl text-left font-bold font-JosefinSans py-8'>
-                Our Vision to Empower Academic Excellence
-              </h1>
-              <div className="max-w-xl text-justify">
-                <p className="text-base text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
-                  Empowering academic excellence through comprehensive support, we offer impactful conferences, 
-                  diverse publishing opportunities, and streamlined peer reviews. Our services include professional training, networking,
-                   and online courses designed to foster innovation and collaboration, driving growth and success within the academic community.
-
-                </p>
-              
-                
+          <InView
+            variants={{
+              hidden: {
+                opacity: 0,
+                x: -100,
+              },
+              visible: {
+                opacity: 1,
+                x: 0,
+              },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            viewOptions={{ margin: "0px 0px -350px 0px" }}
+          >
+            <div className="flex flex-col justify-start">
+              <div className="text-base leading-7 text-gray-700 lg:max-w-lg ">
+                <h1 className="text-4xl md:text-5xl lg:text-5xl text-left font-bold font-JosefinSans py-8">
+                  Our Vision to Empower Academic Excellence
+                </h1>
+                <div className="max-w-xl text-justify">
+                  <p className="text-base text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
+                    Empowering academic excellence through comprehensive
+                    support, we offer impactful conferences, diverse publishing
+                    opportunities, and streamlined peer reviews. Our services
+                    include professional training, networking, and online
+                    courses designed to foster innovation and collaboration,
+                    driving growth and success within the academic community.
+                  </p>
+                </div>
+              </div>
+              <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
+                {stats.map((stat, statIdx) => (
+                  <div key={statIdx}>
+                    <dt className="text-sm font-semibold leading-6 text-gray-600">
+                      {stat.label}
+                    </dt>
+                    <dd className="mt-2 text-3xl font-bold leading-10 tracking-tight text-gray-900">
+                      {stat.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-10 flex">
+                <a
+                  href="/ZepResarch"
+                  className="text-base font-semibold leading-7 text-blue-600"
+                >
+                  Learn more about our company{" "}
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
               </div>
             </div>
-            <dl className="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">
-              {stats.map((stat, statIdx) => (
-                <div key={statIdx}>
-                  <dt className="text-sm font-semibold leading-6 text-gray-600">{stat.label}</dt>
-                  <dd className="mt-2 text-3xl font-bold leading-10 tracking-tight text-gray-900">{stat.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className="mt-10 flex">
-              <a href="/ZepResarch" className="text-base font-semibold leading-7 text-blue-600">
-                Learn more about our company <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-</InView>
+          </InView>
           <div className=" flex justify-end  ">
             <div className="relative overflow-hidden rounded-br-[15rem] rounded-bl-2xl rounded-tl-sm bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
               <img
@@ -99,7 +105,7 @@ function CeoVision() {
                   className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#709eff] to-[#0d00ff] opacity-10"
                   style={{
                     clipPath:
-                      'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                      "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
                   }}
                 />
               </div>
@@ -117,17 +123,15 @@ function CeoVision() {
                   <use href="#0ef284b8-28c2-426e-9442-8655d393522e" x={86} />
                 </svg>
                 <span className="mt-6 text-xl font-semibold leading-8 text-white flex flex-row items-center justify-start">
-                <img src={logo} alt="" className="h-12 w-auto" />
-                Zep Research
+                  <img src={logo} alt="" className="h-12 w-auto" />
+                  Zep Research
                 </span>
                 <blockquote className="mt-6 text-xl font-semibold leading-8 text-white drop-shadow-2xl">
-                  
-                    <AnimatedText
-                    text= "Our commitment is to drive academic excellence with cutting-edge events, top-tier publications, and transformative professional development."
-                    />
+                  <AnimatedText text="Our commitment is to drive academic excellence with cutting-edge events, top-tier publications, and transformative professional development." />
                 </blockquote>
                 <figcaption className="mt-6 text-base leading-6 text-gray-300">
-                  <strong className="font-semibold text-white">CEO,</strong>  Zep Research
+                  <strong className="font-semibold text-white">CEO,</strong> Zep
+                  Research
                 </figcaption>
               </figure>
             </div>
@@ -135,7 +139,7 @@ function CeoVision() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CeoVision
+export default CeoVision;

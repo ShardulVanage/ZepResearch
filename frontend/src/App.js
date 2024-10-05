@@ -23,6 +23,7 @@ import { Reviews } from './Hero components/Review';
 import { Features } from './Hero components/Feature';
 import HeroBlog from './Hero components/HeroBlog';
 import { ConfVenue } from './pages/Conference Components/ConfVenue';
+import CeoVision2 from './Hero components/CeoVision2';
 
 
 
@@ -48,6 +49,7 @@ function App() {
       <CeoVision/>
       {/* <SustainableDevelopment/> */}
       {/* <BenefitMember/> */}
+      <CeoVision2/>
       <HeroBlog/>
       
       {/* <Partners/> */}
