@@ -3,10 +3,10 @@ export default function CeoVision2() {
     <div className="bg-white pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-16">
       <div className="   bg-gradient-to-r from-blue-900   to-gray-900 pb-20 sm:pb-24 xl:pb-0 drop-shadow-2xl">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
-          <div className=" p-2 aspect-[1/1] h-full  rounded-3xl md:-mx-8 xl:mx-0 xl:aspect-auto">
+          <div className=" p-2 aspect-[3/4]  sm:h-full h-1/2  rounded-3xl md:-mx-8 ">
             <img
-              className=" inset-0 h-full  rounded-3xl  w-3/4     object-cover shadow-2xl "
-              src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728121791/jltyim6tjevw8kx8pkuw.jpg"
+              className=" inset-0 h-full  rounded-3xl  w-full  object-cover"
+              src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728127012/rdmttxbnzlqkxkwc9zdl.jpg"
               alt=""
             />
           </div>
