@@ -1,16 +1,14 @@
 export default function CeoVision2() {
   return (
     <div className="bg-white pb-16 pt-24 sm:pb-24 sm:pt-32 xl:pb-16">
-      <div className=" relative z1 bg-gradient-to-r from-blue-900   to-gray-900 pb-20 sm:pb-24 xl:pb-0 drop-shadow-2xl">
+      <div className="   bg-gradient-to-r from-blue-900   to-gray-900 pb-20 sm:pb-24 xl:pb-0 drop-shadow-2xl">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
-          <div className="-mt-8 w-full max-w-xl xl:-mb-8 xl:w-96 xl:flex-none drop-shadow-2xl ">
-            <div className="relative aspect-[1/1] h-full  rounded-3xl md:-mx-8 xl:mx-0 xl:aspect-auto">
-              <img
-                className="absolute inset-0 h-full  rounded-3xl  w-3/4   object-cover shadow-2xl "
-                src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728120789/dnzficck4lgh3uzxel3s.jpg"
-                alt=""
-              />
-            </div>
+          <div className=" p-2 aspect-[1/1] h-full  rounded-3xl md:-mx-8 xl:mx-0 xl:aspect-auto">
+            <img
+              className=" inset-0 h-full  rounded-3xl  w-3/4     object-cover shadow-2xl "
+              src="https://res.cloudinary.com/dwlhesiyi/image/upload/v1728121791/jltyim6tjevw8kx8pkuw.jpg"
+              alt=""
+            />
           </div>
           <div className="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
             <figure className="relative isolate pt-6 sm:pt-12">
