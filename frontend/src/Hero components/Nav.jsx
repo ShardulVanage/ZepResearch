@@ -17,82 +17,81 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { UserGroupIcon,} from "@heroicons/react/24/solid";
- import logo from '../images/singleLogo.png';
+import { UserGroupIcon } from "@heroicons/react/24/solid";
+import logo from "../images/singleLogo.png";
 import { useAuth } from "../context/AuthContext";
 import ProfileDropDown from "./ProfileDropDown";
-import { IconAffiliate, IconBook, IconPodium, IconScriptPlus, IconSlideshow, IconSpeakerphone, IconStars, IconVideoPlus, IconWriting } from "@tabler/icons-react";
+import {
+  IconAffiliate,
+  IconBook,
+  IconPodium,
+  IconScriptPlus,
+  IconSlideshow,
+  IconSpeakerphone,
+  IconStars,
+  IconVideoPlus,
+  IconWriting,
+} from "@tabler/icons-react";
 const navListMenuItems = [
   {
     title: "Manuscript Preparation",
     description: "From Draft to Publication, We Refine Your Work.",
     icon: IconScriptPlus,
-    link:"/ManuscriptPreparation",
+    link: "/ManuscriptPreparation",
   },
- 
+
   {
     title: "Research Training & Workshops",
     description: "Hands-On Training for Research Mastery.",
     icon: IconWriting,
-    link:"/ResearchTrainingWorkshops",
+    link: "/ResearchTrainingWorkshops",
   },
   {
-    title:" Event Promotion & Marketing",
+    title: " Event Promotion & Marketing",
     description: "Strategic Promotion for Academic Success.",
     icon: IconSpeakerphone,
-    link:"/EventPromotionMarketing",
+    link: "/EventPromotionMarketing",
   },
-  //  {
-  //   title: "All Conference",
-  //   description: "Meet and learn about our dedication",
-  //   icon: UserGroupIcon,
-  //   link:"/AllConference",
-  // },
+
   {
     title: "Journals & Publications",
     description: "Find the perfect solution for your needs.",
     icon: IconBook,
-    link:"/Journals&Publications",
+    link: "/Journals&Publications",
   },
   {
     title: "Conferences & Webinars",
     description: "Where Scholars Meet, Ideas Flourish",
     icon: IconPodium,
-    link:"/ConferencesWebinars",
+    link: "/ConferencesWebinars",
   },
   {
     title: "Peer Review Management",
     description: "Streamlining Peer Reviews for Academic Excellence.",
     icon: IconStars,
-    link:"/PeerReviewManagement",
+    link: "/PeerReviewManagement",
   },
-  // {
-  //   title: "",
-  //   description: "Find the perfect solution for your needs.",
-  //   icon: IconVideoPlus,
-  //   link:"/Courses",
-  // },
+
   {
     title: "Networking & Collaboration",
     description: "Connecting Global Minds for Collaborative Growth.",
     icon: IconAffiliate,
-    link:"/NetworkingCollaboration",
+    link: "/NetworkingCollaboration",
   },
-   {
+  {
     title: "Online Courses",
     description: "Empowering Researchers Through Skillful Learning.",
     icon: IconSlideshow,
-    link:"/OnlineCourses",
+    link: "/OnlineCourses",
   },
 ];
- 
+
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description,link }, key) => (
+    ({ icon, title, description, link }, key) => (
       <a href={link} key={key}>
         <MenuItem className="flex items-start gap-3 rounded-lg">
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
@@ -104,7 +103,6 @@ function NavListMenu() {
           </div>
           <div>
             <Typography
-            
               variant="h6"
               color="blue-gray"
               className="flex items-center text-sm font-bold"
@@ -120,9 +118,9 @@ function NavListMenu() {
           </div>
         </MenuItem>
       </a>
-    ),
+    )
   );
- 
+
   return (
     <React.Fragment>
       <Menu
@@ -167,9 +165,9 @@ function NavListMenu() {
     </React.Fragment>
   );
 }
- 
+
 function NavList() {
-   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
@@ -182,7 +180,7 @@ function NavList() {
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
       </Typography>
-       <Typography
+      <Typography
         as="a"
         href="#"
         variant="small"
@@ -190,12 +188,10 @@ function NavList() {
         className="font-medium"
       >
         <a href="/Blogs">
-          <ListItem  className="flex items-center gap-2 py-2 pr-4">
-             Blogs
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            Blogs
           </ListItem>
         </a>
-        
-          
       </Typography>
       <Typography
         as="a"
@@ -203,39 +199,33 @@ function NavList() {
         variant="small"
         color="blue-gray"
         className="font-medium"
-      ><a href="/Gallery">
-
-        <ListItem  className="flex items-center gap-2 py-2 pr-4">
-          Gallery
-        </ListItem>
-      </a>
+      >
+        <a href="/Gallery">
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            Gallery
+          </ListItem>
+        </a>
       </Typography>
       <NavListMenu />
 
-
-     
-
-       
-
-     <Menu
-      open={isMenuOpen}
+      <Menu
+        open={isMenuOpen}
         handler={setIsMenuOpen}
         offset={{ mainAxis: 20 }}
         placement="bottom"
         allowHover={true}
-     >
+      >
         <MenuHandler>
           <Typography
-        as="a"
-        href="#"
-        variant="small"
-        color="blue-gray"
-        className="font-medium"
-      >
-
-        <ListItem  className="flex items-center gap-2 py-2 pr-4">
-          Resources & Event
-           <ChevronDownIcon
+            as="a"
+            href="#"
+            variant="small"
+            color="blue-gray"
+            className="font-medium"
+          >
+            <ListItem className="flex items-center gap-2 py-2 pr-4">
+              Resources & Event
+              <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
                   isMenuOpen ? "rotate-180" : ""
@@ -247,91 +237,95 @@ function NavList() {
                   isMobileMenuOpen ? "rotate-180" : ""
                 }`}
               />
-        </ListItem>
-      
-      </Typography>
+            </ListItem>
+          </Typography>
         </MenuHandler>
         <MenuList>
-          <a href="/Courses" className="w-full"><MenuItem >Courses</MenuItem></a>
-          <a href="/AllConference"  className="w-full"><MenuItem >All Conference</MenuItem></a>
+          <a href="/Courses" className="w-full">
+            <MenuItem>Courses</MenuItem>
+          </a>
+          <a href="/AllConference" className="w-full">
+            <MenuItem>All Conference</MenuItem>
+          </a>
         </MenuList>
       </Menu>
-       <Typography
+      <Typography
         as="a"
         href="#"
         variant="small"
         color="blue-gray"
         className="font-medium"
-      ><a href="/ContactUs">
-
-        <ListItem  className="flex items-center gap-2 py-2 pr-4">
-          Contact Us
-        </ListItem>
-      </a>
+      >
+        <a href="/ContactUs">
+          <ListItem className="flex items-center gap-2 py-2 pr-4">
+            Contact Us
+          </ListItem>
+        </a>
       </Typography>
     </List>
   );
 }
- 
+
 export function Nav() {
   const [openNav, setOpenNav] = React.useState(false);
- const { authState, updateAuthState } = useAuth();
+  const { authState, updateAuthState } = useAuth();
   React.useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
+      () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
- 
+
   return (
-        <Navbar className="  mx-auto mt-2 px-4 py-2 z-10 "  >
-    <div className="flex items-center  justify-between text-blue-gray-900 ">
-        
+    <Navbar className="  mx-auto mt-2 px-4 py-2 z-10 ">
+      <div className="flex items-center  justify-between text-blue-gray-900 ">
         <Typography
           as="a"
           href="/"
-          
           className="mr-4 cursor-pointer text-xs text-left font-bold py-1.5 lg:ml-2 inline-flex items-center"
         >
-          <img src={logo} alt="logo" className="w-10 h-10 mr-2 drop-shadow-md" />
-             Zep<br />Research
-            
+          <img
+            src={logo}
+            alt="logo"
+            className="w-10 h-10 mr-2 drop-shadow-md"
+          />
+          Zep
+          <br />
+          Research
         </Typography>
-         
+
         <div className="hidden lg:block">
           <NavList />
         </div>
 
         <div className="hidden gap-2 lg:flex ">
-           {
-              authState.isLoggedIn ?
-              <>
-                <div className="hidden gap-2 lg:flex">
-                <a href="/BecomeMember">
-                 <Button  variant="outlined">
-                    Become Member
-                 </Button> 
-                </a>
-                 <ProfileDropDown/>
-                </div>
-              </>
-              :<>
+          {authState.isLoggedIn ? (
+            <>
               <div className="hidden gap-2 lg:flex">
-          <a href="/Login">
-          <Button variant="text" size="sm" color="blue-gray">
-            Sign In
-          </Button>
-          </a>
-          <a href="/Registration">
-          <Button  variant="gradient" size="sm">
-            Sign Up
-          </Button>
-          </a>
-        </div>
-              </>}
+                <a href="/BecomeMember">
+                  <Button variant="outlined">Become Member</Button>
+                </a>
+                <ProfileDropDown />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="hidden gap-2 lg:flex">
+                <a href="/Login">
+                  <Button variant="text" size="sm" color="blue-gray">
+                    Sign In
+                  </Button>
+                </a>
+                <a href="/Registration">
+                  <Button variant="gradient" size="sm">
+                    Sign Up
+                  </Button>
+                </a>
+              </div>
+            </>
+          )}
         </div>
 
-        
         <IconButton
           variant="text"
           color="blue-gray"
@@ -348,34 +342,33 @@ export function Nav() {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-        {
-              authState.isLoggedIn ?
-              <>
-                <div className=" gap-2 lg:flex">
-                <a href="/BecomeMember">
-                 <Button  variant="outlined">
-                    Become Member
-                 </Button> 
-                </a>
-                </div>
-                <div className=" w-full mx-auto">
-                 <ProfileDropDown/>
-                </div>
-              </>
-              :<>
+          {authState.isLoggedIn ? (
+            <>
               <div className=" gap-2 lg:flex">
-          <a href="/Login">
-          <Button variant="text" size="sm" color="blue-gray">
-            Sign In
-          </Button>
-          </a>
-          <a href="/Registration">
-          <Button  variant="gradient" size="sm">
-            Sign Up
-          </Button>
-          </a>
-        </div>
-              </>}
+                <a href="/BecomeMember">
+                  <Button variant="outlined">Become Member</Button>
+                </a>
+              </div>
+              <div className=" w-full mx-auto">
+                <ProfileDropDown />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className=" gap-2 lg:flex">
+                <a href="/Login">
+                  <Button variant="text" size="sm" color="blue-gray">
+                    Sign In
+                  </Button>
+                </a>
+                <a href="/Registration">
+                  <Button variant="gradient" size="sm">
+                    Sign Up
+                  </Button>
+                </a>
+              </div>
+            </>
+          )}
         </div>
       </Collapse>
     </Navbar>
