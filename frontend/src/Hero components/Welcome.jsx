@@ -53,7 +53,7 @@ export default function Welcome() {
         
         <AnimatedSection delay={0.2}>
           <p className="text-base md:text-xl  text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
-           We take pride in being a leading conference Planner, organizing impactful events and webinars that connect faculty, researchers, and students. We support high-quality journals and publications, expert peer review management, and meticulous manuscript preparation. Our services include strategic event promotion, research grant assistance, and specialized training workshops. Trusted by researchers and administrators, we drive academic growth and innovation through exceptional academic interactions.
+We take pride in being a leading conference Planner, organizing impactful events and webinars that connect faculty, researchers, and students. We support high-quality journals and publications, expert peer review management, and meticulous manuscript preparation. Our services include strategic event promotion, research grant assistance, and specialized training workshops. Trusted by researchers and administrators, we drive academic growth and innovation through best virtual conference platforms and virtual event management. 
 
           </p>
         </AnimatedSection>
