@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 import { InView } from "./ui/inView";
 import { motion, useInView } from "framer-motion";
 const stats = [
-  { label: "Founded", value: "2021" },
+  { label: "Founded", value: "2023" },
   { label: "Conference", value: "37+" },
   { label: "Article Published", value: "1200+" },
   { label: "Journal tie-ups", value: "75" },
