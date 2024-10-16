@@ -18,7 +18,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { UserGroupIcon } from "@heroicons/react/24/solid";
-import logo from "../images/singleLogo.png";
+import logo from "../images/logo.png";
 import { useAuth } from "../context/AuthContext";
 import ProfileDropDown from "./ProfileDropDown";
 import {
@@ -284,14 +284,7 @@ export function Nav() {
           href="/"
           className="mr-4 cursor-pointer text-xs text-left font-bold py-1.5 lg:ml-2 inline-flex items-center"
         >
-          <img
-            src={logo}
-            alt="logo"
-            className="w-10 h-10 mr-2 drop-shadow-md"
-          />
-          Zep
-          <br />
-          Research
+          <img src={logo} alt="logo" className=" h-10 mr-2 drop-shadow-md" />
         </Typography>
 
         <div className="hidden lg:block">

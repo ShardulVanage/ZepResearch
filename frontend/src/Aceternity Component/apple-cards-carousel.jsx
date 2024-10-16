@@ -88,10 +88,9 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
         >
           <div
             className={cn(
-              "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
+              "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l"
             )}
           ></div>
-
           <div
             className={cn(
               "flex flex-row justify-start gap-4 pl-4",
@@ -111,27 +110,26 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
                     duration: 0.5,
                     delay: 0.2 * index,
                     ease: "easeOut",
-                    once: true,
                   },
                 }}
                 key={"card" + index}
-                className="last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
+                className="last:pr-[5%] md:last:pr-[33%] rounded-3xl"
               >
                 {item}
               </motion.div>
             ))}
           </div>
         </div>
-        <div className="flex justify-end gap-2 mr-10">
+        <div className="absolute left-0 right-0 -bottom-10 flex justify-center gap-2 mb-4 ">
           <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-900 flex items-center justify-center disabled:opacity-50"
+            className="z-40 sm:h-14 sm:w-14 h-10 w-10 rounded-full bg-gray-900 flex items-center justify-center disabled:opacity-50 transition-opacity"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-gray-100" />
           </button>
           <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-900 flex items-center justify-center disabled:opacity-50"
+            className="z-40 sm:h-14 sm:w-14 h-10 w-10 rounded-full bg-gray-900 flex items-center justify-center disabled:opacity-50 transition-opacity"
             onClick={scrollRight}
             disabled={!canScrollRight}
           >
