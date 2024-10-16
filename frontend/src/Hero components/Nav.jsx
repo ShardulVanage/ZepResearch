@@ -244,7 +244,7 @@ function NavList() {
           <a href="/Courses" className="w-full">
             <MenuItem>Courses</MenuItem>
           </a>
-          <a href="/AllConference" className="w-full">
+          <a href="/Conferences&Webinars" className="w-full">
             <MenuItem>All Conference</MenuItem>
           </a>
         </MenuList>
@@ -311,12 +311,12 @@ export function Nav() {
           ) : (
             <>
               <div className="hidden gap-2 lg:flex">
-                <a href="/Login">
+                <a href="/SignIn">
                   <Button variant="text" size="sm" color="blue-gray">
                     Sign In
                   </Button>
                 </a>
-                <a href="/Registration">
+                <a href="/SignUp">
                   <Button variant="gradient" size="sm">
                     Sign Up
                   </Button>
@@ -356,12 +356,12 @@ export function Nav() {
           ) : (
             <>
               <div className=" gap-2 lg:flex">
-                <a href="/Login">
+                <a href="/SignIn">
                   <Button variant="text" size="sm" color="blue-gray">
                     Sign In
                   </Button>
                 </a>
-                <a href="/Registration">
+                <a href="/SignUp">
                   <Button variant="gradient" size="sm">
                     Sign Up
                   </Button>

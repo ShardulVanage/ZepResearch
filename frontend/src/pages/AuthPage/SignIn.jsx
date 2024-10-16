@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 import {
   Card,
@@ -11,17 +11,15 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-import Logo from '../../images/singleLogo.png'
-import {useForm} from 'react-hook-form'
+import Logo from "../../images/singleLogo.png";
+import { useForm } from "react-hook-form";
 
-import { useNavigate } from 'react-router-dom'
-import useLogin from '../../hooks/useLogin'
-import useGoogleLogin from '../../hooks/useGoogleProvider';
+import { useNavigate } from "react-router-dom";
+import useLogin from "../../hooks/useLogin";
+import useGoogleLogin from "../../hooks/useGoogleProvider";
 
-
-
-export default function Login() {
-   const { register, handleSubmit, reset } = useForm()
+export default function SignIn() {
+  const { register, handleSubmit, reset } = useForm();
   const { loginWithGoogle } = useGoogleLogin();
   const navigate = useNavigate();
   const { login, isLoading } = useLogin();
@@ -29,24 +27,32 @@ export default function Login() {
   return (
     <div className="flex flex-col sm:flex-row min-h-screen py-8 sm:py-12  ">
       <div className="sm:w-1/2 p-8 mt-12">
-       <form className="space-y-6" action="#" method="POST"  onSubmit={handleSubmit(login)}>
-        <Card className="sm:w-96  sm:mx-auto">
-          <CardHeader
-            variant="filled"
-            color="blue"
-            className="mb-4 grid h-28  place-items-center"
-          >
-            <Typography variant="h3" color="white">
-              Sign In
-            </Typography>
-          </CardHeader>
-          <CardBody className="flex flex-col gap-4">
-            <Typography variant="paragraph" className="text-center mb-2">
-              Enter your email and password to sign in
-            </Typography>
-          
+        <form
+          className="space-y-6"
+          action="#"
+          method="POST"
+          onSubmit={handleSubmit(login)}
+        >
+          <Card className="sm:w-96  sm:mx-auto">
+            <CardHeader
+              variant="filled"
+              color="blue"
+              className="mb-4 grid h-28  place-items-center"
+            >
+              <Typography variant="h3" color="white">
+                Sign In
+              </Typography>
+            </CardHeader>
+            <CardBody className="flex flex-col gap-4">
+              <Typography variant="paragraph" className="text-center mb-2">
+                Enter your email and password to sign in
+              </Typography>
+
               <div>
-                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Email address
                 </label>
                 <div className="mt-2">
@@ -63,7 +69,10 @@ export default function Login() {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Password
                 </label>
                 <div className="mt-2">
@@ -74,134 +83,99 @@ export default function Login() {
                     autoComplete="current-password"
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                     {...register("password")}
+                    {...register("password")}
                   />
                 </div>
               </div>
 
-          
-
-               
-            
-
-
-
-            {/* <div className="-ml-2.5">
+              {/* <div className="-ml-2.5">
               <Checkbox label="I agree with the Terms and Conditions" />
             </div>
             <div className="-ml-2.5">
               <Checkbox label="Subscribe me to newsletter" />
             </div> */}
-            <Typography
-              as="a"
-              href="#"
-              variant="small"
-              color="blue"
-              className="ml-1 font-bold"
-            >
-              Forgot password
-            </Typography>
-          </CardBody>
-          <CardFooter className="pt-0">
-            <Button 
-              disabled={isLoading}
-              variant="gradient" fullWidth
-              type="submit"
-              >
-               {isLoading?"Loading...":"Login"}
-            </Button>
-            <Button
-            onClick={loginWithGoogle}
-              variant="outlined"
-              color="blue-gray"
-              fullWidth
-              className="flex items-center justify-center gap-3 mt-3"
-            >
-              <img src="https://docs.material-tailwind.com/icons/google.svg" alt="Google" className="h-6 w-6" />
-              Sign In with Google
-            </Button>
-            
-            <Button
-              variant="outlined"
-              color="blue-gray"
-              fullWidth
-              className="flex items-center justify-center gap-3 mt-3"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-              Sign In with X
-            </Button>
-            <Typography variant="small" className="mt-6 flex justify-center">
-              Not registered?
               <Typography
                 as="a"
-                href="/Registration"
+                href="#"
                 variant="small"
                 color="blue"
                 className="ml-1 font-bold"
-                >
-                Create account
+              >
+                Forgot password
               </Typography>
-            </Typography>
-          </CardFooter>
-        </Card>
-             </form>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button
+                disabled={isLoading}
+                variant="gradient"
+                fullWidth
+                type="submit"
+              >
+                {isLoading ? "Loading..." : "Login"}
+              </Button>
+              <Button
+                onClick={loginWithGoogle}
+                variant="outlined"
+                color="blue-gray"
+                fullWidth
+                className="flex items-center justify-center gap-3 mt-3"
+              >
+                <img
+                  src="https://docs.material-tailwind.com/icons/google.svg"
+                  alt="Google"
+                  className="h-6 w-6"
+                />
+                Sign In with Google
+              </Button>
+
+              <Button
+                variant="outlined"
+                color="blue-gray"
+                fullWidth
+                className="flex items-center justify-center gap-3 mt-3"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+                Sign In with X
+              </Button>
+              <Typography variant="small" className="mt-6 flex justify-center">
+                Not registered?
+                <Typography
+                  as="a"
+                  href="/Registration"
+                  variant="small"
+                  color="blue"
+                  className="ml-1 font-bold"
+                >
+                  Create account
+                </Typography>
+              </Typography>
+            </CardFooter>
+          </Card>
+        </form>
       </div>
-      <div className="w-1/2 bg-cover bg-center drop-shadow-2xl rounded-md opacity-90" style={{backgroundImage: "url('https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}></div>
+      <div
+        className="w-1/2 bg-cover bg-center drop-shadow-2xl rounded-md opacity-90"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        }}
+      ></div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React, { useState } from 'react'
 // import Logo from '../../images/singleLogo.png'
@@ -210,15 +184,12 @@ export default function Login() {
 // import { useNavigate } from 'react-router-dom'
 // import useLogin from '../../hooks/useLogin'
 
-
 // function Login() {
 //  const { register, handleSubmit, reset } = useForm()
- 
+
 //   const navigate = useNavigate();
 //   const { login, isLoading } = useLogin();
 
-  
- 
 //   return (
 //   <div className="flex min-h-full flex-1 flex-col justify-center mt-24 py-12 sm:px-6 lg:px-8">
 //         <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -290,15 +261,15 @@ export default function Login() {
 //               </div>
 
 //               <div>
-//                 <button 
+//                 <button
 //                 onClick={(()=>{  navigate('./');})}
 //                 disabled={isLoading}
 //                   type="submit"
 //                   className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
 //                 >
-             
+
 //                   {isLoading?"Loading...":"Login"}
-                
+
 //                 </button>
 //               </div>
 //             </form>

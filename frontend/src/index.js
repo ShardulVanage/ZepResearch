@@ -27,8 +27,9 @@ import CourseDetail from './pages/CourseDetail/CourseDetail';
 import Speakers from './pages/Solution Menu/Speakers';
 import SponserShip from './pages/Solution Menu/SponserShip';
 
-import Login from './pages/AuthPage/Login';
-import Registration from './pages/AuthPage/Registration';
+import SignIn from './pages/AuthPage/SignIn';
+import SignUp from './pages/AuthPage/SignUp';
+
 import BecomeMember from './pages/BecomeMemberPage/BecomeMember';
 
 import Blogdetail from './pages/BlogDetail/Blogdetail';
@@ -48,6 +49,7 @@ import ConferencesWebinars from './pages/Services page/ConferencesWebinars';
 import Blogs from './pages/BlogDetail/Blogs';
 import Success from './pages/Payment ccavanue/Success';
 import Failed from './pages/Payment ccavanue/Failed';
+import Registration from './pages/Registration/Registration';
 
 
 const ConditionalNav = () => {
@@ -93,17 +95,18 @@ const router = createBrowserRouter([
       { path: "/ManuscriptPreparation", element: <ManuscriptPreparation /> },
       { path: "/EventPromotionMarketing", element: <EventPromotionMarketing /> },
       { path: "/PeerReviewManagement", element: <PeerReviewManagement/> },
-      { path: "/AllConference", element: <AllConference /> },
+      { path: "/Conferences&Webinars", element: <AllConference /> },
       { path: "/Journals&Publications", element: <JournalsPublications /> },
       
       //Navbar
       { path: "/ZepResarch", element: <ZepResarch /> },
       { path: "/Blogs", element: <Blogs /> },
       { path: "/BecomeMember", element: <BecomeMember/> },
-      { path: "/Registration", element: <Registration/> },
-      { path: "/Login", element: <Login /> },
+      { path: "/SignUp", element: <SignUp/> },
+      { path: "/SignIn", element: <SignIn /> },
 
       //CCAvenue payment
+      { path: "/Registration", element: <Registration/> },
       { path: "/success", element: <Success/> },
       { path: "/failed", element: <Failed /> },
     ],
