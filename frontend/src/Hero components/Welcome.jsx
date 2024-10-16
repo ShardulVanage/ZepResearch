@@ -61,24 +61,8 @@ const AnimatedSection = ({ children, delay = 0 }) => {
 };
 
 export default function Welcome() {
-<<<<<<< HEAD
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
-=======
-  return (
-    <div className=''>
-    <section className=" bg-white py-16 md:py-24 sm:rounded-b-full drop-shadow-2xl">
-      <div className="container mx-auto px-4">
-        <AnimatedSection>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-8 font-JosefinSans">
-            Welcome to Zep Research
-          </h1>
-        </AnimatedSection>
-        
-        <AnimatedSection delay={0.2}>
-          <p className="text-base md:text-xl  text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
-We take pride in being a leading conference Planner, organizing impactful events and webinars that connect faculty, researchers, and students. We support high-quality journals and publications, expert peer review management, and meticulous manuscript preparation. Our services include strategic event promotion, research grant assistance, and specialized training workshops. Trusted by researchers and administrators, we drive academic growth and innovation through best virtual conference platforms and virtual event management. 
->>>>>>> 2425a385edbded9e858c96ff81ddba7f70915096
 
   useEffect(() => {
     // Ensure the component is mounted and we're in a browser environment
@@ -116,16 +100,16 @@ We take pride in being a leading conference Planner, organizing impactful events
     <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen">
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 mb-8 font-JosefinSans">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center text-gray-900 mb-8 font-sans">
             Welcome to{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 font-JosefinSans">
               Zep Research
             </span>
           </h1>
 
           <p
             ref={descriptionRef}
-            className="text-xl md:text-2xl text-gray-700 mb-16 max-w-4xl mx-auto text-center font-PTSerif leading-relaxed"
+            className="text-xl md:text-2xl text-gray-700 mb-16 max-w-4xl mx-auto text-center font-PTSerif leading-relaxed "
           >
             We take pride in being a leading conference planner, organizing
             impactful events and webinars that connect faculty, researchers, and
@@ -142,7 +126,7 @@ We take pride in being a leading conference Planner, organizing impactful events
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="text-5xl mb-6">{section.icon}</div>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4 font-JosefinSans ">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 font-JosefinSans">
                     {section.title}
                   </h2>
                   <p className="text-gray-600 font-PTSerif">
