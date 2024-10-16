@@ -32,6 +32,15 @@ const faqItems = [
     question: "How does Zep Research promote academic events?",
     answer: "Zep Research uses strategic promotion and marketing techniques to enhance the visibility of academic conferences and webinars. From social media campaigns to targeted outreach, we ensure your event reaches a broad audience, maximizing participation and impact within the academic community.",
   },
+
+   {
+    question: "What makes Zep Research’s virtual event solutions stand out?",
+    answer: "Zep Research offers the best virtual conference platforms, allowing for seamless virtual event management and ensuring high attendee engagement. From conference registration to post-event follow-up, we provide everything needed to deliver a successful online academic event. Our platforms are ideal for hosting interactive sessions, workshops, and large-scale virtual conferences globally",
+  },
+  {
+    question: "How does Zep Research handle conference paper submission for events?",
+    answer: "Zep Research simplifies the conference paper submission process through an easy-to-use system integrated into our conference planner platform. This system enables researchers to submit their work for peer review and publication in conjunction with our global conferences and virtual event solutions, ensuring high visibility and academic recognition.",
+  },
 ];
 
 export default function ScrollAnimatedFAQSection() {

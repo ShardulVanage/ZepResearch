@@ -61,8 +61,24 @@ const AnimatedSection = ({ children, delay = 0 }) => {
 };
 
 export default function Welcome() {
+<<<<<<< HEAD
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
+=======
+  return (
+    <div className=''>
+    <section className=" bg-white py-16 md:py-24 sm:rounded-b-full drop-shadow-2xl">
+      <div className="container mx-auto px-4">
+        <AnimatedSection>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-8 font-JosefinSans">
+            Welcome to Zep Research
+          </h1>
+        </AnimatedSection>
+        
+        <AnimatedSection delay={0.2}>
+          <p className="text-base md:text-xl  text-gray-700 mb-12 max-w-3xl mx-auto text-justify font-PTSerif">
+We take pride in being a leading conference Planner, organizing impactful events and webinars that connect faculty, researchers, and students. We support high-quality journals and publications, expert peer review management, and meticulous manuscript preparation. Our services include strategic event promotion, research grant assistance, and specialized training workshops. Trusted by researchers and administrators, we drive academic growth and innovation through best virtual conference platforms and virtual event management. 
+>>>>>>> 2425a385edbded9e858c96ff81ddba7f70915096
 
   useEffect(() => {
     // Ensure the component is mounted and we're in a browser environment
