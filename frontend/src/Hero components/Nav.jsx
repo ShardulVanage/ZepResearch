@@ -245,7 +245,10 @@ function NavList() {
             <MenuItem>Courses</MenuItem>
           </a>
           <a href="/Conferences&Webinars" className="w-full">
-            <MenuItem>All Conference</MenuItem>
+            <MenuItem>Conference</MenuItem>
+          </a>
+          <a href="/Journals&Publicaation" className="w-full">
+            <MenuItem> Journals & Publications </MenuItem>
           </a>
         </MenuList>
       </Menu>

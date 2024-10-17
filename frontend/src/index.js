@@ -50,6 +50,7 @@ import Blogs from './pages/BlogDetail/Blogs';
 import Success from './pages/Payment ccavanue/Success';
 import Failed from './pages/Payment ccavanue/Failed';
 import Registration from './pages/Registration/Registration';
+import Journals from './pages/Journals/Journals';
 
 
 const ConditionalNav = () => {
@@ -86,6 +87,8 @@ const router = createBrowserRouter([
       { path: "/SponserShip", element: <SponserShip /> },
       { path: "/Blogs/:id", element: <Blogdetail /> },
       { path: "/CancellationPolicy", element: <CancellationPolicy /> },
+      { path: "/Journals&Publicaation", element: <Journals /> },
+
       
       //Services
       { path: "/ConferencesWebinars", element: <ConferencesWebinars /> },

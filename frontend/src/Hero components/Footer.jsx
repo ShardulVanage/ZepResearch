@@ -5,8 +5,10 @@ import {
   FaTwitter,
   FaYoutube,
   FaLinkedinIn,
+  FaInstagram,
 } from "react-icons/fa";
 import whitelogo from "../images/whitelogo.svg";
+import { InstagramIcon, Mail, PhoneCall } from "lucide-react";
 const footerLinks = [
   {
     title: "Services",
@@ -26,7 +28,7 @@ const footerLinks = [
   },
 
   {
-    title: "Resourches & Event",
+    title: "Resources & Event",
     items: [
       { name: "Courses", href: "/Courses" },
       { name: "Conference", href: "/AllConference" },
@@ -54,6 +56,10 @@ const socialLinks = [
     icon: <FaLinkedinIn />,
     href: "https://www.linkedin.com/company/zep-research/",
   },
+  {
+    icon: <FaInstagram />,
+    href: "https://www.instagram.com/zepresearch/",
+  },
 ];
 
 export default function Footer() {
@@ -80,14 +86,12 @@ export default function Footer() {
               on a global scale
             </Typography>
             <Typography className="flex items-center font-JosefinSans">
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5 mr-2"
-                fill="currentColor"
-              >
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
-              </svg>
+              <PhoneCall className="h-6 w-6 mr-4 mb-2" />
               +91 7358737843
+            </Typography>
+            <Typography className="flex items-center font-JosefinSans">
+              <Mail className="h-6 w-6  mr-4" />
+              info@zepresearch.com
             </Typography>
             <Typography className="flex items-start mt-4 font-JosefinSans">
               <svg
