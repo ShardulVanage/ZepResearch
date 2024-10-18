@@ -77,7 +77,7 @@ export default function JournalSummationForm() {
         <div className="flex items-center justify-center mb-8">
           <Book className="w-12 h-12 text-blue-600 mr-4" />
           <h1 className="text-3xl font-bold text-gray-800">
-            Journal Summation
+            Journal Submission
           </h1>
         </div>
 
