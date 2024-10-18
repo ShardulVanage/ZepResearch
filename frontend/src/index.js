@@ -51,6 +51,7 @@ import Success from './pages/Payment ccavanue/Success';
 import Failed from './pages/Payment ccavanue/Failed';
 import Registration from './pages/Registration/Registration';
 import Journals from './pages/Journals/Journals';
+import Journalform from './pages/Journals/components/Journalform';
 
 
 const ConditionalNav = () => {
@@ -87,7 +88,10 @@ const router = createBrowserRouter([
       { path: "/SponserShip", element: <SponserShip /> },
       { path: "/Blogs/:id", element: <Blogdetail /> },
       { path: "/CancellationPolicy", element: <CancellationPolicy /> },
-      { path: "/Journals&Publicaation", element: <Journals /> },
+      //JOurnal
+      { path: "/Journals&Publication", element: <Journals /> },
+      { path: "/JournalSubmittion", element: <Journalform /> },
+
 
       
       //Services
@@ -99,7 +103,7 @@ const router = createBrowserRouter([
       { path: "/EventPromotionMarketing", element: <EventPromotionMarketing /> },
       { path: "/PeerReviewManagement", element: <PeerReviewManagement/> },
       { path: "/Conferences&Webinars", element: <AllConference /> },
-      { path: "/Journals&Publications", element: <JournalsPublications /> },
+      // { path: "/Journals&Publications", element: <JournalsPublications /> },
       
       //Navbar
       { path: "/ZepResarch", element: <ZepResarch /> },

@@ -57,7 +57,7 @@ const navListMenuItems = [
     title: "Journals & Publications",
     description: "Find the perfect solution for your needs.",
     icon: IconBook,
-    link: "/Journals&Publications",
+    link: "/Journals&Publication",
   },
   {
     title: "Conferences & Webinars",
@@ -247,9 +247,9 @@ function NavList() {
           <a href="/Conferences&Webinars" className="w-full">
             <MenuItem>Conference</MenuItem>
           </a>
-          <a href="/Journals&Publicaation" className="w-full">
+          {/* <a href="/Journals&Publicaation" className="w-full">
             <MenuItem> Journals & Publications </MenuItem>
-          </a>
+          </a> */}
         </MenuList>
       </Menu>
       <Typography

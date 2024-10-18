@@ -61,13 +61,13 @@ const JournalCard = memo(({ journal, index, onSubmit }) => {
         </div>
 
         <div className="mt-auto">
-          <motion.button
+          <motion.a
             {...buttonAnimationProps}
             className="w-full inline-flex items-center justify-center text-sm px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
-            onClick={() => onSubmit(journal.id)}
+            href="/JournalSubmittion"
           >
             Submit for Review <Send className="w-4 h-4 ml-2" />
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </motion.div>
