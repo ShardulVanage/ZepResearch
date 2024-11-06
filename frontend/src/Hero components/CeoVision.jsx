@@ -21,9 +21,9 @@ const testimonials = [
   {
     quote:
       " Our promise is to propel academic superiority through groundbreaking colloquies, world-class journals, and strategic professional enhancement opportunities.",
-    author: "Priyanka | CEO, Zep Research",
+    author: "Priyanka | Director , Zep Research",
     image:
-      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1728121791/jltyim6tjevw8kx8pkuw.jpg",
+      "https://res.cloudinary.com/dwlhesiyi/image/upload/v1730879720/oukartk2szolxtopoyua.jpg",
   },
 ];
 
