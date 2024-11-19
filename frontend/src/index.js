@@ -52,6 +52,10 @@ import Failed from './pages/Payment ccavanue/Failed';
 import Registration from './pages/Registration/Registration';
 import Journals from './pages/Journals/Journals';
 import Journalform from './pages/Journals/components/Journalform';
+import TermsAndCondition from './pages/Legal links/TermsAndCondition';
+import Refund from './pages/Legal links/Refund';
+import CancilationPolicy from './pages/Legal links/CancilationPolicy';
+import PrivacyPolicy from './pages/Legal links/PrivacyPolicy';
 
 
 const ConditionalNav = () => {
@@ -92,7 +96,11 @@ const router = createBrowserRouter([
       { path: "/Journals&Publication", element: <Journals /> },
       { path: "/JournalSubmittion", element: <Journalform /> },
 
-
+      //Legal links
+      {path: "/TermsAndCondition", element: <TermsAndCondition />},
+      {path: "/Refund", element: <Refund />},
+        {path: "/CancilationPolicy", element: <CancilationPolicy />},
+        {path: "/PrivacyPolicy", element: <PrivacyPolicy />},
       
       //Services
       { path: "/ConferencesWebinars", element: <ConferencesWebinars /> },

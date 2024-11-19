@@ -43,6 +43,15 @@ const footerLinks = [
       { name: "ContactUs", href: "/ContactUs" },
     ],
   },
+  {
+    title: "Legal Links",
+    items: [
+      { name: "Terms and Condition", href: "/TermsAndCondition" },
+      { name: "Refund Policy", href: "/Refund" },
+      { name: "Cancilation Policy", href: "/CancilationPolicy" },
+      { name: "Privacy Policy", href: "/PrivacyPolicy" },
+    ],
+  },
 ];
 
 const socialLinks = [
@@ -70,7 +79,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-400 to-blue-700 rounded-full translate-y-1/2 -translate-x-1/2 "></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Logo and description */}
           <div className="lg:col-span-2">
             <Typography

@@ -23,6 +23,7 @@ import { Reviews } from './Hero components/Review';
 import { Features } from './Hero components/Feature';
 import HeroBlog from './Hero components/HeroBlog';
 import { ConfVenue } from './pages/Conference Components/ConfVenue';
+import PolicyCTA from './Hero components/PolicyCTA';
 
 
 
@@ -53,6 +54,7 @@ function App() {
       
       {/* <Partners/> */}
       <Reviews/>
+      <PolicyCTA/>
       <Faq/>
      
     </div>
