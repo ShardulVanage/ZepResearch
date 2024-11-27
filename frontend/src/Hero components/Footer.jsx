@@ -151,7 +151,7 @@ export default function Footer() {
 
         {/* Bottom section */}
         <div className="mt-12 pt-8 border-t border-blue-500 flex flex-col md:flex-row justify-between items-center">
-          <Typography>&copy; 2024 ZepResearch</Typography>
+          <Typography>&copy; Zep Research (OPC) PVT LTD.</Typography>
           <div className="flex space-x-4 mt-4 md:mt-0">
             {socialLinks.map((link, index) => (
               <a
