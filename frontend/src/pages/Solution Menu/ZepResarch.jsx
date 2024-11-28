@@ -72,6 +72,24 @@ const jobOpenings = [
     salary: "December 20th -21st",
     location: "Bangkok, Thailand",
   },
+  {
+    id: 3,
+    role: "International Conference on Tourism Management & Hospitality",
+    href: "https://www.icsthm.com/",
+    description:
+      "join industry leaders, scholars, and practitioners at the International Conference on Tourism Management & Hospitality, a premier forum dedicated to shaping the future of global tourism.",
+    salary: "April",
+    location: "",
+  },
+  {
+    id: 4,
+    role: "World Forum on Climate Change and Environmental Sustainability",
+    href: "https://www.wfcces.com/",
+    description:
+      "The World Forum on Climate Change and Environmental Sustainability brings together global leaders, scientists, policymakers, and innovators to address the most pressing environmental challenges of our time.",
+    salary: "May",
+    location: "",
+  },
 ];
 
 export default function Example() {
@@ -345,7 +363,7 @@ export default function Example() {
 
         {/* Content section */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8 py-12">
-          <div className="mx-auto flex max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
+          <div className="mx-auto flex  max-w-2xl flex-col items-end justify-between gap-16 lg:mx-0 lg:max-w-none lg:flex-row">
             <div className="w-full lg:max-w-2xl lg:flex-auto">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Excellence is at the core of our conferences, publications, and
@@ -362,9 +380,9 @@ export default function Example() {
                 className="mt-16 aspect-[6/5] w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem]"
               />
             </div>
-            <div className="w-full lg:max-w-xl lg:flex-auto">
+            <div className="w-full lg:max-w-xl lg:flex-auto ">
               <h3 className="sr-only">Job openings</h3>
-              <ul className="-my-8 divide-y divide-gray-100 ">
+              <ul className="-my-8 divide-y divide-gray-100 h-[500px] overflow-y-scroll scrollbar-track-light-blue-900 scrollbar- ">
                 {jobOpenings.map((opening) => (
                   <li key={opening.id} className="py-8 ">
                     <dl className="relative flex flex-wrap gap-x- bg-white p-8 rounded-xl drop-shadow-md">

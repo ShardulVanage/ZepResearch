@@ -84,10 +84,10 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Typography
               variant="h5"
-              className="flex items-center mb-4 font-JosefinSans"
+              className="flex items-center  mb-4 font-JosefinSans"
             >
-              <img src={whitelogo} alt="" className="h-8 w-8 mr-2" />
-              Zep Research
+              <img src={whitelogo} alt="" className="h-10 w-10 mr-2" />
+              Zep Research (OPC) PVT LTD.
             </Typography>
             <Typography className="mb-4 text-base font-PTSerif text-gray-100">
               We are committed to supporting academic organizations by expanding
