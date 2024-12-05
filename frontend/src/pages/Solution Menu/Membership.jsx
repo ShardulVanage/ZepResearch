@@ -18,7 +18,7 @@ const pricing = {
     //   featured: false,
     //   description: 'All your essential business finances, taken care of.',
     //   price: { monthly: '$15', annually: '$144' },
-    //   mainFeatures: ['Basic invoicing', 'Easy to use accounting', 'Mutli-accounts'],
+    //   mainFeatures: ['Basic invoicing', 'Easy to use accounting', 'Mutli-accounts'],w
     // },
     {
       name: 'Scale',
