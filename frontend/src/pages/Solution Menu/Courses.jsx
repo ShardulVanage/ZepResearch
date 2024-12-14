@@ -66,14 +66,16 @@ function Courses() {
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {course.map((course) => (
+           <>
+           <hr />
             <NavLink to={`/Courses/${course.id}`}>
              
-              <article key={course.tag} className="relative isolate flex flex-col gap-8 lg:flex-row">
+              <article key={course.tag} className="relative mt-8 isolate flex flex-col gap-8 lg:flex-row">
                 <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
                   <img
                     src={`https://zep-research.pockethost.io/api/files/`+course.collectionId+`/`+course.id+`/`+course.front_Img}
                     alt=""
-                    className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-contain"
+                    className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-fill"
                   />
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
                 </div>
@@ -112,6 +114,7 @@ function Courses() {
                 </div>
               </article>
             </NavLink>
+            </>
             ))}
           </div>
         </div>

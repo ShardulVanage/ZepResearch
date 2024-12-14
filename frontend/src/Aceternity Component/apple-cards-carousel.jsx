@@ -218,9 +218,10 @@ export const CardX = ({ card, index, layout = false }) => {
           </div>
         )}
       </AnimatePresence>
-      <motion.button
+      
+      <motion.a
         layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={handleOpen}
+        href={card.websiteUrl}
         className="rounded-3xl bg-gray-700 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
@@ -252,7 +253,7 @@ export const CardX = ({ card, index, layout = false }) => {
           fill
           className="object-cover absolute z-10 inset-0 bg-black opacity-70"
         />
-      </motion.button>
+      </motion.a>
     </>
   );
 };
