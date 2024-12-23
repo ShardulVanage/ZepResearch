@@ -17,7 +17,7 @@ import MissionVission from './pages/Solution Menu/MissionVision';
 import Membership from './pages/Solution Menu/Membership';
 import Gallery from './pages/Solution Menu/Gallery';
 import Excellence from './pages/Solution Menu/Excellence';
-import Courses from './pages/Solution Menu/Courses';
+import Courses from './pages/CourseDetail/Courses';
 import Careers from './pages/Solution Menu/Careers';
 
 

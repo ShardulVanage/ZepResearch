@@ -206,14 +206,17 @@ function CourseDetail() {
                      // onClick={paymentCCAvenue}
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                     >
-                      Pay {course.price}₹
+                      Pay {course.price}$
                     </button>
+                    <a href={course.syllabus_link} target="_blank" rel="noopener noreferrer">
                     <button
                       type="button"
+                      
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-50 px-8 py-3 text-base font-medium text-blue-700 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                    >
-                      Syllabus <DocumentArrowDownIcon className="h-6 ml-2" />
+                      >
+                      Free Material <DocumentArrowDownIcon className="h-6 ml-2" />
                     </button>
+                      </a>
                   </div>
 
                 
@@ -270,7 +273,7 @@ function CourseDetail() {
                   </div>
                 </div>
 
-                <TabContainer />
+                <TabContainer course={course}/>
               </div>
             </div>
           </div>

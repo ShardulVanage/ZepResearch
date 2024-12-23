@@ -3,6 +3,7 @@ import datascience from '../../images/Course/datascience.jpg'
 import dataanalytics from '../../images/Course/dataanalytics.jpg'
 import { client } from '../../lib/pocketbase'
 import { NavLink } from 'react-router-dom'
+import { Button } from '@material-tailwind/react'
 
 // const posts = [
 //   {
@@ -89,15 +90,19 @@ function Courses() {
                     </div>
                   </div>
                   <div className="group relative max-w-xl">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                    <h3 className="mt-3 text-lg flex justify-between font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                       <a >
-                        <span className="absolute inset-0" />
+                        <span className="absolute inset-0 font-JosefinSans" />
                         {course.title}
                       </a>
+                      <a className='text-2xl font-JosefinSans' href="">
+                        $99
+                      </a>
                     </h3>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">{course.description}</p>
+                    <p className="mt-5 text-sm leading-6 text-gray-600 font-PTSerif">{course.description}</p>
                   </div>
-                  <div className="mt-6 flex border-t border-gray-900/5 pt-6">
+                  <div className="mt-6 flex border-t border-gray-900/5 pt-6 justify-between">
+
                     <div className="relative flex items-center gap-x-4">
                       <img src={`https://zep-research.pockethost.io/api/files/`+course.collectionId+`/`+course.id+`/`+course.author_Img} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
                       <div className="text-sm leading-6">
@@ -109,6 +114,10 @@ function Courses() {
                         </p>
                         <p className="text-gray-600">{course.author_role}</p>
                       </div> 
+                    </div>
+                    <div className='flex gap-4 text-sm'>
+                      <Button className='text-xs font-normal ' size='sm'>know more</Button>
+                      {/* <Button className='text-xs font-normal '  size='sm' variant='outlined'> buy now</Button> */}
                     </div>
                   </div>
                 </div>
