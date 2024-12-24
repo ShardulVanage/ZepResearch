@@ -280,7 +280,7 @@ export function Nav() {
   }, []);
 
   return (
-    <Navbar className="  mx-auto mt-2 px-4 py-2 z-10 ">
+    <Navbar className="  mx-auto mt-2 px-4 py-2 z-10 fixed ">
       <div className="flex items-center  justify-between text-blue-gray-900 ">
         <Typography
           as="a"

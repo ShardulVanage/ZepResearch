@@ -11,16 +11,16 @@ const socialLinks = [
     icon: <FaFacebook />,
     href: "https://www.facebook.com/profile.php?id=61561809783777",
   },
-  { icon: <FaTwitter />, href: "https://x.com/Zepresearch" },
-  { icon: <FaYoutube />, href: "https://youtube.com" },
-  {
-    icon: <FaLinkedinIn />,
-    href: "https://www.linkedin.com/company/zep-research/",
-  },
   {
     icon: <FaInstagram/>,
     href: "https://www.instagram.com/zepresearch/",
   },
+  { icon: <FaTwitter />, href: "https://x.com/Zepresearch" },
+  {
+    icon: <FaLinkedinIn />,
+    href: "https://www.linkedin.com/company/zep-research/",
+  },
+  { icon: <FaYoutube />, href: "https://youtube.com" },
 ];
 
 function CourseDetail() {
@@ -203,25 +203,20 @@ function CourseDetail() {
                   <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
                     <button
                       type="button"
-                     // onClick={paymentCCAvenue}
-                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                   // onClick={paymentCCAvenue}
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                     >
                       Pay {course.price}$
                     </button>
-                    <a href={course.syllabus_link} target="_blank" rel="noopener noreferrer">
-                    <button
+                    {/* <a href={course.syllabus_link} target="_blank" rel="noopener noreferrer">
+                      <button
                       type="button"
-                      
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-50 px-8 py-3 text-base font-medium text-blue-700 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                       >
                       Free Material <DocumentArrowDownIcon className="h-6 ml-2" />
-                    </button>
-                      </a>
-                  </div>
-
-                
-
-                  {/* Rest of the component remains the same */}
+                      </button>
+                    </a> */}
+                    </div>
                   <div className="mt-10 border-t border-gray-200 pt-10">
                     <h3 className="text-xl font-semibold text-gray-900">
                       Job Roles after the course

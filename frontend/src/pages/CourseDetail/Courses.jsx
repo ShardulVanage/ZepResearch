@@ -65,7 +65,7 @@ function Courses() {
           <p className="mt-2 text-lg leading-8 text-gray-600">
            Join us for the Annual Technology Innovations Conference 2024, where industry leaders, innovators, and technology enthusiasts converge to explore the latest trends and breakthroughs shaping our world
           </p>
-          <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
+          <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20 pb-24">
             {course.map((course) => (
            <>
            <hr />
@@ -104,7 +104,7 @@ function Courses() {
                   <div className="mt-6 flex border-t border-gray-900/5 pt-6 justify-between">
 
                     <div className="relative flex items-center gap-x-4">
-                      <img src={`https://zep-research.pockethost.io/api/files/`+course.collectionId+`/`+course.id+`/`+course.author_Img} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
+                      {/* <img src={`https://zep-research.pockethost.io/api/files/`+course.collectionId+`/`+course.id+`/`+course.author_Img} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
                       <div className="text-sm leading-6">
                         <p className="font-semibold text-gray-900">
                           <a >
@@ -113,7 +113,7 @@ function Courses() {
                           </a>
                         </p>
                         <p className="text-gray-600">{course.author_role}</p>
-                      </div> 
+                      </div>  */}
                     </div>
                     <div className='flex gap-4 text-sm'>
                       <Button className='text-xs font-normal ' size='sm'>know more</Button>
