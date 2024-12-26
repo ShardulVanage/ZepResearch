@@ -4,6 +4,7 @@ import dataanalytics from '../../images/Course/dataanalytics.jpg'
 import { client } from '../../lib/pocketbase'
 import { NavLink } from 'react-router-dom'
 import { Button } from '@material-tailwind/react'
+import { Helmet } from 'react-helmet-async'
 
 // const posts = [
 //   {
@@ -56,7 +57,40 @@ function Courses() {
   })
   return (
     <section>
-
+ <Helmet>
+                {/* Basic meta tags */}
+                <title>Courses | International Journal Publication and Conference</title>
+                <meta 
+                  name="description" 
+                  content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+                />
+                <meta 
+                  name="keywords" 
+                  content="research journal, international publication, academic conference, data science courses" 
+                />
+        
+                {/* Open Graph meta tags */}
+                <meta property="og:title" content="Zep Research | International Journal Publication" />
+                <meta 
+                  property="og:description" 
+                  content="Leading platform for international journal publications and conferences" 
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://zepresearch.com" />
+                <meta property="og:image" content="/og-image.jpg" />
+        
+                {/* Twitter Card meta tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+                <meta 
+                  name="twitter:description" 
+                  content="Leading platform for international journal publications and conferences" 
+                />
+                <meta name="twitter:image" content="/og-image.jpg" />
+        
+                {/* Canonical URL */}
+                <link rel="canonical" href="https://zepresearch.com" />
+              </Helmet>
    
      <div className="bg-white py-4 sm:py-8 mt-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

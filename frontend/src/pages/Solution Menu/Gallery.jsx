@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Helmet } from "react-helmet-async";
 
 
 const galleryData = [
@@ -167,6 +168,41 @@ const itemVariants = {
 };
 function Gallery() {
   return (
+    <>
+    <Helmet>
+                {/* Basic meta tags */}
+                <title>Gallery | International Journal Publication and Conference</title>
+                <meta 
+                  name="description" 
+                  content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+                />
+                <meta 
+                  name="keywords" 
+                  content="research journal, international publication, academic conference, data science courses" 
+                />
+        
+                {/* Open Graph meta tags */}
+                <meta property="og:title" content="Zep Research | International Journal Publication" />
+                <meta 
+                  property="og:description" 
+                  content="Leading platform for international journal publications and conferences" 
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://zepresearch.com" />
+                <meta property="og:image" content="/og-image.jpg" />
+        
+                {/* Twitter Card meta tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+                <meta 
+                  name="twitter:description" 
+                  content="Leading platform for international journal publications and conferences" 
+                />
+                <meta name="twitter:image" content="/og-image.jpg" />
+        
+                {/* Canonical URL */}
+                <link rel="canonical" href="https://zepresearch.com" />
+              </Helmet>
     <section className="bg-gray-100 py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
@@ -178,13 +214,14 @@ function Gallery() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-        >
+          >
           {galleryData.map((item) => (
             <GalleryItem key={item.id} item={item} />
           ))}
         </motion.div>
       </div>
     </section>
+    </>
   );
 }
 

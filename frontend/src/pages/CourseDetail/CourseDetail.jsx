@@ -5,6 +5,7 @@ import axios from 'axios'
 import { DocumentArrowDownIcon } from '@heroicons/react/24/outline'
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
 import TabContainer from './TabContainer'
+import { Helmet } from 'react-helmet-async'
 
 const socialLinks = [
   {
@@ -104,6 +105,7 @@ function CourseDetail() {
   const CourseDetailSkeleton = () => {
     return (
       <div className="bg-white">
+           
         <div className="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
             {/* Image Skeleton */}
@@ -174,6 +176,82 @@ function CourseDetail() {
   };
   return (
     <section>
+   <Helmet>
+  {course ? (
+    <>
+      {/* Basic meta tags */}
+      <title>{`${course.title} Course | Zep Research`}</title>
+      <meta 
+        name="description" 
+        content={`${course.description.slice(0, 155)}...`} 
+      />
+      <meta 
+        name="keywords" 
+        content={`${course.title}, online course, professional training, ${course.Job_Roles}, zep research`} 
+      />
+
+      {/* Open Graph meta tags */}
+      <meta property="og:title" content={`${course.title} | Zep Research`} />
+      <meta property="og:description" content={course.description} />
+      <meta property="og:type" content="product" />
+      <meta property="og:url" content={`https://zepresearch.com/courses/${course.id}`} />
+      <meta 
+        property="og:image" 
+        content={`https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`} 
+      />
+      <meta property="og:price:amount" content={course.price} />
+      <meta property="og:price:currency" content="USD" />
+
+      {/* Twitter Card meta tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`${course.title} | Zep Research`} />
+      <meta name="twitter:description" content={course.description} />
+      <meta 
+        name="twitter:image" 
+        content={`https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`} 
+      />
+
+      {/* Canonical URL */}
+      <link rel="canonical" href={`https://zepresearch.com/courses/${course.id}`} />
+
+      {/* Schema.org markup for course */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": course.title,
+          "description": course.description,
+          "provider": {
+            "@type": "Organization",
+            "name": "Zep Research",
+            "sameAs": [
+              "https://www.facebook.com/profile.php?id=61561809783777",
+              "https://www.instagram.com/zepresearch/",
+              "https://x.com/Zepresearch",
+              "https://www.linkedin.com/company/zep-research/"
+            ]
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": course.price,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "image": `https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`,
+          "url": `https://zepresearch.com/courses/${course.id}`,
+          "occupationalCredentialAwarded": "Certificate",
+          "occupationalCategory": course.Job_Roles.split(',').map(role => role.trim())
+        })}
+      </script>
+    </>
+  ) : (
+    // Loading state meta tags
+    <>
+      <title>Loading Course... | Zep Research</title>
+      <meta name="robots" content="noindex,nofollow" />
+    </>
+  )}
+</Helmet>
       <div>
         {course ? (
           <div className="bg-white">

@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useLogin from "../../hooks/useLogin";
 import useGoogleLogin from "../../hooks/useGoogleProvider";
+import { Helmet } from "react-helmet-async";
 
 export default function SignIn() {
   const { register, handleSubmit, reset } = useForm();
@@ -25,6 +26,41 @@ export default function SignIn() {
   const { login, isLoading } = useLogin();
 
   return (
+    <>
+      <Helmet>
+            {/* Basic meta tags */}
+            <title>Sign in | Zep Research | International Journal Publication and Conference</title>
+            <meta 
+              name="description" 
+              content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+            />
+            <meta 
+              name="keywords" 
+              content="research journal, international publication, academic conference, data science courses" 
+            />
+    
+            {/* Open Graph meta tags */}
+            <meta property="og:title" content="Zep Research | International Journal Publication" />
+            <meta 
+              property="og:description" 
+              content="Leading platform for international journal publications and conferences" 
+            />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://zepresearch.com" />
+            <meta property="og:image" content="/og-image.jpg" />
+    
+            {/* Twitter Card meta tags */}
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+            <meta 
+              name="twitter:description" 
+              content="Leading platform for international journal publications and conferences" 
+            />
+            <meta name="twitter:image" content="/og-image.jpg" />
+    
+            {/* Canonical URL */}
+            <link rel="canonical" href="https://zepresearch.com" />
+          </Helmet>
     <div className="flex flex-col sm:flex-row min-h-screen py-8 sm:py-12  ">
       <div className="sm:w-1/2 p-8 mt-12">
         <form
@@ -174,6 +210,7 @@ export default function SignIn() {
         }}
       ></div>
     </div>
+    </>
   );
 }
 

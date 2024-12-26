@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { Helmet } from 'react-helmet-async';
 
 const containerStyle = {
   width: '100%',
@@ -35,7 +36,42 @@ function ContactUs() {
   };
   return (
     <>
+     <Helmet>
+                        {/* Basic meta tags */}
+                        <title>ContactUs | International Journal Publication and Conference</title>
+                        <meta 
+                          name="description" 
+                          content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+                        />
+                        <meta 
+                          name="keywords" 
+                          content="research journal, international publication, academic conference, data science courses" 
+                        />
+                
+                        {/* Open Graph meta tags */}
+                        <meta property="og:title" content="Zep Research | International Journal Publication" />
+                        <meta 
+                          property="og:description" 
+                          content="Leading platform for international journal publications and conferences" 
+                        />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content="https://zepresearch.com" />
+                        <meta property="og:image" content="/og-image.jpg" />
+                
+                        {/* Twitter Card meta tags */}
+                        <meta name="twitter:card" content="summary_large_image" />
+                        <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+                        <meta 
+                          name="twitter:description" 
+                          content="Leading platform for international journal publications and conferences" 
+                        />
+                        <meta name="twitter:image" content="/og-image.jpg" />
+                
+                        {/* Canonical URL */}
+                        <link rel="canonical" href="https://zepresearch.com" />
+        </Helmet>
       <div className="bg-white">
+        Careers
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
           <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
             <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg ">

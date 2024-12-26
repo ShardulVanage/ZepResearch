@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 export default function TermsAndConditions() {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -71,6 +72,40 @@ export default function TermsAndConditions() {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white">
+        <Helmet>
+                                                   {/* Basic meta tags */}
+                                                   <title>Terms & Conditions | International Journal Publication and Conference</title>
+                                                   <meta 
+                                                     name="description" 
+                                                     content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+                                                   />
+                                                   <meta 
+                                                     name="keywords" 
+                                                     content="research journal, international publication, academic conference, data science courses" 
+                                                   />
+                                           
+                                                   {/* Open Graph meta tags */}
+                                                   <meta property="og:title" content="Zep Research | International Journal Publication" />
+                                                   <meta 
+                                                     property="og:description" 
+                                                     content="Leading platform for international journal publications and conferences" 
+                                                   />
+                                                   <meta property="og:type" content="website" />
+                                                   <meta property="og:url" content="https://zepresearch.com" />
+                                                   <meta property="og:image" content="/og-image.jpg" />
+                                           
+                                                   {/* Twitter Card meta tags */}
+                                                   <meta name="twitter:card" content="summary_large_image" />
+                                                   <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+                                                   <meta 
+                                                     name="twitter:description" 
+                                                     content="Leading platform for international journal publications and conferences" 
+                                                   />
+                                                   <meta name="twitter:image" content="/og-image.jpg" />
+                                           
+                                                   {/* Canonical URL */}
+                                                   <link rel="canonical" href="https://zepresearch.com" />
+                                   </Helmet>
       <h1 className="text-3xl font-bold mb-6 text-gray-800">
         Terms and Conditions
       </h1>

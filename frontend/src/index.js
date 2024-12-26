@@ -1,6 +1,7 @@
 // index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './context/AuthContext';
 
 
-import ZepResarch from './pages/Solution Menu/ZepResarch';
+import ZepResarch from './pages/About ZepResearch page/ZepResarch'
 import Patners from './pages/Solution Menu/Partners';
 import MissionVission from './pages/Solution Menu/MissionVision';
 import Membership from './pages/Solution Menu/Membership';
@@ -84,9 +85,9 @@ const router = createBrowserRouter([
       { path: "/Gallery", element: <Gallery /> },
       { path: "/Excellence", element: <Excellence /> },
       { path: "/Courses", element: <Courses /> },
+      { path: "/Courses/:id", element: <CourseDetail /> },
       { path: "/Careers", element: <Careers /> },
       { path: "/ContactUs", element: <ContactUs /> },
-      { path: "/Courses/:id", element: <CourseDetail /> },
       { path: "/Speakers", element: <Speakers /> },
       { path: "/SponserShip", element: <SponserShip /> },
       { path: "/Blogs/:id", element: <Blogdetail /> },
@@ -131,9 +132,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 <ThemeProvider>
+  <HelmetProvider>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
+  </HelmetProvider>
    </ThemeProvider>
   </React.StrictMode>
 );

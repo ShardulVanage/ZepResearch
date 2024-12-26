@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 export default function PrivacyPolicy() {
   const [expandedSections, setExpandedSections] = useState([]);
@@ -83,6 +84,40 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+       <Helmet>
+                                                               {/* Basic meta tags */}
+                                                               <title>PrivacyPolicy | Zepresearch | International Journal Publication and Conference</title>
+                                                               <meta 
+                                                                 name="description" 
+                                                                 content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+                                                               />
+                                                               <meta 
+                                                                 name="keywords" 
+                                                                 content="research journal, international publication, academic conference, data science courses" 
+                                                               />
+                                                       
+                                                               {/* Open Graph meta tags */}
+                                                               <meta property="og:title" content="Zep Research | International Journal Publication" />
+                                                               <meta 
+                                                                 property="og:description" 
+                                                                 content="Leading platform for international journal publications and conferences" 
+                                                               />
+                                                               <meta property="og:type" content="website" />
+                                                               <meta property="og:url" content="https://zepresearch.com" />
+                                                               <meta property="og:image" content="/og-image.jpg" />
+                                                       
+                                                               {/* Twitter Card meta tags */}
+                                                               <meta name="twitter:card" content="summary_large_image" />
+                                                               <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+                                                               <meta 
+                                                                 name="twitter:description" 
+                                                                 content="Leading platform for international journal publications and conferences" 
+                                                               />
+                                                               <meta name="twitter:image" content="/og-image.jpg" />
+                                                       
+                                                               {/* Canonical URL */}
+                                                               <link rel="canonical" href="https://zepresearch.com" />
+                                               </Helmet>
       <div className="max-w-3xl mx-auto">
         <motion.h1
           className="text-4xl font-bold text-center mb-8 text-gray-900"

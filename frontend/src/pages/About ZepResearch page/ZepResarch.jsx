@@ -19,6 +19,7 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
+import { Helmet } from "react-helmet-async";
 
 const features = [
   {
@@ -95,7 +96,41 @@ const jobOpenings = [
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
+  return (<>
+    <Helmet>
+        {/* Basic meta tags */}
+        <title>About | Zep Research | International Journal Publication and Conference</title>
+        <meta 
+          name="description" 
+          content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+        />
+        <meta 
+          name="keywords" 
+          content="research journal, international publication, academic conference, data science courses" 
+        />
+
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content="Zep Research | International Journal Publication" />
+        <meta 
+          property="og:description" 
+          content="Leading platform for international journal publications and conferences" 
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://zepresearch.com" />
+        <meta property="og:image" content="/og-image.jpg" />
+
+        {/* Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+        <meta 
+          name="twitter:description" 
+          content="Leading platform for international journal publications and conferences" 
+        />
+        <meta name="twitter:image" content="/og-image.jpg" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://zepresearch.com" />
+      </Helmet>
     <div className="bg-white">
       <main className="isolate">
         {/* Hero section */}
@@ -103,7 +138,7 @@ export default function Example() {
           <div
             className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-blue-100 sm:-mr-80 lg:-mr-96"
             aria-hidden="true"
-          />
+            />
           <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
               <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto text-transparent bg-clip-text bg-gradient-to-tl from-cyan-400 via-blue-500 to-blue-600 drop-shadow-lg  ">
@@ -133,7 +168,7 @@ export default function Example() {
                 src={g9}
                 alt=""
                 className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36 drop-shadow-lg"
-              />
+                />
             </div>
           </div>
           <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
@@ -159,47 +194,47 @@ export default function Example() {
                 alt="Transistor"
                 width={158}
                 height={48}
-              />
+                />
               <img
                 className="col-span-2 max-h-16 w-full object-contain lg:col-span-1 grayscale hover:grayscale-0"
                 src={p1}
                 alt="Reform"
                 width={158}
                 height={48}
-              />
+                />
               <img
                 className="col-span-2 max-h-16 w-full object-contain lg:col-span-1 grayscale hover:grayscale-0"
                 src={p2}
                 alt="Tuple"
                 width={158}
                 height={48}
-              />
+                />
               <img
                 className="col-span-2 max-h-16 w-full object-contain sm:col-start-2 lg:col-span-1 grayscale hover:grayscale-0"
                 src={p3}
                 alt="SavvyCal"
                 width={158}
                 height={48}
-              />
+                />
               <img
                 className="col-span-2 col-start-2 max-h-16 w-full object-contain sm:col-start-auto lg:col-span-1 grayscale hover:grayscale-0"
                 src={p4}
                 alt="Statamic"
                 width={158}
                 height={48}
-              />
+                />
             </div>
             <div
               className="absolute -top-24 right-0 -z-10 transform-gpu blur-3xl"
               aria-hidden="true"
-            >
+              >
               <div
                 className="aspect-[1404/767] w-[87.75rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25"
                 style={{
                   clipPath:
-                    "polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)",
+                  "polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)",
                 }}
-              />
+                />
             </div>
           </div>
         </div>
@@ -231,7 +266,7 @@ export default function Example() {
                     src={g6}
                     alt=""
                     className="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
-                  />
+                    />
                 </div>
                 <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
                   <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
@@ -239,14 +274,14 @@ export default function Example() {
                       src={g8}
                       alt=""
                       className="aspect-[7/3] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
-                    />
+                      />
                   </div>
                   <div className="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
                     <img
                       src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1715777055/wyvu4agxb93rmml9fzgf.jpg"
                       alt=""
                       className="aspect-[7/4] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
-                    />
+                      />
                   </div>
                 </div>
               </div>
@@ -339,7 +374,7 @@ export default function Example() {
                     src={img}
                     alt="App screenshot"
                     className="mb-[-1%] rounded-xl "
-                  />
+                    />
                 </div>
                 <div className="relative" aria-hidden="true">
                   <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" />
@@ -378,7 +413,7 @@ export default function Example() {
                 src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1344&h=1104&q=80"
                 alt=""
                 className="mt-16 aspect-[6/5] w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem]"
-              />
+                />
             </div>
             <div className="w-full lg:max-w-xl lg:flex-auto ">
               <h3 className="sr-only">Job openings</h3>
@@ -393,7 +428,7 @@ export default function Example() {
                           <span
                             className="absolute inset-0"
                             aria-hidden="true"
-                          />
+                            />
                         </a>
                       </dd>
                       <dt className="sr-only">Description</dt>
@@ -410,7 +445,7 @@ export default function Example() {
                           viewBox="0 0 2 2"
                           className="h-0.5 w-0.5 flex-none fill-gray-300"
                           aria-hidden="true"
-                        >
+                          >
                           <circle cx={1} cy={1} r={1} />
                         </svg>
                         {opening.location}
@@ -423,7 +458,7 @@ export default function Example() {
                 <a
                   href="Conferences&Webinars"
                   className="text-sm font-semibold leading-6 text-blue-600 hover:text-blue-500"
-                >
+                  >
                   View all Conference <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
@@ -434,5 +469,6 @@ export default function Example() {
 
       {/* Footer */}
     </div>
+                  </>
   );
 }

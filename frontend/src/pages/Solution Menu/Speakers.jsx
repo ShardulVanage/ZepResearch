@@ -1,8 +1,43 @@
 import React from 'react'
 import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
+import { Helmet } from 'react-helmet-async'
 export default function Speakers() {
   return (
     <div className='sm:mt-24 mt-20'>
+          <Helmet>
+                        {/* Basic meta tags */}
+                        <title>Speakers | International Journal Publication and Conference</title>
+                        <meta 
+                          name="description" 
+                          content="Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI." 
+                        />
+                        <meta 
+                          name="keywords" 
+                          content="research journal, international publication, academic conference, data science courses" 
+                        />
+                
+                        {/* Open Graph meta tags */}
+                        <meta property="og:title" content="Zep Research | International Journal Publication" />
+                        <meta 
+                          property="og:description" 
+                          content="Leading platform for international journal publications and conferences" 
+                        />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content="https://zepresearch.com" />
+                        <meta property="og:image" content="/og-image.jpg" />
+                
+                        {/* Twitter Card meta tags */}
+                        <meta name="twitter:card" content="summary_large_image" />
+                        <meta name="twitter:title" content="Zep Research | International Journal Publication" />
+                        <meta 
+                          name="twitter:description" 
+                          content="Leading platform for international journal publications and conferences" 
+                        />
+                        <meta name="twitter:image" content="/og-image.jpg" />
+                
+                        {/* Canonical URL */}
+                        <link rel="canonical" href="https://zepresearch.com" />
+        </Helmet>
 <div className="relative isolate overflow-hidden pt-14 bg-black">
         <img
           src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

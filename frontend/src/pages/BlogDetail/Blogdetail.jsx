@@ -4,6 +4,7 @@ import DOMPurify from 'dompurify'
 import { client } from '../../lib/pocketbase'
 import profilephoto from '../../images/profile.jpg';
 import { Button } from '@material-tailwind/react';
+import { Helmet } from 'react-helmet-async';
 
 const SkeletonBlogCard = () => (
   <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-200 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 animate-pulse">
@@ -93,6 +94,66 @@ const { id } = useParams()
   }
 
   return (
+    <>
+   <Helmet>
+        {/* Basic meta tags */}
+        <title>{`${blog.Title} | Zep Research Blog`}</title>
+        <meta 
+          name="description" 
+          content={blog.Description || "Leading platform for international journal publications, academic conferences, and advanced courses in Data Science and AI."} 
+        />
+        <meta 
+          name="keywords" 
+          content={`${blog.Title}, research journal, international publication, academic conference, ${blog.author}`} 
+        />
+
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={`${blog.Title} | Zep Research`} />
+        <meta property="og:description" content={blog.Description} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://zepresearch.com/Blogs/${blog.id}`} />
+        <meta property="og:image" content={blog.imageUrl || "/og-image.jpg"} />
+        <meta property="article:published_time" content={blog.created} />
+        <meta property="article:author" content={blog.author} />
+
+        {/* Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blog.Title} />
+        <meta name="twitter:description" content={blog.Description} />
+        <meta name="twitter:image" content={blog.imageUrl || "/og-image.jpg"} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://zepresearch.com/Blogs/${blog.id}`} />
+
+        {/* Schema.org markup for blog post */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": blog.Title,
+            "description": blog.Description,
+            "image": blog.imageUrl,
+            "author": {
+              "@type": "Person",
+              "name": blog.author
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Zep Research",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://zepresearch.com/logo.png"
+              }
+            },
+            "datePublished": blog.created,
+            "dateModified": blog.updated || blog.created,
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://zepresearch.com/Blogs/${blog.id}`
+            }
+          })}
+        </script>
+    </Helmet>
     <div className="bg-white  px-6 py-32 lg:px-8">
       <article className="mx-auto max-w-3xl prose prose-lg prose-indigo">
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-JosefinSans">{blog.Title}</h1>
@@ -110,7 +171,7 @@ const { id } = useParams()
         <div 
           className="mt-10 [&>h1]:font-JosefinSans [&>p]:font-PTSerif [&>div]:[&>p]:font-PTSerif  "
           dangerouslySetInnerHTML={createMarkup(blog.Content)}
-        />
+          />
       </article>
       <hr />
       <div className="bg-white py-24 sm:py-32">
@@ -130,7 +191,7 @@ const { id } = useParams()
                 <NavLink to={`/Blogs/${blog.id}`} key={blog.id}>
                   <article
                     className="relative isolate sm:h-[500px] h-auto  flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
-                  >
+                    >
                     <img src={blog.imageUrl} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
                     <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
                     <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
@@ -162,6 +223,7 @@ const { id } = useParams()
         </div>
       </div>
     </div>
+            </>
   )
 }
 
