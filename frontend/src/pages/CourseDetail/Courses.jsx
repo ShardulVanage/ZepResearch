@@ -97,7 +97,7 @@ function Courses() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Courses</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-           Join us for the Annual Technology Innovations Conference 2024, where industry leaders, innovators, and technology enthusiasts converge to explore the latest trends and breakthroughs shaping our world
+           Join us for the Annual Technology Innovations Conference 2025, where industry leaders, innovators, and technology enthusiasts converge to explore the latest trends and breakthroughs shaping our world
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20 pb-24">
             {course.map((course) => (
