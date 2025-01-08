@@ -59,16 +59,16 @@ const socialLinks = [
     icon: <FaFacebookF />,
     href: "https://www.facebook.com/profile.php?id=61561809783777",
   },
-  { icon: <FaTwitter />, href: "https://x.com/Zepresearch" },
-  { icon: <FaYoutube />, href: "https://youtube.com" },
-  {
-    icon: <FaLinkedinIn />,
-    href: "https://www.linkedin.com/company/zep-research/",
-  },
   {
     icon: <FaInstagram />,
     href: "https://www.instagram.com/zepresearch/",
   },
+  { icon: <FaTwitter />, href: "https://x.com/Zepresearch" },
+  {
+    icon: <FaLinkedinIn />,
+    href: "https://www.linkedin.com/company/zep-research/",
+  },
+  { icon: <FaYoutube />, href: "https://youtube.com" },
 ];
 
 export default function Footer() {

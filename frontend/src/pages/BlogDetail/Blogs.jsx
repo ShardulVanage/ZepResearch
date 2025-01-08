@@ -51,7 +51,9 @@ export default function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await client.collection("Blogs").getFullList()
+        const res = await client.collection("Blogs").getFullList(
+          {sort:'-created'}
+        )
         const formattedBlog = res.map(ew => ({
           ...ew,
           formattedDate: formatDate(ew.created)

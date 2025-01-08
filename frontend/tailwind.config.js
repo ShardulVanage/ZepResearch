@@ -39,8 +39,8 @@ module.exports = withMT({
         'spin-reverse-slower': 'spin-reverse 6s linear infinite',
       },
          fontFamily: { 
-                "JosefinSans": ['Josefin Sans', 'sans-serif'] ,
-                "PTSerif": ['PT Serif', 'sans-serif'] 
+                // "JosefinSans": ['Josefin Sans', 'sans-serif'] ,
+                // "PTSerif": ['PT Serif', 'sans-serif'] 
             } ,
       borderRadius: {
         '4xl': '2rem',

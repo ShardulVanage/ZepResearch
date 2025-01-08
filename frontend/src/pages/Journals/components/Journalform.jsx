@@ -68,7 +68,7 @@ export default function JournalSummationForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4 ">
          <Helmet>
                                              {/* Basic meta tags */}
                                              <title>JournalSummationForm | International Journal Publication and Conference</title>
@@ -107,7 +107,7 @@ export default function JournalSummationForm() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full"
+        className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mt-24 mb-8"
       >
         <div className="flex items-center justify-center mb-8">
           <Book className="w-12 h-12 text-blue-600 mr-4" />
