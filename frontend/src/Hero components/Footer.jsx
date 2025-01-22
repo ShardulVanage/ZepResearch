@@ -96,7 +96,7 @@ export default function Footer() {
             </Typography>
             <Typography className="flex items-center font-JosefinSans">
               <PhoneCall className="h-6 w-6 mr-4 mb-2" />
-              +91 7358737843
+              +91 7848854815
             </Typography>
             <Typography className="flex items-center font-JosefinSans">
               <Mail className="h-6 w-6  mr-4" />

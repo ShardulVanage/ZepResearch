@@ -89,7 +89,7 @@ function ContactUs() {
                   <dd>
                     DCB-330,<br />
                    3rd Floor, DLF Cyber City, Patia, Bhubaneswar, ODISHA - 751024
-India
+                    India
                   </dd>
                 </div>
                 <div className="flex gap-x-4">
@@ -98,8 +98,8 @@ India
                     <PhoneIcon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                   </dt>
                   <dd>
-                     <a className="hover:text-gray-900" href="tel:+91 73587 37843">
-                    +91 7358737843
+                     <a className="hover:text-gray-900" href="tel:+91 7848854815">
+                     +91 7848854815
                   </a>
                   </dd>
                 </div>
