@@ -1,7 +1,8 @@
 "use client"
 
-import axios from "axios"
-
+import axios from "axios" // Import axios
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function WfccesForm() {
   function redirectToWfcces() {
     window.location.href = "https://www.wfcces.com/"
@@ -23,10 +24,16 @@ export default function WfccesForm() {
           },
         },
       )
+      toast.success("Form submission successful:");
+
       console.log("Form submission successful:", response.data)
       formEle.reset()
       // Redirect to WFCCES website after successful submission
-      redirectToWfcces()
+      setTimeout(() => {
+        redirectToWfcces()
+      }, 5000);
+      
+     
     } catch (error) {
       console.error("Form submission error:", error)
       alert("There was an error submitting the form. Please try again.")
@@ -40,11 +47,8 @@ export default function WfccesForm() {
           <h1 className="md:text-5xl text-3xl font-bold text-blue-900 mb-4">
             World Forum on Climate Change and Environmental Sustainability
           </h1>
-          <p className="text-gray-600 md:text-base text-sm">
-            Welcome to the World Forum on Climate Change and Environmental Sustainability (WFCCES). We are a global
-            platform dedicated to bringing together leaders, scientists, activists, innovators, and change-makers to
-            address the urgent environmental challenges facing our world. At WFCCES, we believe that collective action
-            and shared knowledge are key to creating a sustainable future for all.
+          <p className="text-gray-600 md:text-xl text-lg">
+          Fill up the form to secure your spot in WFCCES conference
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
@@ -64,6 +68,7 @@ export default function WfccesForm() {
                     First Name
                   </label>
                   <input
+                  placeholder="John"
                     type="text"
                     name="Name"
                     id="Name"
@@ -76,6 +81,7 @@ export default function WfccesForm() {
                     Last Name
                   </label>
                   <input
+                  placeholder="Doe"
                     name="LastName"
                     id="LastName"
                     type="text"
@@ -91,6 +97,7 @@ export default function WfccesForm() {
                     Country
                   </label>
                   <input
+                  placeholder="India"
                     type="text"
                     name="Country"
                     id="Country"
@@ -103,6 +110,7 @@ export default function WfccesForm() {
                     Phone
                   </label>
                   <input
+                  placeholder="91+ 9821114112"
                     type="number"
                     id="Phone"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -117,6 +125,7 @@ export default function WfccesForm() {
                   Email Address
                 </label>
                 <input
+                  placeholder="JoheDoe@gmail.com"
                   type="email"
                   name="Email"
                   id="Email"
@@ -130,6 +139,7 @@ export default function WfccesForm() {
                   Message
                 </label>
                 <textarea
+                  placeholder="Your message here..."
                   name="Message"
                   id="Message"
                   rows={4}
