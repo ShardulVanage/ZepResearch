@@ -57,6 +57,7 @@ import TermsAndCondition from './pages/Legal links/TermsAndCondition';
 import Refund from './pages/Legal links/Refund';
 import CancilationPolicy from './pages/Legal links/CancilationPolicy';
 import PrivacyPolicy from './pages/Legal links/PrivacyPolicy';
+import Wfcces from './pages/Website Forms/Wfcces/Wfcces';
 
 
 const ConditionalNav = () => {
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       { path: "/Registration", element: <Registration/> },
       { path: "/success", element: <Success/> },
       { path: "/failed", element: <Failed /> },
+
+
+      //Website Forms 
+      {path: "/wfcces", element: <Wfcces/>}
     ],
   },
 ]);
