@@ -1,9 +1,17 @@
 "use client"
 
-import axios from "axios" // Import axios
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from "react"
+import axios from "axios"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import PhoneInput from "react-phone-input-2"
+import "react-phone-input-2/lib/style.css"
+
 export default function WfccesForm() {
+  const [phone, setPhone] = useState("")
+  const [phoneCountryCode, setPhoneCountryCode] = useState("")
+  const [formattedPhone, setFormattedPhone] = useState("")
+
   function redirectToWfcces() {
     window.location.href = "https://www.wfcces.com/"
   }
@@ -13,6 +21,9 @@ export default function WfccesForm() {
     console.log("Form submitted")
     const formEle = e.currentTarget
     const formDatab = new FormData(formEle)
+
+      // Use the formatted phone number for submission
+    formDatab.set("Phone", formattedPhone)
 
     try {
       const response = await axios.post(
@@ -24,16 +35,20 @@ export default function WfccesForm() {
           },
         },
       )
-      toast.success("Form submission successful:");
+      toast.success("Form submission successful:")
 
       console.log("Form submission successful:", response.data)
       formEle.reset()
+      // Reset phone input
+      setPhone("")
+      setPhoneCountryCode("")
+      setFormattedPhone("")
+
       // Redirect to WFCCES website after successful submission
       setTimeout(() => {
         redirectToWfcces()
-      }, 5000);
+      }, 5000)
       
-     
     } catch (error) {
       console.error("Form submission error:", error)
       alert("There was an error submitting the form. Please try again.")
@@ -68,7 +83,7 @@ export default function WfccesForm() {
                     First Name
                   </label>
                   <input
-                  placeholder="John"
+                    placeholder="John"
                     type="text"
                     name="Name"
                     id="Name"
@@ -81,7 +96,7 @@ export default function WfccesForm() {
                     Last Name
                   </label>
                   <input
-                  placeholder="Doe"
+                    placeholder="Doe"
                     name="LastName"
                     id="LastName"
                     type="text"
@@ -97,7 +112,7 @@ export default function WfccesForm() {
                     Country
                   </label>
                   <input
-                  placeholder="India"
+                    placeholder="India"
                     type="text"
                     name="Country"
                     id="Country"
@@ -109,13 +124,25 @@ export default function WfccesForm() {
                   <label htmlFor="Phone" className="block text-sm font-medium text-gray-700 mb-1">
                     Phone
                   </label>
-                  <input
-                  placeholder="91+ 9821114112"
-                    type="number"
-                    id="Phone"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    required
-                    name="Phone"
+                  <PhoneInput
+                    country={'in'}
+                    value={phone}
+                    onChange={(value, country) => {
+                      setPhone(value)
+                      setPhoneCountryCode(country.dialCode)
+                      setFormattedPhone(value)
+                    }}
+                    inputProps={{
+                      name: 'Phone',
+                      required: true,
+                    }}
+                    containerStyle={{ width: '100%' }}
+                    inputStyle={{ 
+                      width: '100%', 
+                      height: '42px',
+                      borderRadius: '0.5rem',
+                      borderColor: '#D1D5DB',
+                    }}
                   />
                 </div>
               </div>
@@ -246,4 +273,3 @@ export default function WfccesForm() {
     </div>
   )
 }
-
