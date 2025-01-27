@@ -57,19 +57,19 @@ export default function WfccesForm() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="ml-2 gap-5 mb-8">
-          <h1 className="md:text-5xl text-3xl font-bold text-blue-900 mb-4">
+          <h1 className="md:text-4xl text-3xl text-center  font-bold text-blue-900 mb-4">
             World Forum on Climate Change and Environmental Sustainability
           </h1>
-          <p className="text-gray-600 md:text-xl text-lg">Fill up the form to secure your spot in WFCCES conference</p>
+          {/* <p className="text-gray-600 md:text-xl text-lg"></p> */}
         </div>
         <div className="grid gap-8 md:grid-cols-2">
           {/* Form Section */}
           <div className="bg-white p-8 rounded-3xl shadow-lg">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-2">Let's Chat, Reach Out to Us</h2>
-              <p className="text-gray-600 text-sm">
+              <h2 className="text-2xl font-bold mb-2">Fill up the form to secure your spot in WFCCES conference</h2>
+              {/* <p className="text-gray-600 text-sm">
                 Have questions or feedback? We're here to help. Send us a message, and we'll respond within 24 hours.
-              </p>
+              </p> */}
             </div>
 
             <form onSubmit={Submit} className="space-y-6">
