@@ -6,11 +6,13 @@ import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
+import ConfettiPopup from "./ConfettiPopup"
 
 export default function WfccesForm() {
   const [phone, setPhone] = useState("")
   const [phoneCountryCode, setPhoneCountryCode] = useState("")
   const [formattedPhone, setFormattedPhone] = useState("")
+  const [showPopup, setShowPopup] = useState(false) // Add state for confetti popup
 
   function redirectToWfcces() {
     window.location.href = "https://www.wfcces.com/"
@@ -22,7 +24,7 @@ export default function WfccesForm() {
     const formEle = e.currentTarget
     const formDatab = new FormData(formEle)
 
-      // Use the formatted phone number for submission
+    // Use the formatted phone number for submission
     formDatab.set("Phone", formattedPhone)
 
     try {
@@ -35,7 +37,6 @@ export default function WfccesForm() {
           },
         },
       )
-      toast.success("Form submission successful:")
 
       console.log("Form submission successful:", response.data)
       formEle.reset()
@@ -44,11 +45,8 @@ export default function WfccesForm() {
       setPhoneCountryCode("")
       setFormattedPhone("")
 
-      // Redirect to WFCCES website after successful submission
-      setTimeout(() => {
-        redirectToWfcces()
-      }, 5000)
-      
+      // Show confetti popup immediately after successful submission
+      setShowPopup(true)
     } catch (error) {
       console.error("Form submission error:", error)
       alert("There was an error submitting the form. Please try again.")
@@ -62,9 +60,7 @@ export default function WfccesForm() {
           <h1 className="md:text-5xl text-3xl font-bold text-blue-900 mb-4">
             World Forum on Climate Change and Environmental Sustainability
           </h1>
-          <p className="text-gray-600 md:text-xl text-lg">
-          Fill up the form to secure your spot in WFCCES conference
-          </p>
+          <p className="text-gray-600 md:text-xl text-lg">Fill up the form to secure your spot in WFCCES conference</p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
           {/* Form Section */}
@@ -125,7 +121,7 @@ export default function WfccesForm() {
                     Phone
                   </label>
                   <PhoneInput
-                    country={'in'}
+                    country={"in"}
                     value={phone}
                     onChange={(value, country) => {
                       setPhone(value)
@@ -133,15 +129,15 @@ export default function WfccesForm() {
                       setFormattedPhone(value)
                     }}
                     inputProps={{
-                      name: 'Phone',
+                      name: "Phone",
                       required: true,
                     }}
-                    containerStyle={{ width: '100%' }}
-                    inputStyle={{ 
-                      width: '100%', 
-                      height: '42px',
-                      borderRadius: '0.5rem',
-                      borderColor: '#D1D5DB',
+                    containerStyle={{ width: "100%" }}
+                    inputStyle={{
+                      width: "100%",
+                      height: "42px",
+                      borderRadius: "0.5rem",
+                      borderColor: "#D1D5DB",
                     }}
                   />
                 </div>
@@ -269,7 +265,9 @@ export default function WfccesForm() {
             </div>
           </div>
         </div>
+        {showPopup && <ConfettiPopup onClose={() => setShowPopup(false)} />}
       </div>
     </div>
   )
 }
+

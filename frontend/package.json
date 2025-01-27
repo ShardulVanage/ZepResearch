@@ -21,6 +21,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
+    "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",
     "country-list-with-dial-code-and-flag": "^5.0.6",
     "crypto": "^1.0.1",
