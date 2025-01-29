@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState, memo } from "react";
-import { client } from "../../../lib/pocketbase";
-import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import React, { useCallback, useEffect, useState, memo } from "react"
+import { client } from "../../../lib/pocketbase"
+import { motion } from "framer-motion"
+import { Send } from "lucide-react"
+import { Link } from "react-router-dom"
 
 // Skeleton loader component
 const SkeletonLoader = () => (
@@ -14,20 +15,20 @@ const SkeletonLoader = () => (
       <div className="h-10 bg-blue-200 rounded mt-4"></div>
     </div>
   </div>
-);
+)
 
 // Separate component for journal card to prevent unnecessary re-renders
-const JournalCard = memo(({ journal, index, onSubmit }) => {
+const JournalCard = memo(({ journal, index }) => {
   const cardAnimationProps = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { delay: 0.2 * index, duration: 0.5 },
-  };
+  }
 
   const buttonAnimationProps = {
     whileHover: { scale: 1.05 },
     whileTap: { scale: 0.95 },
-  };
+  }
 
   return (
     <motion.div
@@ -40,7 +41,7 @@ const JournalCard = memo(({ journal, index, onSubmit }) => {
 
       {journal.img && (
         <img
-          src={journal.img}
+          src={journal.img || "/placeholder.svg"}
           alt={journal.title || "Journal image"}
           width={300}
           height={200}
@@ -52,67 +53,61 @@ const JournalCard = memo(({ journal, index, onSubmit }) => {
       <hr className="mt-2" />
 
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold mb-2 text-gray-800 font-JosefinSans">
-          {journal.title}
-        </h3>
+        <h3 className="text-xl font-semibold mb-2 text-gray-800 font-JosefinSans">{journal.title}</h3>
         <div className="text-gray-700">
           <span className="font-bold text-lg pr-1">ISSN:</span>
           <span>{journal.issncode}</span>
         </div>
 
         <div className="mt-auto">
-          <motion.a
-            {...buttonAnimationProps}
+          <Link
+            to={`/JournalSubmittion?title=${encodeURIComponent(journal.title)}`}
             className="w-full inline-flex items-center justify-center text-sm px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
-            href="/JournalSubmittion"
           >
-            Submit for Review <Send className="w-4 h-4 ml-2" />
-          </motion.a>
+            <motion.span {...buttonAnimationProps} className="inline-flex items-center">
+              Submit for Review <Send className="w-4 h-4 ml-2" />
+            </motion.span>
+          </Link>
         </div>
       </div>
     </motion.div>
-  );
-});
+  )
+})
 
-JournalCard.displayName = "JournalCard";
+JournalCard.displayName = "JournalCard"
 
 function InfoJournal() {
-  const [journals, setJournals] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [journals, setJournals] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true
 
     const fetchJournals = async () => {
       try {
-        const response = await client.collection("Journals").getFullList();
+        const response = await client.collection("Journals").getFullList()
         if (isMounted) {
-          setJournals(response);
+          setJournals(response)
         }
       } catch (err) {
         if (isMounted) {
-          setError(err.message);
-          console.error("Error fetching journals:", err);
+          setError(err.message)
+          console.error("Error fetching journals:", err)
         }
       } finally {
         if (isMounted) {
-          setIsLoading(false);
+          setIsLoading(false)
         }
       }
-    };
+    }
 
-    fetchJournals();
+    fetchJournals()
 
     return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  const handleSubmit = useCallback((journalId) => {
-    console.log(`Submit journal ${journalId}`);
-    // Add your submit logic here
-  }, []);
+      isMounted = false
+    }
+  }, [])
 
   if (isLoading) {
     return (
@@ -121,25 +116,21 @@ function InfoJournal() {
           <SkeletonLoader key={index} />
         ))}
       </div>
-    );
+    )
   }
 
   if (error) {
-    return <div className="text-center text-red-500">Error: {error}</div>;
+    return <div className="text-center text-red-500">Error: {error}</div>
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {journals.map((journal, index) => (
-        <JournalCard
-          key={journal.id || index}
-          journal={journal}
-          index={index}
-          onSubmit={handleSubmit}
-        />
+        <JournalCard key={journal.id || index} journal={journal} index={index} />
       ))}
     </div>
-  );
+  )
 }
 
-export default memo(InfoJournal);
+export default memo(InfoJournal)
+

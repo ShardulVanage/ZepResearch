@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import ConfettiPopup from "./ConfettiPopup"
+import logo from '../../../../assets/wfcces_assets/logo.png'
+import zeplogo from '../../../../images/logo.png'
 
 export default function WfccesForm() {
   const [phone, setPhone] = useState("")
@@ -57,6 +59,11 @@ export default function WfccesForm() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="ml-2 gap-5 mb-8">
+          <div className="flex justify-center flex-row items-center">
+            <img src={logo} alt="wfcces Logo" className="md:w-2/12 w-2/5 object-center " />
+            <img src={zeplogo} alt="wfcces Logo" className=" w-56 h-12 object-center " />
+
+          </div>
           <h1 className="md:text-4xl text-3xl text-center  font-bold text-blue-900 mb-4">
             World Forum on Climate Change and Environmental Sustainability
           </h1>

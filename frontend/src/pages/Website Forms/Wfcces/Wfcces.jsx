@@ -3,7 +3,7 @@ import WfccesForm from './components/Form'
 
 function Wfcces() {
   return (
-    <div className=''>
+    <div className=' h-screen absolute z-50 w-screen'>
       <WfccesForm/>
     </div>
   )
