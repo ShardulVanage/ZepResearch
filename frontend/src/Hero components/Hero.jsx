@@ -18,7 +18,7 @@ import p10 from "../images/patners/10.png";
 import p11 from "../images/patners/11.png";
 import p12 from "../images/patners/12.png";
 import p13 from "../images/patners/13.png";
-import p14 from "../images/patners/14.png";
+
 import p15 from "../images/patners/15.jpg";
 
 const logos = [
@@ -35,7 +35,7 @@ const logos = [
   p11,
   p12,
   p13,
-  p14,
+ 
   p15,
 ];
 const images = [
