@@ -19,7 +19,7 @@ import p11 from "../images/patners/11.png";
 import p12 from "../images/patners/12.png";
 import p13 from "../images/patners/13.png";
 
-import p15 from "../images/patners/15.jpg";
+
 
 const logos = [
   p1,
@@ -35,8 +35,6 @@ const logos = [
   p11,
   p12,
   p13,
- 
-  p15,
 ];
 const images = [
   "https://plus.unsplash.com/premium_photo-1664302656889-e0ff44331843?q=80&w=1923&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
