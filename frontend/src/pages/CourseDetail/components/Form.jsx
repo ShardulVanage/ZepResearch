@@ -148,7 +148,7 @@ export default function CourseContactForm() {
           </div>
 
           {/* Contact Info Section */}
-          <div className="bg-gradient-to-br from-blue-500 to-cyan-400 text-white shadow-xl rounded-lg overflow-hidden">
+          <div className="bg-gradient-to-br from-blue-400 to-blue-700  text-white shadow-xl rounded-lg overflow-hidden">
             <div className="px-6 py-8 flex justify-center items-start flex-col h-full  ">
             <div> <img className='bg-cover bg-center h-full w-full rounded-3xl' 
         src={"https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
