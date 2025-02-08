@@ -3,8 +3,16 @@ import { ArrowRight } from 'lucide-react';
 import React, { useState, useEffect ,useRef} from 'react'
 import { client } from '../../../lib/pocketbase';
 import { useParams } from 'react-router-dom'
+import RegistrationDialog from './DialogBox';
 
 function CourseHero({course}) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handlePayment = (method) => {
+    console.log(`Processing payment via ${method}`);
+    setIsDialogOpen(false);
+  };
+
     const containerRef = useRef(null);
       const { scrollY } = useScroll({
         target: containerRef,
@@ -86,6 +94,7 @@ function CourseHero({course}) {
           className="flex items-center gap-6 mb-16"
         >
           <motion.button
+           onClick={() => setIsDialogOpen(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-500 hover:bg-blue-600 text-lg px-8 py-6 text-white rounded-lg shadow-lg shadow-blue-500/30 flex items-center"
@@ -174,6 +183,14 @@ function CourseHero({course}) {
         </motion.div>
       </motion.div>
     </div>
+    <RegistrationDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        title={course.title}
+        price={course.price}
+       
+        onPayment={handlePayment}
+      />
     </div>
   )
 }
