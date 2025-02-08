@@ -8,6 +8,7 @@ import CourseAbout from './components/CourseAbout'
 import KnowInstrutor from './components/KnowInstructor'
 import CareerCertificate from './components/Certificate'
 import Syllbus from './components/Syllbus'
+import CourseForm from './components/Form'
 
 const socialLinks = [
   {
@@ -225,6 +226,7 @@ function CourseDetail() {
      {course && <KnowInstrutor course={course} />}
 <CareerCertificate/>
 {course && <Syllbus course={course} />}
+<CourseForm/>
     </section>
   )
 }
