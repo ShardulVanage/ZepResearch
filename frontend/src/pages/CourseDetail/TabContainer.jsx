@@ -169,14 +169,14 @@ const reviews = {
           <Tab.Panels as={Fragment}>
           <Tab.Panel className="pt-10">
               <h3 className="sr-only">Syllabus</h3>
-              <div className="w-full">
+                <div className="w-full">
                 <Accordion type="single" collapsible className="w-full">
                   {course?.syllabus?.faqs?.map((section, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
                       <AccordionTrigger className="text-base font-medium text-gray-900 hover:no-underline">
                         {section.question}
                       </AccordionTrigger>
-                      <AccordionContent>
+                    <AccordionContent>
                         <ul className="list-inside list-disc space-y-2 text-gray-600">
                           {section.answer.map((item, itemIndex) => (
                             <li key={itemIndex} className="ml-4">
