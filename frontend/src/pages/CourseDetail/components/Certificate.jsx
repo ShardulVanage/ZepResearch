@@ -2,10 +2,18 @@
 
 import { motion } from "framer-motion"
 import certificate from "../../../images/courselogo/certifiacte.png"
+import RegistrationDialog from "./DialogBox";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 
-export default function CareerCertificate() {
+export default function CareerCertificate({course}) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   
+    const handlePayment = (method) => {
+      console.log(`Processing payment via ${method}`);
+      setIsDialogOpen(false);
+    };
   const handleClick = (e) => {
     e.preventDefault();
     const element = document.querySelector('#Hero');
@@ -16,6 +24,9 @@ export default function CareerCertificate() {
       });
     }
   };
+  if (!course) {
+    return null
+  }
   return (
     <div id="certificate" className=" p-6 flex items-center justify-center">
       <motion.div
@@ -61,7 +72,16 @@ export default function CareerCertificate() {
                     Get Started
                   </button>
                   </motion.a>
-                
+                  <motion.button
+           onClick={() => setIsDialogOpen(true)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold transform transition hover:scale-105 hover:shadow-lg inline-flex justify-center items-center"
+          >
+            BUY NOW   <span className='text-2xl ml-1 '> ${course.price}</span>
+            
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </motion.button>
                 </div>
               </motion.div>
             </div>
@@ -90,6 +110,14 @@ export default function CareerCertificate() {
           <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-indigo-200 to-blue-200 rounded-full blur-3xl opacity-20 -z-10" />
         </div>
       </motion.div>
+      <RegistrationDialog
+              isOpen={isDialogOpen}
+              onClose={() => setIsDialogOpen(false)}
+              title={course.title}
+              price={course.price}
+             
+              onPayment={handlePayment}
+            />
     </div>
   )
 }

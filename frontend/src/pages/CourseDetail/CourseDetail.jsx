@@ -224,8 +224,8 @@ function CourseDetail() {
      {course && <CourseHero course={course} />}
      {course && <CourseAbout course={course} />}
      {course && <KnowInstrutor course={course} />}
-<CareerCertificate/>
-{course && <Syllbus course={course} />}
+     {course && <CareerCertificate course={course}/>}
+     {course && <Syllbus course={course} />}
 <CourseForm/>
     </section>
   )
