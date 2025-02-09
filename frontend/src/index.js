@@ -58,8 +58,7 @@ import Refund from './pages/Legal links/Refund';
 import CancilationPolicy from './pages/Legal links/CancilationPolicy';
 import PrivacyPolicy from './pages/Legal links/PrivacyPolicy';
 import Wfcces from './pages/Website Forms/Wfcces/Wfcces';
-import whatsapplogo from './assets/whatsapp.png';
-
+  
 
 const ConditionalNav = () => {
   const location = useLocation();
@@ -67,13 +66,7 @@ const ConditionalNav = () => {
 };
 const Layout = () => (
   <>
-   <a
-        href="https://wa.me/your_whatsapp_number"
-        className="fixed w-[40px] h-[40px] sm:bottom-10 bottom-3 z-10 sm:right-10 right-3 rounded-full text-center text-4xl shadow-lg z-100 flex items-center justify-center md:w-[70px] md:h-[70px] md:bottom-5 md:right-5 md:text-2xl"
-        aria-label="Chat on WhatsApp"
-      >
-       <img src={whatsapplogo} className="" />
-      </a>
+ 
   <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
    <ConditionalNav />
     <Outlet />

@@ -9,23 +9,9 @@ import KnowInstrutor from './components/KnowInstructor'
 import CareerCertificate from './components/Certificate'
 import Syllbus from './components/Syllbus'
 import CourseForm from './components/Form'
+import whatsapplogo from '../../assets/whatsapp.png';
 
-const socialLinks = [
-  {
-    icon: <FaFacebook />,
-    href: "https://www.facebook.com/profile.php?id=61561809783777",
-  },
-  {
-    icon: <FaInstagram/>,
-    href: "https://www.instagram.com/zepresearch/",
-  },
-  { icon: <FaTwitter />, href: "https://x.com/Zepresearch" },
-  {
-    icon: <FaLinkedinIn />,
-    href: "https://www.linkedin.com/company/zep-research/",
-  },
-  { icon: <FaYoutube />, href: "https://youtube.com" },
-];
+
 const CourseDetailSkeleton = () => {
   return (
     <div className="bg-white">
@@ -221,6 +207,13 @@ function CourseDetail() {
     </>
   )}
 </Helmet>
+<a
+              href="https://wa.me/+85251359932"
+              className="fixed w-[40px] h-[40px] sm:bottom-10 bottom-3 z-10 sm:right-10 right-3 rounded-full text-center text-4xl shadow-lg z-100 flex items-center justify-center md:w-[70px] md:h-[70px] md:bottom-5 md:right-5 md:text-2xl"
+              aria-label="Get Course Information"
+            >
+             <img src={whatsapplogo} className="" />
+            </a>
      {course && <CourseHero course={course} />}
      {course && <CourseAbout course={course} />}
      {course && <KnowInstrutor course={course} />}
