@@ -4,6 +4,7 @@ import React, { useState, useEffect ,useRef} from 'react'
 import { client } from '../../../lib/pocketbase';
 import { useParams } from 'react-router-dom'
 import RegistrationDialog from './DialogBox';
+import EnrollmentCounter from './ui/endrollcounter';
 
 function CourseHero({course}) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -26,7 +27,7 @@ function CourseHero({course}) {
   }
 
   return (
-    <div>
+    <div id='Hero'>
       <div className="min-h-full relative py-24" ref={containerRef}>
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
@@ -103,8 +104,8 @@ function CourseHero({course}) {
             
             <ArrowRight className="ml-2 w-5 h-5" />
           </motion.button>
-          <div className="text-gray-200">
-            <span className="font-semibold text-white text-xl">28,309</span> already enrolled
+          <div className="text-gray-200 flex items-center gap-2">
+            <span className="font-semibold text-white text-xl"><EnrollmentCounter/></span> already enrolled
           </div>
         </motion.div>
 
@@ -127,7 +128,7 @@ function CourseHero({course}) {
               icon: "🎯",
             },
             {
-              title: "5 months",
+              title: "3-4 months",
               description: "at 10 hours a week",
               icon: "⏱",
             },
@@ -176,10 +177,20 @@ function CourseHero({course}) {
           className="flex items-center gap-2 text-sm text-gray-300 mt-8"
         >
           <span>Included with</span>
-          <span className="bg-blue-500/20 text-blue-200 px-2 py-1 rounded-md backdrop-blur-sm">
-          Intervire prep course
+          <span className="bg-blue-500/50 text-blue-50 px-2 py-1 rounded-md backdrop-blur-sm">
+          Interview Prep Videos
           </span>
-          
+          <span className="bg-blue-500/50 text-blue-50 px-2 py-1 rounded-md backdrop-blur-sm">
+          Industry level Projects
+          </span>
+          <span className="bg-blue-500/50 text-blue-50 px-2 py-1 rounded-md backdrop-blur-sm">
+          24/7 Chat support
+          </span>
+          <span className="bg-blue-500/50 text-blue-50 px-2 py-1 rounded-md backdrop-blur-sm">
+          Job Assistance
+          </span><span className="bg-blue-500/50 text-blue-50 px-2 py-1 rounded-md backdrop-blur-sm">
+          Mock Interviews
+          </span>
         </motion.div>
       </motion.div>
     </div>

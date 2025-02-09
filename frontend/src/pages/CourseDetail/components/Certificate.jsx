@@ -3,16 +3,28 @@
 import { motion } from "framer-motion"
 import certificate from "../../../images/courselogo/certifiacte.png"
 
+
 export default function CareerCertificate() {
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+    const element = document.querySelector('#Hero');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   return (
-    <div className=" p-6 flex items-center justify-center">
+    <div id="certificate" className=" p-6 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-6xl w-full mx-auto"
       >
-        <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden px-8">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-100/50 to-indigo-100/50 opacity-50" />
 
           <div className="relative flex flex-col lg:flex-row items-center gap-12 p-4">
@@ -34,19 +46,22 @@ export default function CareerCertificate() {
                 className="space-y-4"
               >
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Add this credential to your LinkedIn profile, resume, or CV
+                  Add this credential to your LinkedIn profile, resume, or CV and  Share it on social media and in your performance review
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Share it on social media and in your performance review
-                </p>
+                
 
-                <div className="pt-6 flex flex-wrap gap-4">
+                <div className="pt-2 flex flex-wrap gap-4">
+                <motion.a
+                  href='#Hero'
+                  onClick={handleClick}
+                  className="inline-block cursor-pointer"
+                  whileTap={{ scale: 0.95 }}
+                >
                   <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold transform transition hover:scale-105 hover:shadow-lg">
                     Get Started
                   </button>
-                  <button className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold transform transition hover:scale-105 hover:shadow-lg hover:bg-blue-50">
-                    Learn More
-                  </button>
+                  </motion.a>
+                
                 </div>
               </motion.div>
             </div>

@@ -5,6 +5,7 @@ import loreal from '../../../images/courselogo/loreal.png'
 import capgemini from '../../../images/courselogo/capgemini.png'
 import pg from '../../../images/courselogo/pg.png'
 import tata from '../../../images/courselogo/tata.png'
+import { motion } from 'framer-motion';
 
 
 
@@ -14,6 +15,17 @@ const logo=[
     petrobar,danone ,loreal ,capgemini, pg ,tata
 ]
 export default function CourseAbout({ course }) {
+  
+    const handleClick = (e) => {
+      e.preventDefault();
+      const element = document.querySelector('#certificate');
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    };
   // Early return if no course data
   if (!course || !course.about_course) {
     return (
@@ -32,12 +44,12 @@ export default function CourseAbout({ course }) {
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-12">
       {/* What you'll learn section */}
       <section className="space-y-6">
-        <h2 className="text-2xl font-bold text-gray-900">{course.about_course.title}</h2>
+        <h2 className="text-2xl font-bold text-gray-900 ml-8">{course.about_course.title}</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {learningObjectives.map((objective) => (
-            <div key={objective.id} className="flex items-start space-x-3">
+            <div key={objective.id} className="flex items-start space-x-3 ">
               <CheckIcon className="h-6 w-6 text-blue-600 flex-shrink-0 mt-0.5" />
-              <p className="text-gray-600">{objective.description}</p>
+              <p className="text-gray-600 ">{objective.description}</p>
             </div>
           ))}
         </div>
@@ -64,6 +76,12 @@ export default function CourseAbout({ course }) {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Details to know</h2>
         <div className="grid md:grid-cols-2 gap-8">
+        <motion.a
+      href='#certificate'
+      onClick={handleClick}
+      className="inline-block cursor-pointer"
+      whileTap={{ scale: 0.95 }}
+    >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg">
               <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
@@ -73,7 +91,7 @@ export default function CourseAbout({ course }) {
             <div>
               <h3 className="font-semibold text-gray-900">Shareable certificate</h3>
             </div>
-          </div>
+          </div></motion.a>
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg">
               <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">

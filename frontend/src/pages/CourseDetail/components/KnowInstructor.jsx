@@ -39,7 +39,7 @@ export default function KnowInstrutor({course}) {
                 Earn an employer-recognized certificate from Zep Research
               </li>
               <li className="flex items-center">
-                <span className="h-2 w-2 bg-blue-500 rounded-full "></span>
+                <span className="h-2 w-2 bg-blue-500 rounded-full mr-3 p-1 "></span>
                 Qualify for in-demand job titles: {course.Job_Roles}
               </li>
             </motion.ul>
@@ -99,18 +99,18 @@ export default function KnowInstrutor({course}) {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Resume review",
+                title: "Resume Review",
                 description: "Improve your resume and LinkedIn with personalized feedback",
                 icon: <File/>,
               },
               {
-                title: "Interview prep",
+                title: "Interview Prep",
                 description: "Practice your skills with interactive tools and mock interviews",
                 icon: <Briefcase/>,
               },
               {
-                title: "Career support",
-                description: "Plan your career move with Coursera's job search guide",
+                title: "Career Support",
+                description: "Plan your career move with Zep Research job search guide & dedicated 24/7 support",
                 icon: <HeartHandshake/>,
               },
             ].map((resource, index) => (
