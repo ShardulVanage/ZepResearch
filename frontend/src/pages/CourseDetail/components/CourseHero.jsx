@@ -98,13 +98,13 @@ function CourseHero({course}) {
            onClick={() => setIsDialogOpen(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue-500 hover:bg-blue-600 text-lg px-8 py-6 text-white rounded-lg shadow-lg shadow-blue-500/30 flex items-center"
+            className="bg-blue-500 hover:bg-blue-600 sm:text-lg px-8 py-6 text-white rounded-lg shadow-lg text-sm shadow-blue-500/30 flex items-center sm:w-auto w-full"
           >
-            Enroll for   <span className='text-2xl ml-1 '> ${course.price}</span>
+            Enroll for <span className='sm:text-2xl text-base ml-1 '> ${course.price}</span>
             
             <ArrowRight className="ml-2 w-5 h-5" />
           </motion.button>
-          <div className="text-gray-200 flex items-center gap-2">
+          <div className="text-gray-200 sm:flex items-center justify-center gap-2">
             <span className="font-semibold text-white text-xl"><EnrollmentCounter/></span> already enrolled
           </div>
         </motion.div>
@@ -174,9 +174,9 @@ function CourseHero({course}) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="flex items-center gap-2 text-sm text-gray-300 mt-8"
+          className="flex sm:flex-row flex-col items-center gap-2 text-sm text-gray-300 mt-8"
         >
-          <span>Included with</span>
+          <span className=' text-xl sm:text-base'>Included with</span>
           <span className="bg-blue-500/50 text-blue-50 px-2 py-1 rounded-md backdrop-blur-sm">
           Interview Prep Videos
           </span>
