@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { client } from '../../lib/pocketbase'
-import { useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { Helmet } from 'react-helmet-async'
 import CourseHero from './components/CourseHero'
@@ -85,7 +85,9 @@ const CourseDetailSkeleton = () => {
   );
 };
 function CourseDetail() {
-  const { id } = useParams()
+  const { slug } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [course, setCourse] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -94,11 +96,27 @@ function CourseDetail() {
       try {
         setLoading(true)
         setError(null)
-        const res = await client.collection('Course').getOne(id, {
-          expand: 'relField1,relField2.subRelField',
-          requestKey:null,
-        })
-        setCourse(res)
+        if (location.state?.courseData) {
+          setCourse(location.state.courseData);
+          setLoading(false);
+          return;
+        }
+
+        const records = await client.collection('Course').getFullList({
+          filter: `title~"${slug.replace(/-/g, ' ')}"`,
+        });
+
+        if (records.length === 0) {
+          throw new Error('Course not found');
+        }
+        const matchingCourse = records.find(
+          record => createSlug(record.title) === slug
+        );
+        if (!matchingCourse) {
+          throw new Error('Course not found');
+        }
+
+        setCourse(matchingCourse);
       } catch (error) {
         console.error("Error fetching course:", error)
         setError(error.message)
@@ -108,7 +126,7 @@ function CourseDetail() {
     }
 
     fetchCourse()
-  }, [id])
+  },  [slug, location.state])
 
 
   if (loading) {
@@ -223,5 +241,12 @@ function CourseDetail() {
     </section>
   )
 }
-
+const createSlug = (title) => {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+};
 export default CourseDetail

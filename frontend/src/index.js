@@ -58,7 +58,7 @@ import Refund from './pages/Legal links/Refund';
 import CancilationPolicy from './pages/Legal links/CancilationPolicy';
 import PrivacyPolicy from './pages/Legal links/PrivacyPolicy';
 import Wfcces from './pages/Website Forms/Wfcces/Wfcces';
-  
+
 
 const ConditionalNav = () => {
   const location = useLocation();
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
       { path: "/Gallery", element: <Gallery /> },
       { path: "/Excellence", element: <Excellence /> },
       { path: "/Courses", element: <Courses /> },
-      { path: "/Courses/:id", element: <CourseDetail /> },
+      { path: "/Courses/:slug", element: <CourseDetail /> },
       { path: "/Careers", element: <Careers /> },
       { path: "/ContactUs", element: <ContactUs /> },
       { path: "/Speakers", element: <Speakers /> },
