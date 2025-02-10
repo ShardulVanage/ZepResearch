@@ -9,6 +9,7 @@ import CareerCertificate from './components/Certificate';
 import Syllbus from './components/Syllbus';
 import CourseForm from './components/Form';
 import whatsapplogo from '../../assets/whatsapp.png';
+import ExclusiveOfferPopup from './components/ui/Popup';
 
 // Initialize PocketBase
 const pb = new PocketBase('https://zep-research.pockethost.io');
@@ -211,6 +212,7 @@ function CourseDetail() {
       <CareerCertificate course={course} />
       <Syllbus course={course} />
       <CourseForm />
+      <ExclusiveOfferPopup/>
     </section>
   );
 }

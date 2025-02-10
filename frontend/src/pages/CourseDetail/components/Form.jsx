@@ -35,166 +35,173 @@ export default function CourseContactForm() {
   }
 
   return (
-    <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 ">Contact Us for Course Information</h2>
-          <p className="mt-4 text-xl text-gray-600">We're here to help you take the next step in your career.</p>
-        </div>
+    <div id="form" className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-gray-900">Contact Us</h2>
+        <p className="mt-4 text-xl text-gray-600">We're here to help you take the next step in your career.</p>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          {/* Form Section */}
-          <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-            <div className="px-6 py-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      name="Name"
-                      id="firstName"
-                      autoComplete="given-name"
-                      required
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      name="LastName"
-                      id="lastName"
-                      autoComplete="family-name"
-                      required
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    />
-                  </div>
-                </div>
+      </div>
+
+      <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        {/* Form Section */}
+        <div className="bg-gray-50 shadow-xl rounded-lg overflow-hidden">
+          <div className="px-6 py-8">
+            <h3 className="text-3xl font-bold text-gray-900 ">Get in Touch</h3>
+            <p className="my-2 text-lg text-indigo-600 font-semibold mb-6">
+          Fill out this form for a chance to receive an exclusive discount!
+        </p>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="Email"
-                    id="email"
-                    autoComplete="email"
-                    required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                    Phone Number
-                  </label>
-                  <PhoneInput
-                    country={"in"}
-                    value={phone}
-                    onChange={(value) => {
-                      setPhone(value)
-                      setFormattedPhone(value)
-                    }}
-                    inputProps={{
-                      name: "Phone",
-                      required: true,
-                      autoComplete: "tel",
-                    }}
-                    containerClass="mt-1"
-                    inputClass="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                    buttonClass="border border-gray-300 rounded-l-md"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="country" className="block text-sm font-medium text-gray-700">
-                    Country
+                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+                    First Name
                   </label>
                   <input
                     type="text"
-                    name="Country"
-                    id="country"
-                    autoComplete="country"
+                    name="Name"
+                    id="firstName"
+                    autoComplete="given-name"
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                    Message
+                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                    Last Name
                   </label>
-                  <textarea
-                    id="message"
-                    name="Message"
-                    rows={4}
+                  <input
+                    type="text"
+                    name="LastName"
+                    id="lastName"
+                    autoComplete="family-name"
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  ></textarea>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  >
-                    Apply Now
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          {/* Contact Info Section */}
-          <div className="bg-gradient-to-br from-blue-400 to-blue-700  text-white shadow-xl rounded-lg overflow-hidden">
-            <div className="px-6 py-8 flex justify-center items-start flex-col h-full  ">
-            <div> <img className='bg-cover bg-center h-full w-full rounded-3xl' 
-        src={"https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
-         alt="bg-img" /></div>
-              <h3 className="text-3xl font-bold text-center mb-12">Contact Information</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-lg">Email</h4>
-                  <p>info@zepresearch.com</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">Phone</h4>
-                  <p>+852 51359932</p>
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  />
                 </div>
               </div>
-              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="Email"
+                  id="email"
+                  autoComplete="email"
+                  required
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <PhoneInput
+                  country={"in"}
+                  value={phone}
+                  onChange={(phone) => setPhone(phone)}
+                  inputProps={{
+                    name: "Phone",
+                    required: true,
+                    autoComplete: "tel",
+                  }}
+                  containerClass="mt-1"
+                  inputClass="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  buttonClass="border border-gray-300 rounded-l-md"
+                />
+              </div>
+              <div>
+                <label htmlFor="country" className="block text-sm font-medium text-gray-700">
+                  Country
+                </label>
+                <input
+                  type="text"
+                  name="Country"
+                  id="country"
+                  autoComplete="country"
+                  required
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="Message"
+                  rows={4}
+                  required
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  placeholder="Ask about our courses, share your learning goals, or inquire about potential discounts..."
+                ></textarea>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300"
+                >
+                  Apply Now and Get Discount Info
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {/* Contact Info Section */}
+        <div className="bg-gradient-to-br from-blue-400 to-indigo-600 text-white shadow-xl rounded-lg overflow-hidden">
+          <div className="px-6 py-8 flex justify-center items-start flex-col h-full">
+            <div className="mb-8">
+              <img
+                className="bg-cover bg-center *: w-full rounded-lg object-cover"
+                src="https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="AI and Data Science"
+              />
+            </div>
+            <h3 className="text-3xl font-bold mb-6">Contact Information</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-lg">Email</h4>
+                <p>info@zepresearch.com</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg">Phone</h4>
+                <p>+852 51359932</p>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Thank You Modal */}
+    {showThankYou && (
+      <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
+        <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+          <div className="mt-3 text-center">
+            <h3 className="text-lg leading-6 font-medium text-gray-900">Thank You!</h3>
+            <div className="mt-2 px-7 py-3">
+              <p className="text-sm text-gray-500">
+                Your application has been successfully submitted. We'll get back to you soon with course details and
+                your exclusive discount offer!
+              </p>
+            </div>
+            <div className="items-center px-4 py-3">
+              <button
+                id="ok-btn"
+                className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                onClick={() => setShowThankYou(false)}
+              >
+                OK
+              </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Thank You Modal */}
-      {showThankYou && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="my-modal">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div className="mt-3 text-center">
-              <h3 className="text-lg leading-6 font-medium text-gray-900">Thank You!</h3>
-              <div className="mt-2 px-7 py-3">
-                <p className="text-sm text-gray-500">
-                  Your application has been successfully submitted. We'll get back to you soon!
-                </p>
-              </div>
-              <div className="items-center px-4 py-3">
-                <button
-                  id="ok-btn"
-                  className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                  onClick={() => setShowThankYou(false)}
-                >
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+    )}
+  </div>
   )
 }
 
