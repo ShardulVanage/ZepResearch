@@ -8,14 +8,36 @@ import { Helmet } from 'react-helmet-async'
 
 
 
+import PocketBase from 'pocketbase';
+
+// Initialize PocketBase
+const pb = new PocketBase('https://zep-research.pockethost.io');
 
 function Courses() {
-  const [course, setCourse] = useState([])
-  useEffect(()=>{
-    client.collection("Course")
-    .getFullList()
-    .then((res)=> setCourse(res))
-  })
+  const [course, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        setLoading(true);
+        const records = await pb.collection('Course').getFullList({
+          sort: '-created',
+          requestKey:null
+        });
+        setCourses(records);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
   const createSlug = (title) => {
     return title
       .toLowerCase()
@@ -25,6 +47,27 @@ function Courses() {
       .replace(/^-+|-+$/g, '');
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-pulse">
+          <div className="h-8 w-64 bg-gray-200 rounded mb-4" />
+          <div className="h-4 w-48 bg-gray-200 rounded" />
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900">Error Loading Courses</h2>
+          <p className="mt-2 text-gray-600">{error}</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <section>
  <Helmet>
@@ -71,6 +114,7 @@ function Courses() {
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20 pb-24">
             {course.map((course) => (
+              <React.Fragment key={course.id}> 
            <>
            <hr />
            <NavLink 
@@ -130,6 +174,7 @@ function Courses() {
               </article>
             </NavLink>
             </>
+            </React.Fragment>
             ))}
           </div>
         </div>

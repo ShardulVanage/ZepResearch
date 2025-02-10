@@ -25,11 +25,25 @@ import { ConfVenue } from './pages/Conference Components/ConfVenue';
 import PolicyCTA from './Hero components/PolicyCTA';
 import { Helmet } from 'react-helmet-async';
 import whatsapplogo from './assets/whatsapp.png';
+import { useEffect } from 'react';
 
 
 
 
 function App() {
+  useEffect(() => {
+    const wakeUpServer = async () => {
+      try {
+        await fetch("https://zep-backend.onrender.com/api/health");
+        console.log("Server pinged successfully");
+      } catch (error) {
+        console.error("Error pinging server:", error);
+      }
+    };
+
+    wakeUpServer();
+  }, []); // Empty dependency array means this runs once when component mounts
+
   return (
     <>
     <Helmet>

@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { client } from '../../lib/pocketbase'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa'
-import { Helmet } from 'react-helmet-async'
-import CourseHero from './components/CourseHero'
-import CourseAbout from './components/CourseAbout'
-import KnowInstrutor from './components/KnowInstructor'
-import CareerCertificate from './components/Certificate'
-import Syllbus from './components/Syllbus'
-import CourseForm from './components/Form'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import PocketBase from 'pocketbase';
+import { Helmet } from 'react-helmet-async';
+import CourseHero from './components/CourseHero';
+import CourseAbout from './components/CourseAbout';
+import KnowInstrutor from './components/KnowInstructor';
+import CareerCertificate from './components/Certificate';
+import Syllbus from './components/Syllbus';
+import CourseForm from './components/Form';
 import whatsapplogo from '../../assets/whatsapp.png';
 
+// Initialize PocketBase
+const pb = new PocketBase('https://zep-research.pockethost.io');
 
 const CourseDetailSkeleton = () => {
   return (
     <div className="bg-white">
-         
       <div className="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
           {/* Image Skeleton */}
@@ -29,25 +29,21 @@ const CourseDetailSkeleton = () => {
           <div className="mx-auto mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
             <div className="flex flex-col-reverse">
               <div className="mt-4">
-                {/* Title Skeleton */}
                 <div className="animate-pulse bg-gray-200 h-8 w-3/4 rounded" />
               </div>
             </div>
 
-            {/* Description Skeleton */}
             <div className="mt-6 space-y-2">
               <div className="animate-pulse bg-gray-200 h-4 w-full rounded" />
               <div className="animate-pulse bg-gray-200 h-4 w-5/6 rounded" />
               <div className="animate-pulse bg-gray-200 h-4 w-4/6 rounded" />
             </div>
 
-            {/* Buttons Skeleton */}
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
               <div className="animate-pulse bg-gray-200 h-12 rounded" />
               <div className="animate-pulse bg-gray-200 h-12 rounded" />
             </div>
 
-            {/* Job Roles Skeleton */}
             <div className="mt-10 border-t border-gray-200 pt-10">
               <div className="animate-pulse bg-gray-200 h-6 w-48 rounded mb-4" />
               <div className="space-y-2">
@@ -57,13 +53,11 @@ const CourseDetailSkeleton = () => {
               </div>
             </div>
 
-            {/* License Skeleton */}
             <div className="mt-10 border-t border-gray-200 pt-10">
               <div className="animate-pulse bg-gray-200 h-6 w-32 rounded mb-4" />
               <div className="animate-pulse bg-gray-200 h-16 w-full rounded" />
             </div>
 
-            {/* Social Links Skeleton */}
             <div className="mt-10 border-t border-gray-200 pt-10">
               <div className="animate-pulse bg-gray-200 h-6 w-32 rounded mb-4" />
               <div className="flex space-x-4">
@@ -74,7 +68,6 @@ const CourseDetailSkeleton = () => {
             </div>
           </div>
 
-          {/* Tab Container Skeleton */}
           <div className="lg:col-span-7 mt-10">
             <div className="animate-pulse bg-gray-200 h-12 w-full rounded mb-4" />
             <div className="animate-pulse bg-gray-200 h-48 w-full rounded" />
@@ -84,56 +77,52 @@ const CourseDetailSkeleton = () => {
     </div>
   );
 };
+
 function CourseDetail() {
   const { slug } = useParams();
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [course, setCourse] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        setLoading(true)
-        setError(null)
-        if (location.state?.courseData) {
-          setCourse(location.state.courseData);
-          setLoading(false);
-          return;
-        }
+        setLoading(true);
+        setError(null);
 
-        const records = await client.collection('Course').getFullList({
-          filter: `title~"${slug.replace(/-/g, ' ')}"`,
+        // First, try to fetch all courses
+        const records = await pb.collection('Course').getFullList({
+          sort: '-created',
+          requestKey:null
         });
 
-        if (records.length === 0) {
-          throw new Error('Course not found');
-        }
+        // Find the course that matches the URL slug
         const matchingCourse = records.find(
           record => createSlug(record.title) === slug
         );
+
         if (!matchingCourse) {
           throw new Error('Course not found');
         }
 
         setCourse(matchingCourse);
       } catch (error) {
-        console.error("Error fetching course:", error)
-        setError(error.message)
-      }finally {
-        setLoading(false)
+        console.error("Error fetching course:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
+    };
+
+    if (slug) {
+      fetchCourse();
     }
-
-    fetchCourse()
-  },  [slug, location.state])
-
+  }, [slug]);
 
   if (loading) {
-    return <CourseDetailSkeleton />
+    return <CourseDetailSkeleton />;
   }
 
-  // Show error state
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -142,105 +131,90 @@ function CourseDetail() {
           <p className="mt-2 text-gray-600">{error}</p>
         </div>
       </div>
-    )
+    );
   }
 
-  
-  
+  if (!course) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900">Course Not Found</h2>
+          <p className="mt-2 text-gray-600">The requested course could not be found.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section>
-   <Helmet>
-  {course ? (
-    <>
-      {/* Basic meta tags */}
-      <title>{`${course.title} Course | Zep Research`}</title>
-      <meta 
-        name="description" 
-        content={`${course.description.slice(0, 155)}...`} 
-      />
-      <meta 
-        name="keywords" 
-        content={`${course.title}, online course, professional training, ${course.Job_Roles}, zep research`} 
-      />
+      <Helmet>
+        <title>{`${course.title} Course | Zep Research`}</title>
+        <meta name="description" content={`${course.description.slice(0, 155)}...`} />
+        <meta name="keywords" content={`${course.title}, online course, professional training, ${course.Job_Roles}, zep research`} />
+        
+        <meta property="og:title" content={`${course.title} | Zep Research`} />
+        <meta property="og:description" content={course.description} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={`https://zepresearch.com/courses/${course.id}`} />
+        <meta property="og:image" content={`https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`} />
+        <meta property="og:price:amount" content={course.price} />
+        <meta property="og:price:currency" content="USD" />
 
-      {/* Open Graph meta tags */}
-      <meta property="og:title" content={`${course.title} | Zep Research`} />
-      <meta property="og:description" content={course.description} />
-      <meta property="og:type" content="product" />
-      <meta property="og:url" content={`https://zepresearch.com/courses/${course.id}`} />
-      <meta 
-        property="og:image" 
-        content={`https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`} 
-      />
-      <meta property="og:price:amount" content={course.price} />
-      <meta property="og:price:currency" content="USD" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${course.title} | Zep Research`} />
+        <meta name="twitter:description" content={course.description} />
+        <meta name="twitter:image" content={`https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`} />
 
-      {/* Twitter Card meta tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={`${course.title} | Zep Research`} />
-      <meta name="twitter:description" content={course.description} />
-      <meta 
-        name="twitter:image" 
-        content={`https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`} 
-      />
+        <link rel="canonical" href={`https://zepresearch.com/courses/${course.id}`} />
 
-      {/* Canonical URL */}
-      <link rel="canonical" href={`https://zepresearch.com/courses/${course.id}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": course.title,
+            "description": course.description,
+            "provider": {
+              "@type": "Organization",
+              "name": "Zep Research",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61561809783777",
+                "https://www.instagram.com/zepresearch/",
+                "https://x.com/Zepresearch",
+                "https://www.linkedin.com/company/zep-research/"
+              ]
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": course.price,
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "image": `https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`,
+            "url": `https://zepresearch.com/courses/${course.id}`,
+            "occupationalCredentialAwarded": "Certificate",
+            "occupationalCategory": course.Job_Roles.split(',').map(role => role.trim())
+          })}
+        </script>
+      </Helmet>
 
-      {/* Schema.org markup for course */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Course",
-          "name": course.title,
-          "description": course.description,
-          "provider": {
-            "@type": "Organization",
-            "name": "Zep Research",
-            "sameAs": [
-              "https://www.facebook.com/profile.php?id=61561809783777",
-              "https://www.instagram.com/zepresearch/",
-              "https://x.com/Zepresearch",
-              "https://www.linkedin.com/company/zep-research/"
-            ]
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": course.price,
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          "image": `https://zep-research.pockethost.io/api/files/${course.collectionId}/${course.id}/${course.front_Img}`,
-          "url": `https://zepresearch.com/courses/${course.id}`,
-          "occupationalCredentialAwarded": "Certificate",
-          "occupationalCategory": course.Job_Roles.split(',').map(role => role.trim())
-        })}
-      </script>
-    </>
-  ) : (
-    // Loading state meta tags
-    <>
-      <title>Loading Course... | Zep Research</title>
-      <meta name="robots" content="noindex,nofollow" />
-    </>
-  )}
-</Helmet>
-<a
-              href="https://wa.me/+85251359932"
-              className="fixed w-[40px] h-[40px] sm:bottom-10 bottom-3 z-10 sm:right-10 right-3 rounded-full text-center text-4xl shadow-lg z-100 flex items-center justify-center md:w-[70px] md:h-[70px] md:bottom-5 md:right-5 md:text-2xl"
-              aria-label="Get Course Information"
-            >
-             <img src={whatsapplogo} className="" />
-            </a>
-     {course && <CourseHero course={course} />}
-     {course && <CourseAbout course={course} />}
-     {course && <KnowInstrutor course={course} />}
-     {course && <CareerCertificate course={course}/>}
-     {course && <Syllbus course={course} />}
-<CourseForm/>
+      <a
+        href="https://wa.me/+85251359932"
+        className="fixed w-[40px] h-[40px] sm:bottom-10 bottom-3 z-10 sm:right-10 right-3 rounded-full text-center text-4xl shadow-lg z-100 flex items-center justify-center md:w-[70px] md:h-[70px] md:bottom-5 md:right-5 md:text-2xl"
+        aria-label="Get Course Information"
+      >
+        <img src={whatsapplogo} alt="WhatsApp" />
+      </a>
+
+      <CourseHero course={course} />
+      <CourseAbout course={course} />
+      <KnowInstrutor course={course} />
+      <CareerCertificate course={course} />
+      <Syllbus course={course} />
+      <CourseForm />
     </section>
-  )
+  );
 }
+
 const createSlug = (title) => {
   return title
     .toLowerCase()
@@ -249,4 +223,5 @@ const createSlug = (title) => {
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
 };
-export default CourseDetail
+
+export default CourseDetail;

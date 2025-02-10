@@ -95,7 +95,7 @@ export default function CareerCertificate({course}) {
             >
               <div className="relative aspect-[4/3]">
                 <img
-                  src={certificate}
+                  src={`https://zep-research.pockethost.io/api/files/`+course.collectionId+`/`+course.id+`/`+course.certificate}
                   alt="Career Certificate Illustration"
                   fill
                   className="object-contain transform rounded-2xl"
