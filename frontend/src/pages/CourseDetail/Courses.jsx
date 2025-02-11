@@ -146,7 +146,7 @@ function Courses() {
                         {course.title}
                       </a>
                       <a className='text-2xl font-JosefinSans' href="">
-                        $99
+                      ₹{course.price}
                       </a>
                     </h3>
                     <p className="mt-5 text-sm leading-6 text-gray-600 font-PTSerif">{course.description}</p>
