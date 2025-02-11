@@ -7,32 +7,50 @@ import "react-phone-input-2/lib/style.css"
 import axios from "axios"
 
 export default function CourseContactForm() {
-  const [phone, setPhone] = useState("")
-  const [formattedPhone, setFormattedPhone] = useState("")
   const [showThankYou, setShowThankYou] = useState(false)
+  const [phone, setPhone] = useState("")
+  const [phoneCountryCode, setPhoneCountryCode] = useState("")
+  const [formattedPhone, setFormattedPhone] = useState("")
+  const [showPopup, setShowPopup] = useState(false) // Add state for confetti popup
 
-  async function handleSubmit(e) {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    formData.set("Phone", formattedPhone)
-
+  
+  async function Submit(e) {
+    e.preventDefault();
+    console.log("Form submitted");
+    const formEle = e.currentTarget;
+    const formDatab = new FormData(formEle);
+  
+    // Use the formatted phone number for submission
+    formDatab.set("Phone", formattedPhone);
+  
     try {
-      await axios.post(
-        "https://script.google.com/macros/s/AKfycbzfcQy-JyDxXxf39J_GiVxO9P_Tu3-kB6YegLZUrgONt1eRc2FoFLliVIeBh6YfRKtd/exec",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
+      // Convert FormData to URL-encoded string
+      const formDataString = new URLSearchParams(formDatab).toString();
+  
+      const response = await axios({
+        method: 'post',
+        url: 'https://script.google.com/macros/s/AKfycbw687RlYzVKtWUmMlErx0iFZoE0ZZbDmgx723QroHsNZyeYsEuXJnuktCXw-X3CpWqdMA/exec',
+        data: formDataString,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-      )
-      setShowThankYou(true)
-      e.currentTarget.reset()
-      setPhone("")
-      setFormattedPhone("")
+      });
+  
+      console.log("Form submission successful:", response.data);
+      formEle.reset();
+      // Reset phone input
+      setPhone("");
+      setPhoneCountryCode("");
+      setFormattedPhone("");
+  
+      // Show thank you message
+      setShowThankYou(true);
     } catch (error) {
-      console.error("Form submission error:", error)
-      alert("There was an error submitting the form. Please try again.")
+      console.error("Form submission error:", error);
+      alert("There was an error submitting the form. Please try again.");
     }
   }
+
 
   return (
     <div id="form" className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
@@ -51,7 +69,7 @@ export default function CourseContactForm() {
             <p className="my-2 text-lg text-indigo-600 font-semibold mb-6">
           Fill out this form for a chance to receive an exclusive discount!
         </p>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={Submit} className="space-y-6">
               <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
@@ -60,7 +78,7 @@ export default function CourseContactForm() {
                   <input
                     type="text"
                     name="Name"
-                    id="firstName"
+                    id="Name"
                     autoComplete="given-name"
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -73,7 +91,7 @@ export default function CourseContactForm() {
                   <input
                     type="text"
                     name="LastName"
-                    id="lastName"
+                    id="LastName"
                     autoComplete="family-name"
                     required
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -87,8 +105,8 @@ export default function CourseContactForm() {
                 <input
                   type="email"
                   name="Email"
-                  id="email"
-                  autoComplete="email"
+                  id="Email"
+                  autoComplete="Email"
                   required
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
@@ -98,18 +116,25 @@ export default function CourseContactForm() {
                   Phone Number
                 </label>
                 <PhoneInput
-                  country={"in"}
-                  value={phone}
-                  onChange={(phone) => setPhone(phone)}
-                  inputProps={{
-                    name: "Phone",
-                    required: true,
-                    autoComplete: "tel",
-                  }}
-                  containerClass="mt-1"
-                  inputClass="w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                  buttonClass="border border-gray-300 rounded-l-md"
-                />
+                    country={"in"}
+                    value={phone}
+                    onChange={(value, country) => {
+                      setPhone(value)
+                      setPhoneCountryCode(country.dialCode)
+                      setFormattedPhone(value)
+                    }}
+                    inputProps={{
+                      name: "Phone",
+                      required: true,
+                    }}
+                    containerStyle={{ width: "100%" }}
+                    inputStyle={{
+                      width: "100%",
+                      height: "42px",
+                      borderRadius: "0.5rem",
+                      borderColor: "#D1D5DB",
+                    }}
+                  />
               </div>
               <div>
                 <label htmlFor="country" className="block text-sm font-medium text-gray-700">

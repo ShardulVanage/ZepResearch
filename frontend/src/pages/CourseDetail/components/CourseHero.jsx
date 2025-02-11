@@ -111,64 +111,37 @@ function CourseHero({course}) {
 
         {/* Course Details Cards */}
         <motion.div style={{ y }} className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          {[
-            {
-              title: "5 course series",
-              description: "Earn a career credential that demonstrates your expertise",
-              icon: "📚",
-            },
-            {
-              title: "4.7 ★",
-              description: "568 reviews",
-              highlight: true,
-            },
-            {
-              title: "Beginner level",
-              description: "Recommended experience",
-              icon: "🎯",
-            },
-            {
-              title: "3-4 months",
-              description: "at 10 hours a week",
-              icon: "⏱",
-            },
-            {
-              title: "Flexible schedule",
-              description: "Learn at your own pace",
-              icon: "📅",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 + index * 0.1 }}
-              whileHover={{
-                scale: 1.05,
-                rotateX: 5,
-                rotateY: 5,
-                transition: { type: "spring", stiffness: 400, damping: 17 },
-              }}
-            >
-              <div
-                className={`p-6 h-full backdrop-blur-md rounded-lg border ${
-                  item.highlight 
-                    ? "bg-blue-500/20 border-blue-400/50" 
-                    : "bg-white/10 border-white/20"
-                }`}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    {item.icon && <span className="text-2xl">{item.icon}</span>}
-                    <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                  </div>
-                  <p className="text-sm text-gray-300">{item.description}</p>
-                </div>
+      {course.hero_card.items.map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 + index * 0.1 }}
+          whileHover={{
+            scale: 1.05,
+            rotateX: 5,
+            rotateY: 5,
+            transition: { type: "spring", stiffness: 400, damping: 17 },
+          }}
+        >
+          <div
+            className={`p-6 h-full backdrop-blur-md rounded-lg border ${
+              item.highlight 
+                ? "bg-blue-500/20 border-blue-400/50" 
+                : "bg-white/10 border-white/20"
+            }`}
+          >
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                {item.icon && <span className="text-2xl">{item.icon}</span>}
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
               </div>
-            </motion.div>
-          ))}
+              <p className="text-sm text-gray-300">{item.description}</p>
+            </div>
+          </div>
         </motion.div>
-
+      ))}
+    </motion.div>
         {/* Coursera Badge */}
         <motion.div
           initial={{ opacity: 0 }}

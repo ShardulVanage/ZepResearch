@@ -212,7 +212,7 @@ function CourseDetail() {
       <CareerCertificate course={course} />
       <Syllbus course={course} />
       <CourseForm />
-      <ExclusiveOfferPopup/>
+      <ExclusiveOfferPopup course={course}/>
     </section>
   );
 }

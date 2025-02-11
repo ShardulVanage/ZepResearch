@@ -5,7 +5,7 @@ import Confetti from "react-confetti"
 import usePopupVisibility from "../../../../hooks/usePopupVisibility"
 import { motion } from "framer-motion"
 
-const ExclusiveOfferPopup = () => {
+const ExclusiveOfferPopup = ({course}) => {
   const { isVisible, hide } = usePopupVisibility()
   const [showForm, setShowForm] = useState(false)
   const [showConfetti, setShowConfetti] = useState(false)
@@ -55,7 +55,7 @@ hide()
         <p className="text-sm mb-2 text-center">Limited-Time Offer: Grab Your Special Discount & Bonus Materials Now!</p>
       </div>
       <div className="p-4 bg-white">
-        <h3 className="text-lg font-semibold mb-2 text-center">🚀 Enroll in Data Science & AI Masters 2025</h3>
+        <h3 className="text-lg font-semibold mb-2 text-center">🚀 Enroll in {course.title}</h3>
         <ul className="list-disc list-inside mb-4 text-sm text-center">
           <li>Exclusive Course Fee Discount</li>
           <li>Free Interview Prep Guide</li>
