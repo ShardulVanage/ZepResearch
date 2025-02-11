@@ -20,7 +20,7 @@ export default function RegistrationDialog({
   onClose = () => {},
   title = "Registration",
   price = "",
-  currency = "USD",
+  currency = "INR",
 }) {
   const [formData, setFormData] = useState({
     name: "",
@@ -290,7 +290,7 @@ export default function RegistrationDialog({
                   className="inline-flex w-full justify-center rounded-md border py-2 bg-primary px-4  text-base font-medium text-blue-500 shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm transition-all duration-200 ease-in-out"
                 >
                   <CreditCard className="mr-2" />
-                  Pay Now ({price} {currency})
+                  Pay Now ( ₹ {price} )
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
