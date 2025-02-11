@@ -36,7 +36,7 @@ function CourseHero({ course }) {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 text-white">{course.title}</h1>
+            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 text-white max-w-6xl">{course.title}</h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">{course.description}</p>
           </motion.div>
 
