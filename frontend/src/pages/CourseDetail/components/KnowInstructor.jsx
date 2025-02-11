@@ -18,7 +18,7 @@ export default function KnowInstrutor({course}) {
               animate={{ opacity: 1, y: 0 }}
               className="text-2xl md:text-2xl font-bold text-gray-900 mb-8"
             >
-              Prepare for a career in Data Analytics
+              Prepare for a career in {course.tag}
             </motion.h1>
             <motion.ul
               initial={{ opacity: 0 }}

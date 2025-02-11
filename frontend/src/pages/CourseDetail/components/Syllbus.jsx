@@ -11,7 +11,7 @@ function Syllbus({course}) {
   return (<>
      <div className='max-w-7xl mx-auto space-y-4 mt-4 py-12'>
       <h1 className="text-3xl font-bold  mb-6 text-center">Professional Certificate -  Course Series</h1>
-      <p className=' mx-auto text-center'>Prepare for a career in the high-growth field of data analytics. In this program, you’ll build in-demand technical skills like Python, Statistics, and SQL in spreadsheets to get job-ready in 3 months or less, no prior experience needed. You'll also have the option to learn how generative AI tools and techniques are used in data analytics.</p>
+      <p className=' mx-auto text-center'>Prepare for a career in the high-growth field of {course.tag}. In this program, you’ll build in-demand technical skills like {course.skills_you_will_gain} to get job-ready in 3 months or less, no prior experience needed. You'll also have the option to learn how generative AI tools and techniques are used in {course.tag}.</p>
       <div className="w-full max-w-3xl mx-auto space-y-4">
         {visibleFaqs?.map((section, index) => (
           <div
