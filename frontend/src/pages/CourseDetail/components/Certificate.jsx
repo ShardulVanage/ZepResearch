@@ -78,7 +78,7 @@ export default function CareerCertificate({course}) {
             whileTap={{ scale: 0.95 }}
             className="px-8 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold transform transition hover:scale-105 hover:shadow-lg inline-flex justify-center items-center"
           >
-            BUY NOW   <span className='text-2xl ml-1 '> ${course.price}</span>
+            BUY NOW   <span className='text-2xl ml-1 '> ₹{course.price}</span>
             
             <ArrowRight className="ml-2 w-5 h-5" />
           </motion.button>
